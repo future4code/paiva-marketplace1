@@ -1,9 +1,15 @@
 import React from 'react'
 import { AppContainer } from './components/AppContainer'
+import Vitrine from './components/Vitrine/Vitrine'
 
 function App() {
 	return (
-        <AppContainer />
+		<div>
+		<AppContainer />
+		<Vitrine/>
+
+		</div>
+        
 	)
 }
 
