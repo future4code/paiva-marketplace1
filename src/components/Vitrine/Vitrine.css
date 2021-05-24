@@ -1,0 +1,18 @@
+
+.Botao1:hover{
+    background-color: rgba(255, 255, 255, 0.404);
+  }
+    
+.Botao2:hover{
+    
+    background-color: rgba(255, 255, 255, 0.404);
+  }
+
+.Botao1{
+    width: 30px;
+    
+  }
+
+  .Botao2{
+    width: 30px;
+  }
