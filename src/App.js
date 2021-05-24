@@ -1,10 +1,23 @@
-import React from 'react'
-import { AppContainer } from './components/AppContainer'
+import React from "react";
+import { AppContainer } from "./components/AppContainer";
+import { Header } from "./components/Header/Header";
+import { Body } from "./components/Body/Body";
+import { Trabalho } from "./components/Trabalho/Trabalho";
+import { Talento } from "./components/Talento/Talento";
+
+
+
 
 function App() {
-	return (
-        <AppContainer />
-	)
+  return (
+    <div>
+      <Header />
+			<Body/>
+			<Trabalho/>
+			<Talento/>
+
+    </div>
+  );
 }
 
-export default App
+export default App;
