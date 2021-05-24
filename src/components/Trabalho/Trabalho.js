@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Trabalho.css";
-export class Trabalho extends Component {
+export default class Trabalho extends Component {
   render() {
     return (
 

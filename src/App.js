@@ -5,19 +5,20 @@ import { Body } from "./components/Body/Body";
 import { Trabalho } from "./components/Trabalho/Trabalho";
 import { Talento } from "./components/Talento/Talento";
 import Vitrine from './components/Vitrine/Vitrine'
+import GlobalStyle from './styles/GlobalStyle/GlobalStyle'
 
 function App() {
-  return (
-    <div>
-      <Header />
-			<Body/>
-			<Trabalho/>
-			<Talento/>
+	return (
 		<div>
-		<AppContainer />
-		<Vitrine/>
-    </div>
-  );
+			{/* <Header />
+			<Body />
+			<Trabalho />
+			<Talento /> */}
+			<AppContainer />
+			{/* <Vitrine /> */}
+			<GlobalStyle />
+		</div>
+	);
 }
 
 export default App;

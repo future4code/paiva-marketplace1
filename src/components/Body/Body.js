@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import "./Body.css";
-export class Body extends Component {
+export default class Body extends Component {
   render() {
     return (
       <div>
-
-
         <main>
           <div className="container1">
             <div className="containerFrase">
@@ -14,8 +12,8 @@ export class Body extends Component {
               </h1>
 
               <p className='subFrase'>Encontre grandes
-              talentos. Construa seu negócio.
-              <br />
+                talentos. Construa seu negócio.
+                <br />
                 Leve sua carreira para o próximo
                 nível.
               </p>
@@ -47,6 +45,7 @@ export class Body extends Component {
           <a href='https://instagram.com/'>Instagram</a>
           <a href='https://twitter.com/'>Twitter</a>
           <a href='https://youtube.com/'>Youtube</a>
+         {/* <h1>Oi, eu sou um footer !</h1> */}
         </footer>
 
       </div >
