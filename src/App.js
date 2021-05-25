@@ -7,6 +7,8 @@ import Body from './components/LandingPage/Body'
 // import { Trabalho } from "./components/Trabalho/Trabalho";
 // import { Talento } from "./components/Talento/Talento";
 // import Vitrine from './components/Vitrine/Vitrine'
+//import { Footer } from "./components/Footer/Footer";
+
 
 function App() {
 	return (
@@ -16,8 +18,9 @@ function App() {
 			{/* <Trabalho /> */}
 			{/* <Talento /> */}
 			<AppContainer />
-			{/* <Vitrine /> */}
+			{/* <Vitrine /> */
 			<GlobalStyle />
+
 
 		</div>
 	);
