@@ -5,6 +5,8 @@ import { Body } from "./components/Body/Body";
 // import { Trabalho } from "./components/Trabalho/Trabalho";
 // import { Talento } from "./components/Talento/Talento";
 // import Vitrine from './components/Vitrine/Vitrine'
+//import { Footer } from "./components/Footer/Footer";
+
 
 function App() {
 	return (
@@ -15,6 +17,7 @@ function App() {
 			{/* <Talento /> */}
 			<AppContainer />
 			{/* <Vitrine /> */}
+			{/* <Footer> */}
 		</div>
 	);
 }
