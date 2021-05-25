@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./Body.css";
+
+
 export class Body extends Component {
   render() {
     return (
@@ -12,8 +14,8 @@ export class Body extends Component {
               </h1>
 
               <p className='subFrase'>Encontre grandes
-              talentos. Construa seu negócio.
-              <br />
+                talentos. Construa seu negócio.
+                <br />
                 Leve sua carreira para o próximo
                 nível.
               </p>
@@ -35,7 +37,7 @@ export class Body extends Component {
             </div>
 
             <div className="containerImage"></div>
-            <img src='./ninja.png' />
+            <img src='./ninja.png' alt=""/>
           </div>
         </main>
 

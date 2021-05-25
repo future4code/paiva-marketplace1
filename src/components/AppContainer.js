@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import './Body.css'
+import GlobalStyle from '../Styles/Global'
+
 export class AppContainer extends Component {
 
   // switch case para paginas
@@ -10,6 +11,7 @@ export class AppContainer extends Component {
         {/* funcao para pagina, caso seja tal pagina... */}
         {/* Footer */}
         <p>Pronto para começar!</p>
+        <GlobalStyle />
       </body>
     )
   }
