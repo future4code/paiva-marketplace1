@@ -5,6 +5,9 @@ import ButtonRight from './img/buttonright.png'
 import ButtonLeft from './img/buttonleft.png'
 import './Vitrine.css'
 
+
+
+
 const ContainerVitrine = styled.div`
 width: 25%;
 height: 60vh;
@@ -14,6 +17,25 @@ justify-content: center;
 display: grid;
 grid-template-columns:10%, 80%,10%;
 grid-template-rows:1fr,1fr,1fr;
+
+.Botao1:hover{
+    background-color: rgba(255, 255, 255, 0.404);
+  }
+    
+.Botao2:hover{
+    
+    background-color: rgba(255, 255, 255, 0.404);
+  }
+
+.Botao1{
+    width: 30px;
+    
+  }
+
+.Botao2{
+    width: 30px;
+  }
+
 `
 const Expositor = styled.div`
 border: 1px solid black;

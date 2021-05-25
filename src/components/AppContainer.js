@@ -1,16 +1,36 @@
 import React, { Component } from 'react'
-import './Body.css'
-export class AppContainer extends Component {
+import { Header } from "./Header/Header";
+import { Footer } from "./Footer/Footer";
+import { Body } from "./Body/Body";
 
+
+
+
+export class AppContainer extends Component {
+  state = {
+    pagina: 'ladingPage'
+  }
+
+  
   // switch case para paginas
+ mudaPagina = (() => {
+  switch (this.state.pagina){
+    case 'carrinho': return(<div>Carrinho</div>)
+    case 'ladingPage': return (<Body/>)
+    case 'proposta': return (<div>proposta de serviço</div>)
+    case 'lista': return (<div>pagina de busca</div>)
+
+  }
+})
+
   render() {
+    console.log(this.state.pagina, 'oie')
     return (
-      <body>
-        {/* header */}
-        {/* funcao para pagina, caso seja tal pagina... */}
-        {/* Footer */}
-        <p>Pronto para começar!</p>
-      </body>
+      <div>
+        <Header/>
+        <Body/>
+        <Footer/>
+      </div>
     )
   }
 }
