@@ -11,7 +11,7 @@ import { Footer } from "./components/Footer/Footer";
 function App() {
 	return (
 		<div>
-			{/* <Header /> */}
+			<Header />
 			<Body />
 			{/* <Trabalho /> */}
 			{/* <Talento /> */}
