@@ -1,7 +1,9 @@
 import React from "react";
 import { AppContainer } from "./components/AppContainer";
 import { Header } from "./components/Header/Header";
-import { Body } from "./components/Body/Body";
+// import { Body } from "./components/Body/Body";
+import GlobalStyle from './Styles/Global';
+import Body from './components/LandingPage/Body'
 // import { Trabalho } from "./components/Trabalho/Trabalho";
 // import { Talento } from "./components/Talento/Talento";
 // import Vitrine from './components/Vitrine/Vitrine'
@@ -11,13 +13,15 @@ import { Body } from "./components/Body/Body";
 function App() {
 	return (
 		<div>
-			{/* <Header /> */}
+			<Header />
 			<Body />
 			{/* <Trabalho /> */}
 			{/* <Talento /> */}
 			<AppContainer />
-			{/* <Vitrine /> */}
-			{/* <Footer> */}
+			{/* <Vitrine /> */
+			<GlobalStyle />
+
+
 		</div>
 	);
 }

@@ -10,8 +10,8 @@
 /*
 
 .container1 {
-	width: 100vw;
-	height: 60vh;
+	max-width: 100%;
+	height: 60%;
 	display: flex;
 	margin: 0 50px;
 }
@@ -47,9 +47,8 @@
 }
 
 div[class*=box] {
-	margin-left: 1vw;
-	height: 5vh;
-	width: 10vw;
+	margin-left: 1%;
+	width: 20%;
 	display: flex;
 	justify-content: center;
 	align-items: center;

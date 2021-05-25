@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Body.css";
+
 import styled from 'styled-components'
 
 const Main = styled.div`
@@ -45,11 +46,10 @@ const Texto = styled.div `
     padding: 0;
   }
 `
-
-
 export class Body extends Component {
   render() {
     return (
+
      
       <Main>
         <h1>Produtos</h1>
@@ -68,6 +68,7 @@ export class Body extends Component {
             <img src='./ninjaSobreNos.jpg'/>
         </SobreNos>
       </Main>
+
 
     );
   }
