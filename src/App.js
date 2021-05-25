@@ -2,22 +2,21 @@ import React from "react";
 import { AppContainer } from "./components/AppContainer";
 import { Header } from "./components/Header/Header";
 import { Body } from "./components/Body/Body";
-import { Trabalho } from "./components/Trabalho/Trabalho";
-import { Talento } from "./components/Talento/Talento";
-import Vitrine from './components/Vitrine/Vitrine'
+// import { Trabalho } from "./components/Trabalho/Trabalho";
+// import { Talento } from "./components/Talento/Talento";
+// import Vitrine from './components/Vitrine/Vitrine'
 
 function App() {
-  return (
-    <div>
-      <Header />
-			<Body/>
-			<Trabalho/>
-			<Talento/>
+	return (
 		<div>
-		<AppContainer />
-		<Vitrine/>
-    </div>
-  );
+			{/* <Header /> */}
+			<Body />
+			{/* <Trabalho /> */}
+			{/* <Talento /> */}
+			<AppContainer />
+			{/* <Vitrine /> */}
+		</div>
+	);
 }
 
 export default App;
