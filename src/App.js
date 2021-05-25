@@ -5,18 +5,19 @@ import { Body } from "./components/Body/Body";
 import { Trabalho } from "./components/Trabalho/Trabalho";
 import { Talento } from "./components/Talento/Talento";
 import Vitrine from './components/Vitrine/Vitrine'
+import Banner from './components/Banner/Banner'
 
 function App() {
   return (
     <div>
       <Header />
-			<Body/>
-			<Trabalho/>
-			<Talento/>
-		<div>
-		<AppContainer />
-		<Vitrine/>
-    </div>
+	  <Banner/>
+			{/* <Body/> */}
+			<Vitrine/>
+			{/* <Trabalho/>
+			<Talento/> */}
+			<AppContainer />
+		    </div>
   );
 }
 
