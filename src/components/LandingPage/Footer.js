@@ -23,9 +23,6 @@ const ContainerFooter = styled.div`
 `
 
 const Logo = styled.div`
-  p{
-    color:white;
-  }
 `
 
 const Pagamento = styled.div`
