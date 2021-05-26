@@ -8,10 +8,10 @@ import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
 
 const ContainerVitrine = styled.div`
-  width: 14%;
+ width: 14%;
   height: 25vh;
   background-color: lightgray;
-  color:white;
+  color:#000072;
 
   .Expositor {
     height: 100%;
@@ -63,20 +63,19 @@ const ContainerVitrine = styled.div`
 
   h6,
   p {
-    background-color: rgb(172, 23, 104,0.8);
+    background-color: rgb(183, 183, 195, 0.8);
     padding: 3px;
     border-radius: 5px;
-    
   }
 `
 
-function Vitrine() {
-  const [currImg, setCurrImg] = useState(2);
+function VitrineAulas() {
+  const [currImg, setCurrImg] = useState(0);
 
   return (
     <ContainerVitrine>
       <a>
-      <div  className="Expositor"  style={{ backgroundImage: `url(${anunciosAulas[3].img})` }}>
+      <div  className="Expositor"  style={{ backgroundImage: `url(${anunciosAulas[2].img})` }}>
         
         <div className="DivBotao1"
         onClick={() => {
@@ -87,7 +86,7 @@ function Vitrine() {
 
         <div className="Centro">
           <h6>{anunciosAulas[currImg].title}</h6>
-          <p>{anunciosAulas[currImg].price} |<br/> {anunciosAulas[currImg].contact}</p>
+          <p>{anunciosAulas[currImg].price} <br/> {anunciosAulas[currImg].contact}</p>
           </div>
 
         <div className="DivBotao2" 
@@ -103,4 +102,4 @@ function Vitrine() {
     </ContainerVitrine>
   );
 }
-export default Vitrine;
+export default VitrineAulas;

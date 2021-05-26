@@ -1,16 +1,21 @@
 import React from "react";
 import { AppContainer } from "./components/AppContainer";
+import Banner from "./components/Banner/Banner";
 import Carrinho from "./components/Carrinho/Carrinho";
-import Vitrine from "./components/LandingPage/Vitrine/Vitrine";
+import { DivVitrine } from "./components/LandingPage/Vitrine/DivVitrine";
+
 
 import GlobalStyle from './Styles/Global'
 
 function App() {
 	return (
 		<div>
-			<Carrinho/>
+			{/* <Carrinho/> */}
 			{/* <AppContainer />
 			<GlobalStyle /> */}
+			{/* <DivVitrine/> */}
+			
+			{/* <Banner/> */}
 		</div>
 	);
 }
