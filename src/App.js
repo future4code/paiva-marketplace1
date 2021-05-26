@@ -7,9 +7,9 @@ import GlobalStyle from './Styles/Global'
 function App() {
 	return (
 		<div>
-			<Carrinho/>
-			{/* <AppContainer />
-			<GlobalStyle /> */}
+			<Carrinho />
+			<AppContainer />
+			<GlobalStyle />
 		</div>
 	);
 }
