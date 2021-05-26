@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import logoNinja from "../../img/nome-labeninja.png"
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+
+
 const Main = styled.div`
   width: 100%;
+  
 `
 
 const ContainerHeader = styled.div`
@@ -42,15 +48,17 @@ const Header2 = styled.div`
 `
 
 const Logo = styled.div`
-  margin-left: 4rem;
+padding: 2vh;
+  margin-left: 1rem;
   img{
     height: 50px;
   }
 `
 
 const Input = styled.div`
-  input{
-    width: 480px;
+ padding: 2vh;
+ input{
+    width: 25rem;
     height: 26px;
     padding-left: 1rem;
     font-weight: bold;
@@ -66,26 +74,11 @@ const Input = styled.div`
 `
 
 const Botoes = styled.div`
-  width: 240px ;
-  
   display: flex;
-  justify-content: space-around;
-  padding-right: 4rem;
-  button{
-    margin: 0 2rem;
-    padding: 5px;
-    width: 100px;
-    height: 26px;
-    background: #AC1768;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 6px;
-    &:hover{
-      background: #F72163;
+  width:280vh;
+  justify-content: space-evenly;
+  padding: 2vh;
 
-    }
-  }
 
 `
 
@@ -93,6 +86,8 @@ const Botoes = styled.div`
 
 
 export default class Header extends React.Component {
+
+
   render() {
     return (
       <Main>
@@ -115,8 +110,8 @@ export default class Header extends React.Component {
             </Input>
 
             <Botoes>
-              <button>Anuncie</button>
-              <button>Encontre</button>
+            <Button variant="contained" color="secondary">Anuncie</Button>
+            <Button variant="contained" color="secondary">Encontre</Button>
             </Botoes>
 
 

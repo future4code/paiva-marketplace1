@@ -8,10 +8,11 @@ import React from "react";
 
 const ContainerVitrine = styled.div`
 display: flex;
-justify-content: space-evenly;
+justify-content: space-between;
 height:auto;
 width:100%;
 gap:0;
+padding:4vh;
 `
 
 export class DivVitrine extends React.Component{

@@ -4,10 +4,12 @@ import styled from 'styled-components'
 import Banner from "../Banner/Banner"
 import {DivVitrine} from "../LandingPage/Vitrine/DivVitrine"
 
+
+
 const Main = styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
   font-family: 'Playfair Display', serif;
-  margin: 4rem;
+  margin: 0rem;
   h1{
     color: #000000;
   }
@@ -32,6 +34,7 @@ const SobreNos = styled.div`
   padding-top: 10% ;
   img{
     width: 43%;
+    margin: 4vh;
   }
 `
 
@@ -40,12 +43,14 @@ const Texto = styled.div `
   display: flex;
   flex-direction: column;
   width: 50%;
+  margin:4vh;
   h3{
     width: 100%;
     font-size: 1.5rem;
     font-family: 'Playfair Display', serif;
     padding: 0;
   }
+
 `
 export default class Body extends React.Component {
   render() {
@@ -68,7 +73,7 @@ export default class Body extends React.Component {
             <h1>Sobre Nós</h1>
             <h3 >A LabeNinja é uma empresa que vende trabalhos, é a maior vendedora no marcado atualmente e estamos no mercado desde 2005, nosso diferencial é a agilidade em passar as informações do cliente para o funcionário e assim uma rapidez para maior satisfação do cliente. </h3>
           </Texto>
-            <img src='./ninjaSobreNos.jpg'/>
+            <img className="SobreImage" src='./ninjaSobreNos.jpg'/>
         </SobreNos>
       </Main>
 
