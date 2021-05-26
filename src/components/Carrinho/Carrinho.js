@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {CardCarrinho, PrecoTotal, DisplayFlex} from "./styled"
+import {CardCarrinho, PrecoTotal, DisplayFlex, FlexColumn, FlexRow, FlexRowSepara, ImgCart} from "./styled"
 
 export default class Carrinho extends Component {
   state ={
@@ -15,17 +15,22 @@ export default class Carrinho extends Component {
       price:50,
       paymentMethods:["PayPal", "boleto"],
       dueDate:"2021-12-10",
-      taken: false},
+      taken: false}
     ]
   }
   render() {
   const mostracarrinho = this.state.listaDeCompras.map((produto)=>{
     return (
-      <DisplayFlex>
+      <FlexRow>
+          <ImgCart src = "" alt="imagem"/>
+          <FlexColumn>
         <p>Titulo do produto:{produto.title}</p>
+        <FlexRowSepara>
         <p>Preço: R${produto.price}</p>
         <p>Pagamentos aceitos:{produto.paymentMethods}</p>
-      </DisplayFlex>
+        </FlexRowSepara>
+        </FlexColumn>
+      </FlexRow>
     )
   })
     console.log(this.state.listaDeCompras)
