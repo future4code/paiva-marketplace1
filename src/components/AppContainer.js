@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Header } from "./Header/Header";
-import { Footer } from "./Footer/Footer";
-import { Body } from "./Body/Body";
+import  Header  from "./Header/Header";
+import  Footer  from "./Footer/Footer";
+import  Body  from "./Body/Body";
 
 export class AppContainer extends Component {
   state = {
@@ -23,9 +23,7 @@ export class AppContainer extends Component {
     console.log(this.state.pagina, 'oie')
     return (
       <div>
-        <Header/>
         {this.mudaPagina()}
-        <Footer/>
       </div>
     )
   }
