@@ -46,10 +46,6 @@ const ContainerBanner = styled.div`
     cursor: pointer;
   }
 
-  .BotaoEsquerdo {
-  }
-  .BotaoDireito {
-  }
 `;
 
 function Banner() {
