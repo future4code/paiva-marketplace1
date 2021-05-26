@@ -7,7 +7,7 @@ import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
 const ContainerBanner = styled.div`
   width: 100%;
-  height: 300px;
+  height: 250px;
   background-color: black;
   
 
@@ -23,10 +23,10 @@ const ContainerBanner = styled.div`
 .BotaoEsquerda {
     flex: 4%;
     height: 100%;
-    background-color: rgb(0, 0, 0, 0.6);
+    background-color:  rgb(183, 183, 195, 0.2);
     display: grid;
     place-items: center;
-    color: white;
+    color: #b7b7c3;
     cursor: pointer;
   }
 
@@ -40,10 +40,10 @@ const ContainerBanner = styled.div`
 .BotaoDireita{
     flex: 4%;
     height: 100%;
-    background-color: rgb(0, 0, 0, 0.6);
+    background-color: rgb(183, 183, 195, 0.2);
     display: grid;
     place-items: center;
-    color: white;
+    color: #b7b7c3;
     cursor: pointer;
   }
 
