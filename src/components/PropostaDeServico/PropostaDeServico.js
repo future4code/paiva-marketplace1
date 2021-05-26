@@ -6,7 +6,7 @@ export default class PropostaDeServico extends Component {
     return (
 
       <CardServico>
-        <h2>Publique seu Job Conosco!</h2>
+        <h2 style={{alignSelf:"center"}} >Publique seu Job Conosco!</h2>
         <Form>
           <p>titulo</p>
           <input type="text"/>

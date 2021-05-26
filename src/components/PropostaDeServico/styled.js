@@ -22,5 +22,4 @@ export const InputDescricao = styled.input`
     width: 400px;
     padding: 4px;
     margin-bottom: 8px;
-    row:14;
 `
