@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Body.css";
 import styled from 'styled-components'
 import Banner from "../Banner/Banner"
+import {DivVitrine} from "../LandingPage/Vitrine/DivVitrine"
 
 const Main = styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
@@ -55,10 +56,11 @@ export default class Body extends React.Component {
         <Banner/>
         <h1>Produtos</h1>
         <Produtos>
+          {/* <caixaProduto>Oie1</caixaProduto>
           <caixaProduto>Oie1</caixaProduto>
           <caixaProduto>Oie1</caixaProduto>
-          <caixaProduto>Oie1</caixaProduto>
-          <caixaProduto>Oie1</caixaProduto>
+          <caixaProduto>Oie1</caixaProduto> */}
+          <DivVitrine/>
         </Produtos>
 
         <SobreNos>

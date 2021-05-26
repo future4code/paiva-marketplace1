@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-
+import logoNinja from "../../img/nome-labeninja.png"
 const Main = styled.div`
   width: 100%;
 `
@@ -43,6 +43,9 @@ const Header2 = styled.div`
 
 const Logo = styled.div`
   margin-left: 4rem;
+  img{
+    height: 50px;
+  }
 `
 
 const Input = styled.div`
@@ -64,10 +67,13 @@ const Input = styled.div`
 
 const Botoes = styled.div`
   width: 240px ;
+  
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding-right: 4rem;
   button{
+    margin: 0 2rem;
+    padding: 5px;
     width: 100px;
     height: 26px;
     background: #AC1768;
@@ -101,7 +107,7 @@ export default class Header extends React.Component {
 
           <Header2>
             <Logo>
-              <h1>🥷 LabeNinjas</h1>
+              <img src={logoNinja} alt="logo"/>
             </Logo>
 
             <Input>

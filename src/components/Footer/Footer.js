@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Footer.css";
 import styled from 'styled-components'
-
+import logoNinja from "../../img/icone-ninja3.png"
 const Main = styled.div`
   width: 100%;
   height: 20vh;
@@ -18,7 +18,9 @@ const ContainerFooter = styled.div`
   h4{
     color:#D3D3D3
   }
-
+img {
+  height: 100px;
+}
 
 
 `
@@ -53,8 +55,8 @@ export default class Footer extends React.Component {
     <Main >
       <ContainerFooter>
         <Logo>
-          <p>LOGO AQUI!</p>
-          <img src={null}/>
+
+          <img src={logoNinja}/>
         </Logo>
 
         <Pagamento>
