@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Body.css";
-
 import styled from 'styled-components'
+import Banner from "../Banner/Banner"
 
 const Main = styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
@@ -52,6 +52,7 @@ export class Body extends Component {
 
      
       <Main>
+        <Banner/>
         <h1>Produtos</h1>
         <Produtos>
           <caixaProduto>Oie1</caixaProduto>
