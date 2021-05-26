@@ -16,7 +16,6 @@ export class AppContainer extends Component {
     case 'landingPage': return (<Body/>)
     case 'proposta': return (<div>proposta de serviço</div>)
     case 'lista': return (<div>pagina de busca</div>)
-
   }
 })
 
