@@ -46,7 +46,7 @@ const Texto = styled.div `
     padding: 0;
   }
 `
-export class Body extends Component {
+export default class Body extends React.Component {
   render() {
     return (
 

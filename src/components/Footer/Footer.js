@@ -20,6 +20,7 @@ const ContainerFooter = styled.div`
   }
 
 
+
 `
 
 const Logo = styled.div`
@@ -44,11 +45,9 @@ const Contato = styled.div`
 `
 
 
-export class Footer extends Component {
+export default class Footer extends React.Component {
   render() {
     return (
-
-      
 
 
     <Main >
@@ -60,7 +59,6 @@ export class Footer extends Component {
 
         <Pagamento>
           <img src='./pagamento.png' alt='Formas de pagamento'/>
-
         </Pagamento>
 
         <DireitosETermos>
@@ -72,10 +70,8 @@ export class Footer extends Component {
         <h4>Contatos</h4>
           <h4>labeNinjas@ninjas.com</h4>
           <h4>São Paulo/SP - Brasil</h4>
-
         </Contato>
-
-
+        
       </ContainerFooter>
     </Main>
 
