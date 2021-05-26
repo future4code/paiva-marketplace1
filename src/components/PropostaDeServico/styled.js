@@ -1,26 +1,77 @@
 import styled from "styled-components"
 
 export const CardServico = styled.div`
-width: 500px;
-border-radius: 2em;
-border: solid;
-box-sizing: border-box;
+width: 50%;
+font-family: "Roboto", sans-serif;
 display: flex;
 flex-direction: column;
-padding: 50px;
-margin: 20px auto;
-`
-export const Form = styled.div`
-display: flex;
-padding: 8px;
-justify-content: space-between;
-`
+padding: 10px;
+margin: 50px auto;
+align-items: center;
 
-export const InputDescricao = styled.input`
-    align-self: center;
-    height: 250px;
-    width: 400px;
-    padding: 4px;
-    margin-bottom: 8px;
-    row:14;
+h2 {
+    :first-child{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    padding: 5px;
+}
+
+.container {
+    width: 90%;
+
+    .categoria {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 10px 0;
+    }
+
+    .descricao {
+        textarea {
+            height: 100px;
+            width: 100%;
+            border: solid 1px #585858;
+        }
+    }
+    .prazo {
+    input[type=date] {
+    color: #585858;
+}
+    }
+
+    .pagamento {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        .card-pagamentos {
+            input {
+                width: 1rem;
+            }
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+}
+.botao-enviar {
+    width: 100%;
+    align-items: center;
+    padding: 10px;
+    background-color: #000072;
+    color: white;
+    font-weight: 700;
+    button {
+        margin: 0 auto;
+        width: 30%;
+    }
+}
 `
