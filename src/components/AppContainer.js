@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Body from "./Body/Body";
+import FiltroServicos from "./PropostaDeServico/FiltroServicos";
 
 export class AppContainer extends Component {
   state = {
@@ -27,6 +28,7 @@ export class AppContainer extends Component {
       <div>
 
         <Header />
+        <FiltroServicos />
         {this.mudaPagina()}
         <Footer />
 
