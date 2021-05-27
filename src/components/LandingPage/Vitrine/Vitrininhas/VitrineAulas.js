@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from "react";
 import styled from 'styled-components'
-import { anunciosServicos } from './Anuncio'
+import { anunciosAulas } from '../Anuncio'
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
@@ -44,7 +44,7 @@ const ContainerVitrine = styled.div`
     background-color: rgb(0, 0, 0, 0.0);
     display: grid;
     place-items: center;
-    color: #b7b7c3;
+    color:#b7b7c3;
     cursor: pointer;
   }
   .Centro {
@@ -70,43 +70,43 @@ const ContainerVitrine = styled.div`
 
   h6,
   p {
-    background-color: rgb(242, 183, 195, 0.8);
+    background-color: rgb(183, 183, 195, 0.8);
     padding: 3px;
     border-radius: 2px;
   }
 `
 
-function VitrineServicos() {
+function VitrineAulas() {
   const [currImg, setCurrImg] = useState(0);
 
   return (
     <ContainerVitrine>
       <a>
-      <div  className="Expositor"  style={{ backgroundImage: `url(${anunciosServicos[0].img})` }}>
-        
-        <div className="DivBotao1"
-        onClick={() => {
-          currImg > 0 && setCurrImg(currImg - 1)
-        }}>
-          <ArrowBackIosIcon />
-        </div>
+        <div className="Expositor" style={{ backgroundImage: `url(${anunciosAulas[2].img})` }}>
 
-        <div className="Centro">
-          <h6>{anunciosServicos[currImg].title}</h6>
-          <p>{anunciosServicos[currImg].price} <br/> {anunciosServicos[currImg].contact}</p>
+          <div className="DivBotao1"
+            onClick={() => {
+              currImg > 0 && setCurrImg(currImg - 1)
+            }}>
+            <ArrowBackIosIcon />
           </div>
 
-        <div className="DivBotao2" 
-        onClick={() => {
-          currImg < anunciosServicos.length - 1 && setCurrImg(currImg + 1)
-        }}>
+          <div className="Centro">
+            <h6>{anunciosAulas[currImg].title}</h6>
+            <p>{anunciosAulas[currImg].price} <br /> {anunciosAulas[currImg].contact}</p>
+          </div>
 
-        <ArrowForwardIosIcon />
+          <div className="DivBotao2"
+            onClick={() => {
+              currImg < anunciosAulas.length - 1 && setCurrImg(currImg + 1)
+            }}>
 
-        </div>
+            <ArrowForwardIosIcon />
+
+          </div>
 
         </div></a>
     </ContainerVitrine>
   );
 }
-export default VitrineServicos;
+export default VitrineAulas;

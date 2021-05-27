@@ -65,7 +65,7 @@ export default class PropostaDeServico extends Component {
             </div>
           </div>
           <br />
-          <button className="botao-enviar">ENVIAR</button>
+          <button className="botao-enviar" onClick={null} >ENVIAR</button>
         </div>
       </CardServico >
 

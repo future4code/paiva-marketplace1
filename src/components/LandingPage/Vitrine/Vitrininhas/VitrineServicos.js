@@ -1,16 +1,16 @@
 import React from 'react'
 import { useState } from "react";
 import styled from 'styled-components'
-import { anunciosAulas } from './Anuncio'
+import { anunciosServicos } from '../Anuncio'
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
 
 
 const ContainerVitrine = styled.div`
-  width: 19%;
+ width: 19%;
   height: 30vh;
-  color:white;
+  color:#000072;
 
   .Expositor {
     height: 100%;
@@ -70,20 +70,19 @@ const ContainerVitrine = styled.div`
 
   h6,
   p {
-    background-color: rgb(172, 23, 104,0.8);
+    background-color: rgb(242, 183, 195, 0.8);
     padding: 3px;
     border-radius: 2px;
-    
   }
 `
 
-function Vitrine() {
-  const [currImg, setCurrImg] = useState(2);
+function VitrineServicos() {
+  const [currImg, setCurrImg] = useState(0);
 
   return (
     <ContainerVitrine>
       <a>
-      <div  className="Expositor"  style={{ backgroundImage: `url(${anunciosAulas[3].img})` }}>
+      <div  className="Expositor"  style={{ backgroundImage: `url(${anunciosServicos[0].img})` }}>
         
         <div className="DivBotao1"
         onClick={() => {
@@ -93,13 +92,13 @@ function Vitrine() {
         </div>
 
         <div className="Centro">
-          <h6>{anunciosAulas[currImg].title}</h6>
-          <p>{anunciosAulas[currImg].price} |<br/> {anunciosAulas[currImg].contact}</p>
+          <h6>{anunciosServicos[currImg].title}</h6>
+          <p>{anunciosServicos[currImg].price} <br/> {anunciosServicos[currImg].contact}</p>
           </div>
 
         <div className="DivBotao2" 
         onClick={() => {
-          currImg < anunciosAulas.length - 1 && setCurrImg(currImg + 1)
+          currImg < anunciosServicos.length - 1 && setCurrImg(currImg + 1)
         }}>
 
         <ArrowForwardIosIcon />
@@ -110,4 +109,4 @@ function Vitrine() {
     </ContainerVitrine>
   );
 }
-export default Vitrine;
+export default VitrineServicos;

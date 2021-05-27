@@ -1,7 +1,7 @@
-import Vitrine from "./Vitrine";
-import VitrineAulas from "./VitrineAulas";
-import VitrineOutros from "./VitrineOutros";
-import VitrineServicos from "./VitrineServicos";
+import Vitrine from "./Vitrininhas/Vitrine";
+import VitrineAulas from "./Vitrininhas/VitrineAulas";
+import VitrineOutros from "./Vitrininhas/VitrineOutros";
+import VitrineServicos from "./Vitrininhas/VitrineServicos";
 import styled from "styled-components";
 import React from "react";
 

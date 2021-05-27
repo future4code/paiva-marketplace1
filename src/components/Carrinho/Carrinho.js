@@ -33,7 +33,7 @@ export default class Carrinho extends Component {
             <h3>{produto.title}</h3>
             <p>{produto.description}</p>
             <p>Pagamento: {produto.paymentMethods}</p>
-            <span>Excluir</span>
+            <span onClick={null}>Excluir</span>
           </div>
 
           <div className="quantidade-produto">
@@ -65,7 +65,7 @@ export default class Carrinho extends Component {
           </div>
         </PrecoTotal>
         <div className="button">
-          <button>Comprar tudo</button>
+          <button onClick={null}>Comprar tudo</button>
         </div>
       </CardCarrinho>
 
