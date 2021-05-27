@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { banners } from "./Images";
@@ -6,11 +6,10 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
 const ContainerBanner = styled.div`
-  width: 100%;
+  width: 90%;
+  margin: 10px auto;
   height: 300px;
-  background-color: black;
   
-
   .BannerImg {
     height: 100%;
     width: 100%;
@@ -23,10 +22,10 @@ const ContainerBanner = styled.div`
 .BotaoEsquerda {
     flex: 4%;
     height: 100%;
-    background-color: rgb(0, 0, 0, 0.6);
+    background-color:  rgb(183, 183, 195, 0.2);
     display: grid;
     place-items: center;
-    color: white;
+    color: #b7b7c3;
     cursor: pointer;
   }
 
@@ -40,10 +39,10 @@ const ContainerBanner = styled.div`
 .BotaoDireita{
     flex: 4%;
     height: 100%;
-    background-color: rgb(0, 0, 0, 0.6);
+    background-color: rgb(183, 183, 195, 0.2);
     display: grid;
     place-items: center;
-    color: white;
+    color: #b7b7c3;
     cursor: pointer;
   }
 

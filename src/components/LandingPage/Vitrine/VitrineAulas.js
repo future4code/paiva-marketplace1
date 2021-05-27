@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { useState } from "react";
 import styled from 'styled-components'
 import { anunciosAulas } from './Anuncio'
@@ -8,9 +8,8 @@ import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
 
 const ContainerVitrine = styled.div`
- width: 14%;
-  height: 25vh;
-  background-color: lightgray;
+ width: 19%;
+  height: 30vh;
   color:#000072;
 
   .Expositor {
@@ -20,8 +19,8 @@ const ContainerVitrine = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
-    border: 3px solid #4D4D81;
-    border-radius:9px;
+    border: 3px solid #000072;
+    border-radius:2px;
   }
   .DivBotao1 {
     flex: 4%;
@@ -29,16 +28,23 @@ const ContainerVitrine = styled.div`
     background-color: rgb(0, 0, 0, 0.0);
     display: grid;
     place-items: center;
-    color: #F72163;
+    color: #b7b7c3;
     cursor: pointer;
   }
+  .DivBotao1:hover{
+    color:#F72163
+  }
+  .DivBotao2:hover{
+    color:#F72163
+  }
+
   .DivBotao2 {
     flex: 4%;
     height: 100%;
     background-color: rgb(0, 0, 0, 0.0);
     display: grid;
     place-items: center;
-    color: #F72163;
+    color:#b7b7c3;
     cursor: pointer;
   }
   .Centro {
@@ -52,20 +58,21 @@ const ContainerVitrine = styled.div`
   }
 
   h6 {
+    margin-top:1.5rem;
     font-size: 0.9rem;
     margin-bottom: 0;
   }
 
   p {
     font-size: 0.8rem;
-    margin-top:0.05rem;
+    margin-top:0.03rem;
   }
 
   h6,
   p {
     background-color: rgb(183, 183, 195, 0.8);
     padding: 3px;
-    border-radius: 5px;
+    border-radius: 2px;
   }
 `
 
@@ -75,28 +82,28 @@ function VitrineAulas() {
   return (
     <ContainerVitrine>
       <a>
-      <div  className="Expositor"  style={{ backgroundImage: `url(${anunciosAulas[2].img})` }}>
-        
-        <div className="DivBotao1"
-        onClick={() => {
-          currImg > 0 && setCurrImg(currImg - 1)
-        }}>
-          <ArrowBackIosIcon />
-        </div>
+        <div className="Expositor" style={{ backgroundImage: `url(${anunciosAulas[2].img})` }}>
 
-        <div className="Centro">
-          <h6>{anunciosAulas[currImg].title}</h6>
-          <p>{anunciosAulas[currImg].price} <br/> {anunciosAulas[currImg].contact}</p>
+          <div className="DivBotao1"
+            onClick={() => {
+              currImg > 0 && setCurrImg(currImg - 1)
+            }}>
+            <ArrowBackIosIcon />
           </div>
 
-        <div className="DivBotao2" 
-        onClick={() => {
-          currImg < anunciosAulas.length - 1 && setCurrImg(currImg + 1)
-        }}>
+          <div className="Centro">
+            <h6>{anunciosAulas[currImg].title}</h6>
+            <p>{anunciosAulas[currImg].price} <br /> {anunciosAulas[currImg].contact}</p>
+          </div>
 
-        <ArrowForwardIosIcon />
+          <div className="DivBotao2"
+            onClick={() => {
+              currImg < anunciosAulas.length - 1 && setCurrImg(currImg + 1)
+            }}>
 
-        </div>
+            <ArrowForwardIosIcon />
+
+          </div>
 
         </div></a>
     </ContainerVitrine>

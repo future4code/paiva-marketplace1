@@ -13,7 +13,6 @@ export class AppContainer extends Component {
     pagina: 'landingPage'
   }
 
-  
   // switch case para paginas
  mudaPagina = (() => {
   switch (this.state.pagina){
