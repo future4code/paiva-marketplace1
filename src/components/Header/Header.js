@@ -175,7 +175,9 @@ export default class Header extends React.Component {
           <Header1>
             <h4 onClick={this.props.vaiParaAHome}>HOME</h4>
             <h4 onClick={this.props.vaiParaOCarrinho}>CARRINHO</h4>
-            <H1 onClick={this.props.vaiParaOLogin}>LOGIN</H1>
+            {this.props.logado && (<H1 onClick={this.props.vaiParaMinhaPagina}>MINHA PÁGINA</H1>)}
+            {!this.props.logado && (<H1 onClick={this.props.vaiParaOLogin}>LOGIN</H1>)}
+            
           </Header1>
 
           <Header2>

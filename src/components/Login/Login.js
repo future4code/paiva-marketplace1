@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { Card } from "./styled"
 
 export default class Login extends Component {
+
   render() {
+
     return (
       <Card>
         <div className="container">
@@ -15,7 +17,7 @@ export default class Login extends Component {
             <p>Password</p>
             <input type="password" placeholder="'key'API"/>
           </div>
-          <button className="botao-enviar">Fazer Login</button>
+          <button onClick={this.props.confLogin} className="botao-enviar">Fazer Login</button>
         </div>
       </Card >
 
