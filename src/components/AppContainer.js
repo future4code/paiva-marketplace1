@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+
+import FiltroServicos from "./PropostaDeServico/FiltroServicos";
 import  Header  from "./Header/Header";
 import  Footer  from "./Footer/Footer";
 import  Body  from "./Body/Body";
@@ -8,6 +10,7 @@ import Carrinho from "./Carrinho/Carrinho"
 import MeusJobs from './Login/Meus Jobs/MeusJobs';
 import PropostaDeServico from "./PropostaDeServico/PropostaDeServico"
 import { ListaDeServico } from './ListaDeServico/ListaDeServico';
+
 
 export class AppContainer extends Component {
   state = {
@@ -29,11 +32,15 @@ export class AppContainer extends Component {
   render() {
     console.log(this.state.pagina, 'oie')
     return (
+      <div>
+
+        <Header />
+        <FiltroServicos />
       <AppContainerDiv>
-        <Header/>
         {this.mudaPagina()}
         <Footer/>
       </AppContainerDiv>
+</div>
     )
   }
 }
