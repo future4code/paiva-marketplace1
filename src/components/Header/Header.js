@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import logoNinja from "../../img/nome-labeninja.png"
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { theme } from './Theme.js'
+import { ThemeProvider } from '@material-ui/styles';
 
 
 
@@ -108,12 +109,12 @@ export default class Header extends React.Component {
             <Input>
               <input  placeholder='Buscar...'/>
             </Input>
-
+            <ThemeProvider theme={theme}>
             <Botoes>
             <Button variant="contained" color="secondary">Anuncie</Button>
             <Button variant="contained" color="secondary">Encontre</Button>
             </Botoes>
-
+            </ThemeProvider>
 
 
           </Header2>

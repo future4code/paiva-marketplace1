@@ -23,9 +23,11 @@ export class AppContainer extends Component {
     console.log(this.state.pagina, 'oie')
     return (
       <div>
+         
         <Header/>
         {this.mudaPagina()}
         <Footer/>
+       
       </div>
     )
   }
