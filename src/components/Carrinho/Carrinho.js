@@ -1,51 +1,72 @@
 import React, { Component } from "react";
-import {CardCarrinho, PrecoTotal, DisplayFlex, FlexColumn, FlexRow, FlexRowSepara, ImgCart} from "./styled"
+import { CardCarrinho, PrecoTotal, FlexRow } from "./styled";
+import NinjaLogo from './ninja.jpg';
 
 export default class Carrinho extends Component {
-  state ={
+  state = {
     listaDeCompras: [
-      {title:"Cortar a grama",
-      description:"Manutenção em áreas verdes de até 1000 metros quadrados.",
-      price:40,
-      paymentMethods:["PayPal", "boleto"],
-      dueDate:"2021-12-30",
-      taken: false},
-      {title:"Cortar a grama2",
-      description:"Manutenção em áreas verdes de até 1200 metros quadrados.",
-      price:50,
-      paymentMethods:["PayPal", "boleto"],
-      dueDate:"2021-12-10",
-      taken: false}
+      {
+        title: "Cortar a grama",
+        description: "Manutenção em áreas verdes de até 1000 metros quadrados.",
+        price: 40,
+        paymentMethods: ["PayPal", "boleto"],
+        dueDate: "2021-12-30",
+        taken: false
+      },
+      {
+        title: "Cortar a grama2",
+        description: "Manutenção em áreas verdes de até 1200 metros quadrados.",
+        price: 50,
+        paymentMethods: ["PayPal", "boleto"],
+        dueDate: "2021-12-10",
+        taken: false
+      }
     ]
   }
   render() {
-  const mostracarrinho = this.state.listaDeCompras.map((produto)=>{
-    return (
-      <FlexRow>
-          <ImgCart src = "" alt="imagem"/>
-          <FlexColumn>
-        <p>Titulo do produto:{produto.title}</p>
-        <FlexRowSepara>
-        <p>Preço: R${produto.price}</p>
-        <p>Pagamentos aceitos:{produto.paymentMethods}</p>
-        </FlexRowSepara>
-        </FlexColumn>
-      </FlexRow>
-    )
-  })
-    console.log(this.state.listaDeCompras)
+    const mostracarrinho = this.state.listaDeCompras.map((produto) => {
+      const valorReal = produto.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+      return (
+        <FlexRow>
+          <img src={NinjaLogo} alt="imagem" />
+          <div className="area-produto">
+            <h3>{produto.title}</h3>
+            <p>{produto.description}</p>
+            <p>Pagamento: {produto.paymentMethods}</p>
+            <span>Excluir</span>
+          </div>
+
+          <div className="quantidade-produto">
+            <span>-</span>
+            <div>1</div>
+            <span>+</span>
+          </div>
+
+          <div className="valor-produto">
+            <span>{valorReal}</span>
+          </div>
+
+        </FlexRow>
+      )
+    })
+    // console.log(this.state.listaDeCompras)
     return (
       <CardCarrinho>
 
-        <div>
+        <div clasName="carrinho-area">
+          <h4>Carrinho (2)</h4>
           {mostracarrinho}
         </div>
 
         <PrecoTotal>
-        <p>Prazo</p>
-        <p>Valor Total</p>
-        <button>Finalizar compra</button>
+          <div className="valor-total">
+            <p>Prazo 30 dias</p>
+            <p>Valor Total R$ 00,00</p>
+          </div>
         </PrecoTotal>
+        <div className="button">
+          <button>Comprar tudo</button>
+        </div>
       </CardCarrinho>
 
     );
