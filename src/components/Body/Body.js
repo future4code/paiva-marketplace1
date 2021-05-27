@@ -30,7 +30,6 @@ const Produtos = styled.div`
   }
   h1 {
     padding-left: 4vh;
-    padding-top: 4vh;
     text-align: start;
     font-weight: 800;
   }

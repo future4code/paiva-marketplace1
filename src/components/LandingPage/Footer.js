@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const Main = styled.div`
   width: 100%;
   height: 20vh;
-  background-color: #000000;
+  background-color: #000;
 
 
 `
@@ -52,9 +52,8 @@ export class Footer extends Component {
       <ContainerFooter>
         <Logo>
           <p>LOGO AQUI!</p>
-          <img src={null}/>
+          <img src={null} alt=""/>
         </Logo>
-
         <Pagamento>
           <img src='./pagamento.png' alt='Formas de pagamento'/>
 

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { banners } from "./Images";
@@ -6,11 +6,10 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
 const ContainerBanner = styled.div`
-  width: 100%;
-  height: 250px;
-  background-color: black;
+  width: 90%;
+  margin: 10px auto;
+  height: 300px;
   
-
   .BannerImg {
     height: 100%;
     width: 100%;

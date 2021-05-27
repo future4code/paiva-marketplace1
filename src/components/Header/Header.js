@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import logoNinja from "../../img/nome-labeninja.png"
 import Button from '@material-ui/core/Button';
@@ -9,20 +9,35 @@ import { ThemeProvider } from '@material-ui/styles';
 
 const Main = styled.div`
   width: 100%;
+
+  @media(max-width: 800px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `
 
 const ContainerHeader = styled.div`
   width: 100%;
   height: 120px;
   border-bottom: 2px solid #6F6F87;
+
+
+  @media(max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+  }
 `
+
+
 const Header1 = styled.div`
   width: 100%;
-  /* height: 4rem; */
   display: flex;
   justify-content: flex-end;
   align-items: center;
   background-color: #000072;
+
   h4{
     padding: 1%;
     color: white;
@@ -32,9 +47,29 @@ const Header1 = styled.div`
     }
   }
   
+  /* MEDIA QUARRYS */
+
+  @media(max-width: 800px) {
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+    /* align-items: center; */
+    justify-content: space-around;
+
+    h4 {
+      padding: 0 1%;
+      font-size: 0.8rem;
+    }
+  }
 `
+
+
+
 const H1 = styled.h4`
   margin-right: 4rem;
+  @media(max-width: 800px) {
+    margin: 0;
+  }
 `
 
 const Header2 = styled.div`
@@ -47,6 +82,23 @@ const Header2 = styled.div`
     display: flex;
     align-items: flex-start;
   }
+
+
+  @media(max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .header2-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+
+
+  }
+  }
 `
 
 const Logo = styled.div`
@@ -54,6 +106,10 @@ padding: 2vh;
   margin-left: 1rem;
   img{
     height: 50px;
+  }
+
+  @media(max-width: 800px) {
+    display: none;
   }
 `
 
@@ -76,6 +132,16 @@ const Input = styled.div`
           box-shadow: none;
     }
   }
+  @media(max-width: 800px) {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
+    flex: 1;
+    input{
+    }
+  }
 
 `
 
@@ -85,6 +151,16 @@ margin-right: 4rem;
   justify-content: center;
   button{
     margin-left: 4px;
+  }
+  @media(max-width: 800px){
+    margin: 0;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    button {
+      margin: 0;
+    }
   }
 `
 
