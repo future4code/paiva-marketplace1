@@ -9,7 +9,6 @@ import { ThemeProvider } from '@material-ui/styles';
 
 const Main = styled.div`
   width: 100%;
-  
 `
 
 const ContainerHeader = styled.div`
@@ -31,7 +30,6 @@ const Header1 = styled.div`
     cursor: pointer;
     &:hover{
       background: #4D4D81;
-
     }
   }
   
@@ -75,10 +73,12 @@ const Input = styled.div`
 `
 
 const Botoes = styled.div`
-  display: flex;
-  width:280vh;
-  justify-content: space-evenly;
-  padding: 2vh;
+display: flex;
+margin-right: 4rem;
+  justify-content: center;
+  button{
+    margin-left: 4px;
+  }
 
 
 `
@@ -97,8 +97,6 @@ export default class Header extends React.Component {
               <h4>HOME</h4>
               <h4>CARRINHO</h4>
               <H1>LOGIN</H1>
-            
-
           </Header1>
 
           <Header2>
@@ -111,8 +109,8 @@ export default class Header extends React.Component {
             </Input>
             <ThemeProvider theme={theme}>
             <Botoes>
-            <Button variant="contained" color="secondary">Anuncie</Button>
-            <Button variant="contained" color="secondary">Encontre</Button>
+              <Button variant="contained" color="secondary">Anuncie</Button>
+              <Button variant="contained" color="secondary">Encontre</Button>
             </Botoes>
             </ThemeProvider>
 
