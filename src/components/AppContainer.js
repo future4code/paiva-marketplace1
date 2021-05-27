@@ -5,7 +5,7 @@ import Body from "./Body/Body";
 
 export class AppContainer extends Component {
   state = {
-    pagina: 'landingPage'
+    pagina: 'carrinho'
   }
 
 
