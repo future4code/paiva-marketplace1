@@ -51,12 +51,10 @@ const ContainerDireitosContatos = styled.div`
   padding-top: 3vh;
   h4{
     padding: 1vh;
-    cursor: pointer;
     color: #D3D3D3;
   }
 `
 
-const DireitosETermos = styled.div``
 const Contato = styled.div``
 
 const RedesSociais = styled.div`
@@ -82,10 +80,7 @@ export default class Footer extends React.Component {
           </Logo>
 
           <ContainerDireitosContatos>
-            <DireitosETermos>
-              <h4>Direitos Autorais</h4>
-              <h4>Termos e serviços </h4>
-            </DireitosETermos>
+        
             <Contato>
               <h4>Contatos</h4>
               <h4>labeNinjas@ninjas.com</h4>

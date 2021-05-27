@@ -7,10 +7,7 @@ import PropostaDeServico from "./components/PropostaDeServico/PropostaDeServico"
 function App() {
 	return (
 		<div>
-			{/* <Header /> */}
 			<AppContainer />
-			{/* <PropostaDeServico/> */}
-			{/* <Carrinho /> */}
 			<GlobalStyle />
 		</div>
 	);
