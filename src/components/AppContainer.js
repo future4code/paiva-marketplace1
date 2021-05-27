@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import FiltroServicos from "./PropostaDeServico/FiltroServicos";
 import  Header  from "./Header/Header";
 import  Footer  from "./Footer/Footer";
@@ -63,7 +62,6 @@ export class AppContainer extends Component {
 })
 
   render() {
-    console.log("Logou" , this.state.logado)
     console.log(this.state.pagina, 'oie')
     return (
       <div>

@@ -8,6 +8,7 @@ flex-direction: column;
 padding: 10px;
 margin: 50px auto;
 align-items: center;
+color: #000072;
 
 h2 {
     :first-child{

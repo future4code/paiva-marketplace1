@@ -10,6 +10,7 @@ export const Filtro = styled.div`
   display: flex;
   width: 260px;
   border-right: 2px solid #4D4D81;
+  color: #000072;
 
   justify-content: center;
   input {
@@ -49,6 +50,7 @@ export const HeaderProduto = styled.div`
 `
 
 export const ContainerCardProduto = styled.div`
+color: #000072;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   //justify-content: space-around;
@@ -59,9 +61,13 @@ export const ContainerCardProduto = styled.div`
   }
 `
 
-// Component ProdutosCard
+// Component Produtos
 export const CardContainer = styled.div`
-align-items: center;
+
+  background-color: #F7F7F7;
+  color: #000072;
+  border-radius:5px;
+
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -74,7 +80,8 @@ align-items: center;
     justify-self: center;
   }
     :hover {
-        background-color: #F7F7F7
+        background-color: 	rgb(242,	197,	167, 0.8);
+       
     }
     
     p {
@@ -86,23 +93,14 @@ export const FotoProduto = styled.img`
     width: 100%;
     justify-self: center;
     background-color: white;
+    border: 1px solid #4D4D81,
 `
 
 export const InfoContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    button {
-        display: flex;
-        border: none;
-        background-color: #000072;
-        padding: 10px 5px;
-        border-radius: 10px;
-        color: #FFFF;
-        justify-content: center;
-        :hover{
-            background-color: #4D4D81;
-        }
+
     }
     img {
         width: 14px;

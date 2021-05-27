@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { CardCarrinho, PrecoTotal, FlexRow } from "./styled";
 import NinjaLogo from './ninja.jpg';
+import Button from '@material-ui/core/Button';
+import { theme } from '../../assets/Theme'
+import { ThemeProvider } from '@material-ui/styles';
 
 export default class Carrinho extends Component {
   state = {
@@ -46,7 +49,6 @@ export default class Carrinho extends Component {
     // console.log(this.state.listaDeCompras)
     return (
       <CardCarrinho>
-
         <div clasName="carrinho-area">
           <h4>Carrinho (2)</h4>
           {mostracarrinho}
@@ -59,10 +61,13 @@ export default class Carrinho extends Component {
           </div>
         </PrecoTotal>
         <div className="button">
-          <button onClick={null}>Comprar tudo</button>
+          <ThemeProvider theme={theme}>
+            <Button variant="contained" color="secondary" nClick={null}>
+              Comprar tudo
+            </Button>
+          </ThemeProvider>
         </div>
       </CardCarrinho>
-
     );
   }
 }

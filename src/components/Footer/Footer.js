@@ -1,12 +1,14 @@
 import React from "react";
 import "./Footer.css";
 import styled from 'styled-components'
-import logoNinja from "../../img/icone-ninja3.png"
+
 const Main = styled.div`
   width: 100%;
   height: 20vh;
   background-color: #000072;
   p{
+    margin-top:0;
+    background-color: #000072;
     font-size: 0.6rem;
     text-align: center;
     color: white;
@@ -18,6 +20,7 @@ const ContainerFooter = styled.div`
   text-align: center;
   margin-left: 4rem;
   margin-right: 4rem;
+  margin-top:0;
   h4{
     color:#D3D3D3
   }
@@ -51,11 +54,13 @@ const ContainerDireitosContatos = styled.div`
   padding-top: 3vh;
   h4{
     padding: 1vh;
+    padding-bottom:0;
     color: #D3D3D3;
   }
 `
 
-const Contato = styled.div``
+const Contato = styled.div`
+padding-bottom:0;`
 
 const RedesSociais = styled.div`
   display: flex;
