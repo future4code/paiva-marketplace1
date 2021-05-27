@@ -33,8 +33,8 @@ const SobreNos = styled.div`
   justify-content: space-between;
   padding-top: 10% ;
   img{
-    width: 43%;
-    margin: 4vh;
+    width: 33%;
+    margin-bottom: 10vh;
   }
 `
 
@@ -46,7 +46,7 @@ const Texto = styled.div `
   margin:4vh;
   h3{
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-family: 'Playfair Display', serif;
     padding: 0;
   }
@@ -56,18 +56,12 @@ export default class Body extends React.Component {
   render() {
     return (
 
-     
       <Main>
         <Banner/>
         <h1>Produtos</h1>
         <Produtos>
-          {/* <caixaProduto>Oie1</caixaProduto>
-          <caixaProduto>Oie1</caixaProduto>
-          <caixaProduto>Oie1</caixaProduto>
-          <caixaProduto>Oie1</caixaProduto> */}
           <DivVitrine/>
         </Produtos>
-
         <SobreNos>
           <Texto>
             <h1>Sobre Nós</h1>
