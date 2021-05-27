@@ -51,8 +51,9 @@ export const HeaderProduto = styled.div`
 export const ContainerCardProduto = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  justify-content: space-around;
+  //justify-content: space-around;
   width: 100%;
+  ma
   @media(max-width: 600px){
     grid-template-columns: 1fr;
   }
@@ -60,6 +61,7 @@ export const ContainerCardProduto = styled.div`
 
 // Component ProdutosCard
 export const CardContainer = styled.div`
+align-items: center;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;

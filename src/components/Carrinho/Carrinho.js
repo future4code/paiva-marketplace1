@@ -36,12 +36,6 @@ export default class Carrinho extends Component {
             <span onClick={null}>Excluir</span>
           </div>
 
-          <div className="quantidade-produto">
-            <span>-</span>
-            <div>1</div>
-            <span>+</span>
-          </div>
-
           <div className="valor-produto">
             <span>{valorReal}</span>
           </div>
