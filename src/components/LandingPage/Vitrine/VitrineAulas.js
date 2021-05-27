@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { useState } from "react";
 import styled from 'styled-components'
 import { anunciosAulas } from './Anuncio'
@@ -82,28 +82,28 @@ function VitrineAulas() {
   return (
     <ContainerVitrine>
       <a>
-      <div  className="Expositor"  style={{ backgroundImage: `url(${anunciosAulas[2].img})` }}>
-        
-        <div className="DivBotao1"
-        onClick={() => {
-          currImg > 0 && setCurrImg(currImg - 1)
-        }}>
-          <ArrowBackIosIcon />
-        </div>
+        <div className="Expositor" style={{ backgroundImage: `url(${anunciosAulas[2].img})` }}>
 
-        <div className="Centro">
-          <h6>{anunciosAulas[currImg].title}</h6>
-          <p>{anunciosAulas[currImg].price} <br/> {anunciosAulas[currImg].contact}</p>
+          <div className="DivBotao1"
+            onClick={() => {
+              currImg > 0 && setCurrImg(currImg - 1)
+            }}>
+            <ArrowBackIosIcon />
           </div>
 
-        <div className="DivBotao2" 
-        onClick={() => {
-          currImg < anunciosAulas.length - 1 && setCurrImg(currImg + 1)
-        }}>
+          <div className="Centro">
+            <h6>{anunciosAulas[currImg].title}</h6>
+            <p>{anunciosAulas[currImg].price} <br /> {anunciosAulas[currImg].contact}</p>
+          </div>
 
-        <ArrowForwardIosIcon />
+          <div className="DivBotao2"
+            onClick={() => {
+              currImg < anunciosAulas.length - 1 && setCurrImg(currImg + 1)
+            }}>
 
-        </div>
+            <ArrowForwardIosIcon />
+
+          </div>
 
         </div></a>
     </ContainerVitrine>

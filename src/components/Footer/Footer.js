@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Footer.css";
 import styled from 'styled-components'
 import logoNinja from "../../img/icone-ninja3.png"
@@ -54,7 +54,7 @@ const ContainerDireitosContatos = styled.div`
 const DireitosETermos = styled.div``
 const Contato = styled.div``
 
-const RedesSociais = styled.div `
+const RedesSociais = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -66,32 +66,34 @@ const RedesSociais = styled.div `
 export default class Footer extends React.Component {
   render() {
     return (
+      <Main >
+        <ContainerFooter>
+          <div>
+            <img src={logoNinja} alt="" />
+          </div>
 
+          <Logo>
+            <img src='./insta.png' href='https://www.instagram.com/' alt="" />
+            <img src='./linkedin.png' href='https://www.linkedin.com/' alt="" />
+            <img src='./twt.png' href='https://twitter.com/' alt="" />
+            <img src='./face.png' href='https://www.facebook.com/' alt="" />
+            <img src='./youtube.png' href='https://www.youtube.com/' alt="" />
+          </Logo>
 
-    <Main >
-      <ContainerFooter>
-        <Logo>
-            <img src='./insta.png' href='https://www.instagram.com/'/>
-            <img src='./linkedin.png' href='https://www.linkedin.com/'/>
-            <img src='./twt.png' href='https://twitter.com/'/>
-            <img src='./face.png' href='https://www.facebook.com/'/>
-            <img src='./youtube.png' href='https://www.youtube.com/'/>
-        </Logo>
-
-        <ContainerDireitosContatos>
-          <DireitosETermos>
-            <h4>Direitos Autorais</h4>
-            <h4>Termos e serviços </h4>
-          </DireitosETermos>
-          <Contato>
-          <h4>Contatos</h4>
-            <h4>labeNinjas@ninjas.com</h4>
-            <h4>São Paulo/SP - Brasil</h4>
-          </Contato>
-        </ContainerDireitosContatos>
-      </ContainerFooter>
-      <p>©2005 - 2021, labeNinjas Serviços de Internet. São Paulo/SP - Brasil</p>
-    </Main>
+          <ContainerDireitosContatos>
+            <DireitosETermos>
+              <h4>Direitos Autorais</h4>
+              <h4>Termos e serviços </h4>
+            </DireitosETermos>
+            <Contato>
+              <h4>Contatos</h4>
+              <h4>labeNinjas@ninjas.com</h4>
+              <h4>São Paulo/SP - Brasil</h4>
+            </Contato>
+          </ContainerDireitosContatos>
+        </ContainerFooter>
+        <p>©2005 - 2021, labeNinjas Serviços de Internet. São Paulo/SP - Brasil</p>
+      </Main>
 
 
 
