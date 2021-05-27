@@ -53,8 +53,9 @@ export const ContainerCardProduto = styled.div`
 color: #000072;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  justify-content: space-around;
+  //justify-content: space-around;
   width: 100%;
+  ma
   @media(max-width: 600px){
     grid-template-columns: 1fr;
   }
@@ -62,9 +63,11 @@ color: #000072;
 
 // Component Produtos
 export const CardContainer = styled.div`
+
   background-color: #F7F7F7;
   color: #000072;
   border-radius:5px;
+
     display: flex;
     flex-direction: column;
     box-sizing: border-box;

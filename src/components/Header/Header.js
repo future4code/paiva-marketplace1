@@ -20,7 +20,7 @@ const Main = styled.div`
 
 const ContainerHeader = styled.div`
   width: 100%;
-  height: 120px;
+  height: 150px;
   border-bottom: 2px solid #6F6F87;
 
 
