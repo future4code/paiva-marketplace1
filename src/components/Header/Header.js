@@ -62,9 +62,6 @@ const Header1 = styled.div`
     }
   }
 `
-
-
-
 const H1 = styled.h4`
   margin-right: 4rem;
   @media(max-width: 800px) {
@@ -94,10 +91,7 @@ const Header2 = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-
-
-
-  }
+    }
   }
 `
 
@@ -107,7 +101,6 @@ padding: 2vh;
   img{
     height: 50px;
   }
-
   @media(max-width: 800px) {
     display: none;
   }
@@ -142,9 +135,7 @@ const Input = styled.div`
     input{
     }
   }
-
 `
-
 const Botoes = styled.div`
 display: flex;
 margin-right: 4rem;
@@ -172,9 +163,9 @@ export default class Header extends React.Component {
       <Main>
         <ContainerHeader>
           <Header1>
-            <h4>HOME</h4>
-            <h4>CARRINHO</h4>
-            <H1>LOGIN</H1>
+            <h4 onClick={null}>HOME</h4>
+            <h4 onClick={null}>CARRINHO</h4>
+            <H1 onClick={null}>LOGIN</H1>
           </Header1>
 
           <Header2>
@@ -188,8 +179,8 @@ export default class Header extends React.Component {
             <div className="header2-container">
               <ThemeProvider theme={theme}>
                 <Botoes>
-                  <Button variant="contained" color="secondary">Anuncie</Button>
-                  <Button variant="contained" color="secondary">Encontre</Button>
+                  <Button variant="contained" color="secondary" onClick={null}>Anuncie</Button>
+                  <Button variant="contained" color="secondary" onClick={null}>Encontre</Button>
                 </Botoes>
               </ThemeProvider>
             </div>
