@@ -1,23 +1,32 @@
 import React from "react";
 import styled from 'styled-components'
-import aula from '../../img/aula.png'
-import webdesign from '../../img/webdesign.png'
-import consultoria from '../../img/consultoria.png'
-import suporte from '../../img/suporte.png'
-import servicos from '../../img/servicos.png'
-import reforma from '../../img/reforma.png'
+import Aula from '../../img/aula.png'
+import Webdesign from '../../img/webdesign.png'
+import Consultoria from '../../img/consultoria.png'
+import Suporte from '../../img/suporte.png'
+import Servicos from '../../img/servicos.png'
+import Reforma from '../../img/reforma.png'
 
 const Main = styled.div`
   display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    margin-bottom: 80px;
+    margin-bottom: 10px;
   
-  p{
-    font-size: 0.6rem;
-    text-align: center;
-    color: white;
+    & ul {
+        border-bottom: 1px solid #ddd;
+        margin: 20px auto;
+        display: flex;
+        flex-flow: row nowrap;
   }
+  & ul li {
+        cursor: pointer;
+        position: relative;
+        padding: 10px 20px;
+        color: blue;
+        font-size: medium;
+        font-weight: bold;
+    }
 `
 const ContainerServicos = styled.div`
   display: flex;
@@ -25,11 +34,7 @@ const ContainerServicos = styled.div`
   text-align: center;
   margin-left: 4rem;
   margin-right: 4rem;
-  h4{
-    padding: 1%;
-    color: white;
-    cursor: pointer;
-    }
+ 
  
 img {
   height: 100px;
@@ -44,7 +49,7 @@ const Logo = styled.div`
   padding: 10px 20px;
 
   img{
-    padding: 5px 80px;
+    padding: 5px 0px;
     width: 50px;
     height: 50px;
     cursor: pointer;
@@ -56,21 +61,19 @@ export default class FiltroServicos extends React.Component {
   render() {
     return (
       <Main >
-          <h4>TESTE</h4>
-          <h4>TESTE</h4>
-          <h4>TESTE</h4>
-          <h4>TESTE</h4>
-          <h4>TESTE</h4>
+          
 
         <ContainerServicos>
         
           <Logo>
-            <img src={aula} alt="" />
-            <img src={webdesign} alt="" />
-            <img src={consultoria} alt="" />
-            <img src={suporte} alt="" />
-            <img src= {servicos}alt="" />
-            <img src= {aula} alt="" />
+              <ul>
+            <li><img src= {Aula} alt="Aulas" />Aulas Particulares</li>
+            <li><img src={Webdesign} alt="" />Web Design</li>
+            <li><img src={Consultoria} alt="" />Consultoria</li>
+            <li><img src={Suporte} alt="" />Suporte Técnico</li>
+            <li><img src= {Servicos}alt="" />Serviços Domésticos</li>
+            <li><img src= {Reforma} alt="" />Reformas</li>
+            </ul>
           </Logo>
 
         </ContainerServicos>
