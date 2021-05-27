@@ -9,7 +9,7 @@ const ContainerBanner = styled.div`
   width: 90%;
   margin: 10px auto;
   height: 300px;
-  
+
   .BannerImg {
     height: 100%;
     width: 100%;
@@ -19,33 +19,37 @@ const ContainerBanner = styled.div`
     display: flex;
   }
 
-.BotaoEsquerda {
+  .BotaoEsquerda {
     flex: 4%;
     height: 100%;
-    background-color:  rgb(183, 183, 195, 0.2);
     display: grid;
     place-items: center;
+  }
+  .BotaoEsquerda:hover {
     color: #b7b7c3;
     cursor: pointer;
+    background-color: rgb(183, 183, 195, 0.2);
   }
 
-.Centro {
+  .Centro {
     flex: 92%;
     height: 100%;
     display: grid;
     place-items: center;
   }
 
-.BotaoDireita{
+  .BotaoDireita {
     flex: 4%;
     height: 100%;
-    background-color: rgb(183, 183, 195, 0.2);
     display: grid;
     place-items: center;
-    color: #b7b7c3;
-    cursor: pointer;
   }
 
+  .BotaoDireita:hover {
+    color: #b7b7c3;
+    cursor: pointer;
+    background-color: rgb(183, 183, 195, 0.2);
+  }
 `;
 
 function Banner() {
