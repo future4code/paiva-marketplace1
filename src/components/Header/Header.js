@@ -112,6 +112,17 @@ const Input = styled.div`
  display: flex;
  justify-content: center;
  width: 80%;
+ button{
+   width: 8%;
+   height: 26px;
+   cursor: pointer;
+   background-color: #F72163;
+   color: white;
+   border: none;
+   &:hover{
+    background-color: #AC1768 ;
+   }
+ }
  input{
     width: 80%;
     height: 26px;
@@ -154,7 +165,6 @@ margin-right: 4rem;
     }
   }
 `
-
 export default class Header extends React.Component {
 
 
@@ -174,7 +184,8 @@ export default class Header extends React.Component {
             </Logo>
 
             <Input>
-              <input placeholder='Buscar...' />
+              <input onChange={null} value={null} placeholder='Buscar...' />
+              <button onChange={null}>Buscar</button>
             </Input>
             <div className="header2-container">
               <ThemeProvider theme={theme}>
