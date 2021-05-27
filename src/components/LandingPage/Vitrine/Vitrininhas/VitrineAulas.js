@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import { useState } from "react";
 import styled from 'styled-components'
-import { anunciosAulas } from './Anuncio'
+import { anunciosAulas } from '../Anuncio'
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
 
 
 const ContainerVitrine = styled.div`
-  width: 19%;
+ width: 19%;
   height: 30vh;
-  color:white;
+  color:#000072;
 
   .Expositor {
     height: 100%;
@@ -44,7 +44,7 @@ const ContainerVitrine = styled.div`
     background-color: rgb(0, 0, 0, 0.0);
     display: grid;
     place-items: center;
-    color: #b7b7c3;
+    color:#b7b7c3;
     cursor: pointer;
   }
   .Centro {
@@ -70,20 +70,19 @@ const ContainerVitrine = styled.div`
 
   h6,
   p {
-    background-color: rgb(172, 23, 104,0.8);
+    background-color: rgb(183, 183, 195, 0.8);
     padding: 3px;
     border-radius: 2px;
-    
   }
 `
 
-function Vitrine() {
-  const [currImg, setCurrImg] = useState(2);
+function VitrineAulas() {
+  const [currImg, setCurrImg] = useState(0);
 
   return (
     <ContainerVitrine>
       <a>
-      <div  className="Expositor"  style={{ backgroundImage: `url(${anunciosAulas[3].img})` }}>
+      <div  className="Expositor"  style={{ backgroundImage: `url(${anunciosAulas[2].img})` }}>
         
         <div className="DivBotao1"
         onClick={() => {
@@ -94,7 +93,7 @@ function Vitrine() {
 
         <div className="Centro">
           <h6>{anunciosAulas[currImg].title}</h6>
-          <p>{anunciosAulas[currImg].price} |<br/> {anunciosAulas[currImg].contact}</p>
+          <p>{anunciosAulas[currImg].price} <br/> {anunciosAulas[currImg].contact}</p>
           </div>
 
         <div className="DivBotao2" 
@@ -110,4 +109,4 @@ function Vitrine() {
     </ContainerVitrine>
   );
 }
-export default Vitrine;
+export default VitrineAulas;

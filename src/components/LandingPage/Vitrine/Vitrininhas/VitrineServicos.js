@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { useState } from "react";
 import styled from 'styled-components'
-import { anunciosServicos } from './Anuncio'
+import { anunciosServicos } from '../Anuncio'
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
