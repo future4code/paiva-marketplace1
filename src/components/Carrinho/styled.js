@@ -9,6 +9,7 @@ padding: 50px;
 margin: 20px auto;
 overflow-y: auto;
 border: 1px solid #ccc;
+color: #000072;
 
 img {
     width: 100px;
@@ -21,12 +22,6 @@ img {
 .button {
     display: flex;
     justify-content: flex-end;
-    button {
-        padding: 5px;
-        background-color: blue;
-        color: white;
-        font-weight: 700;
-    }
 }
 `
 export const PrecoTotal = styled.div`
@@ -57,7 +52,7 @@ align-items: center;
 .area-produto {
     line-height: 1.5;
     span {
-        color: blue;
+        color: #F72163;
         font-size: 0.8rem;
         cursor: pointer;
         :hover {
