@@ -6,7 +6,6 @@ import GlobalStyle from './Styles/Global'
 function App() {
 	return (
 		<div>
-			
 			<AppContainer />
 			<GlobalStyle />
 		</div>
