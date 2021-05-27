@@ -1,6 +1,38 @@
 import styled from 'styled-components'
 
 
+//Estilização Produto
+export const ContainerTotal = styled.div`
+  display: flex;
+`
+
+export const Filtro = styled.div`
+  display: flex;
+  width: 260px;
+  border-right: 2px solid #4D4D81;
+
+  justify-content: center;
+  input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    padding: 5px;
+    &:focus {
+  border-color: #cccccc;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+      }
+    }
+
+  h3{margin-bottom: 2vh;}
+  h5{ margin-top: 2vh;}
+  div{margin-top: 10px;}
+  select{border: 1px solid #B7B7C3; cursor: pointer;}
+`
+
+
+
 // Component Produto
 export const ContainerProduto = styled.div`
     display: flex;
@@ -61,13 +93,13 @@ export const InfoContainer = styled.div`
     button {
         display: flex;
         border: none;
-        background-color: #4136CC;
+        background-color: #000072;
         padding: 10px 5px;
         border-radius: 10px;
         color: #FFFF;
         justify-content: center;
         :hover{
-            background-color: #3D31B5;
+            background-color: #4D4D81;
         }
     }
     img {

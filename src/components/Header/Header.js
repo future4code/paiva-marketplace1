@@ -173,9 +173,9 @@ export default class Header extends React.Component {
       <Main>
         <ContainerHeader>
           <Header1>
-            <h4 onClick={null}>HOME</h4>
-            <h4 onClick={null}>CARRINHO</h4>
-            <H1 onClick={null}>LOGIN</H1>
+            <h4 onClick={this.props.vaiParaAHome}>HOME</h4>
+            <h4 onClick={this.props.vaiParaOCarrinho}>CARRINHO</h4>
+            <H1 onClick={this.props.vaiParaOLogin}>LOGIN</H1>
           </Header1>
 
           <Header2>
@@ -185,13 +185,13 @@ export default class Header extends React.Component {
 
             <Input>
               <input onChange={null} value={null} placeholder='Buscar...' />
-              <button onChange={null}>Buscar</button>
+              <button onChange={null}><h4>Buscar</h4></button>
             </Input>
             <div className="header2-container">
               <ThemeProvider theme={theme}>
                 <Botoes>
-                  <Button variant="contained" color="secondary" onClick={null}>Anuncie</Button>
-                  <Button variant="contained" color="secondary" onClick={null}>Encontre</Button>
+                  <Button variant="contained" color="secondary" onClick={this.props.vaiParaProposta}><h3>Anuncie</h3></Button>
+                  <Button variant="contained" color="secondary" onClick={this.props.vaiParaEncontrarLista}><h3>Encontre</h3></Button>
                 </Botoes>
               </ThemeProvider>
             </div>

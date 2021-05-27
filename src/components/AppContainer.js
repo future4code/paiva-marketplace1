@@ -10,6 +10,29 @@ import PropostaDeServico from "./PropostaDeServico/PropostaDeServico"
 import { ListaDeServico } from './ListaDeServico/ListaDeServico';
 
 export class AppContainer extends Component {
+
+  vaiParaOCarrinho = () => {
+    this.setState({pagina: 'carrinho'})
+  }
+
+  vaiParaAHome = () => {
+    this.setState({pagina: 'landingPage'})
+  }
+
+  vaiParaOLogin = () => {
+    this.setState({pagina: 'login'})
+  }
+
+  vaiParaProposta = () => {
+    this.setState({pagina: 'proposta'})
+  }
+
+  vaiParaEncontrarLista = () => {
+    this.setState({pagina: 'lista'})
+  }
+  
+
+
   state = {
     pagina: 'lista'
   }
@@ -30,7 +53,8 @@ export class AppContainer extends Component {
     console.log(this.state.pagina, 'oie')
     return (
       <AppContainerDiv>
-        <Header/>
+        <Header vaiParaOCarrinho = {this.vaiParaOCarrinho} vaiParaAHome = {this.vaiParaAHome} vaiParaOLogin = {this.vaiParaOLogin} vaiParaProposta = {this.vaiParaProposta} vaiParaEncontrarLista = {this.vaiParaEncontrarLista}/>
+
         {this.mudaPagina()}
         <Footer/>
       </AppContainerDiv>
