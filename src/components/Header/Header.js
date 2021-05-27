@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import logoNinja from "../../img/nome-labeninja.png"
 import Button from '@material-ui/core/Button';
-import { theme } from './Theme.js'
+import { theme } from '../../assets/Theme'
 import { ThemeProvider } from '@material-ui/styles';
 
 

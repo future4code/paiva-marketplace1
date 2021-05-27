@@ -1,16 +1,16 @@
 import React from 'react'
 import { useState } from "react";
 import styled from 'styled-components'
-import { anunciosOutros } from './Anuncio'
+import { anunciosAulas } from '../Anuncio'
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
 
 
 const ContainerVitrine = styled.div`
- width: 19%;
+  width: 19%;
   height: 30vh;
-  color: #4D4D81;
+  color:white;
 
   .Expositor {
     height: 100%;
@@ -37,7 +37,6 @@ const ContainerVitrine = styled.div`
   .DivBotao2:hover{
     color:#F72163
   }
-
 
   .DivBotao2 {
     flex: 4%;
@@ -71,18 +70,20 @@ const ContainerVitrine = styled.div`
 
   h6,
   p {
+    background-color: rgb(172, 23, 104,0.8);
     padding: 3px;
-    border-radius: 1px;
+    border-radius: 2px;
+    
   }
 `
 
-function VitrineOutros() {
-  const [currImg, setCurrImg] = useState(0);
+function Vitrine() {
+  const [currImg, setCurrImg] = useState(2);
 
   return (
     <ContainerVitrine>
       <a>
-      <div  className="Expositor"  style={{ backgroundImage: `url(${anunciosOutros[1].img})` }}>
+      <div  className="Expositor"  style={{ backgroundImage: `url(${anunciosAulas[3].img})` }}>
         
         <div className="DivBotao1"
         onClick={() => {
@@ -92,13 +93,13 @@ function VitrineOutros() {
         </div>
 
         <div className="Centro">
-          <h6>{anunciosOutros[currImg].title}</h6>
-          <p>{anunciosOutros[currImg].price} |<br/> {anunciosOutros[currImg].contact}</p>
+          <h6>{anunciosAulas[currImg].title}</h6>
+          <p>{anunciosAulas[currImg].price} |<br/> {anunciosAulas[currImg].contact}</p>
           </div>
 
         <div className="DivBotao2" 
         onClick={() => {
-          currImg < anunciosOutros.length - 1 && setCurrImg(currImg + 1)
+          currImg < anunciosAulas.length - 1 && setCurrImg(currImg + 1)
         }}>
 
         <ArrowForwardIosIcon />
@@ -109,4 +110,4 @@ function VitrineOutros() {
     </ContainerVitrine>
   );
 }
-export default VitrineOutros;
+export default Vitrine;
