@@ -8,6 +8,8 @@ export class ListaDeServico extends React.Component {
 
 state = {
   ordem: "crescente",
+
+
   produtos: [
     {
       title: "Cortar a grama",
@@ -112,12 +114,16 @@ state = {
         <Filtro>
           <div>
           <h3>Filtrar Produtos:</h3>
-          <h5>Valor Maximo</h5>
-          <input placeholder='R$' type='number'></input>
+          
+          <h5>Valor Maximo</h5> {/* recebendo por props os valores enviados do appContainer */}
+          <input value={this.props.valorMaximo} onChange={this.props.HandleValorMaximo} placeholder='R$' type='number'></input>
+          
           <h5>Valor Mínimo</h5>
-          <input placeholder='R$' type='number'></input>
+          <input value={this.props.valorMinimo} onChange={this.props.HandleValorMinimo} placeholder='R$' type='number'></input>
+          
           <h5>Buscar produto por nome</h5>
-          <input placeholder='Nome do Produto'></input>
+          <input value={this.props.buscarProduto} onChange={this.props.HandleBuscarProduto} placeholder='Nome do Produto'></input>
+          
           <h5>Filtrar por categoria</h5>
             <select className="options">
               <option>Selecione</option>

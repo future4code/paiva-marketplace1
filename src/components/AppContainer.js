@@ -14,8 +14,13 @@ import { ListaDeServico } from './ListaDeServico/ListaDeServico';
 export class AppContainer extends Component {
  state = {
     pagina: 'lista',
-     logado: false
+     logado: false,
+     valorMaximo: '',
+     valorMinimo: '',
+     nomeProduto: '',
   }
+
+  //lógica dos botões para mudar de página\\
   
   confLogin = () => {
     this.setState({logado: true})
@@ -45,8 +50,6 @@ export class AppContainer extends Component {
   vaiParaMinhaPagina = () =>{
     this.setState({pagina: 'pos-login'})
   }
-
-
   
 
   // switch case para paginas
@@ -61,13 +64,43 @@ export class AppContainer extends Component {
   }
 })
 
+//Aqui começa a lógica do filtro de produtos \\
+
+//onChange dos produtos para mudar o estado dos state \\
+
+handleValorMinimo = (event) => {
+  this.setState({
+    valorMinimo: event.target.value,
+  });
+};
+
+handleValorMaximo = (event) => {
+  this.setState({
+    valorMinimo: event.target.value,
+  });
+};
+
+handleBuscarProduto = (event) => {
+  this.setState({
+    valorMinimo: event.target.value,
+  });
+};
+
+
   render() {
     console.log(this.state.pagina, 'oie')
     return (
       <div>
 <Header logado={this.state.logado} vaiParaMinhaPagina={this.vaiParaMinhaPagina} vaiParaOCarrinho = {this.vaiParaOCarrinho} vaiParaAHome = {this.vaiParaAHome} vaiParaOLogin = {this.vaiParaOLogin} vaiParaProposta = {this.vaiParaProposta} vaiParaEncontrarLista = {this.vaiParaEncontrarLista}/>
       
-      <FiltroServicos />
+      <FiltroServicos 
+        valorMinimo={this.state.valorMinimo} //enviando as informaçoes de filtro para o FIltroServiços\\ 
+        valorMaximo={this.state.valorMaximo}
+        nomeProduto={this.state.buscarProduto}
+        handleValorMaximo={this.handleValorMaximo}
+        handleValorMinimo={this.handleValorMinimo}
+        handleBuscarProduto={this.handleBuscarProduto}
+      />
       <AppContainerDiv>
         
 
