@@ -1,5 +1,11 @@
 import React from "react";
 import styled from 'styled-components'
+import aula from '../../img/aula.png'
+import webdesign from '../../img/webdesign.png'
+import consultoria from '../../img/consultoria.png'
+import suporte from '../../img/suporte.png'
+import servicos from '../../img/servicos.png'
+import reforma from '../../img/reforma.png'
 
 const Main = styled.div`
   display: flex;
@@ -19,6 +25,11 @@ const ContainerServicos = styled.div`
   text-align: center;
   margin-left: 4rem;
   margin-right: 4rem;
+  h4{
+    padding: 1%;
+    color: white;
+    cursor: pointer;
+    }
  
 img {
   height: 100px;
@@ -45,15 +56,21 @@ export default class FiltroServicos extends React.Component {
   render() {
     return (
       <Main >
+          <h4>TESTE</h4>
+          <h4>TESTE</h4>
+          <h4>TESTE</h4>
+          <h4>TESTE</h4>
+          <h4>TESTE</h4>
+
         <ContainerServicos>
-          
+        
           <Logo>
-            <img src='./aula.png' alt="" />
-            <img src='./web-desgin.png' alt="" />
-            <img src='./consultoria.png' alt="" />
-            <img src='./suporte-tecnico.png' alt="" />
-            <img src='./servicos-domesticos.png' alt="" />
-            <img src='./reforma.png' alt="" />
+            <img src={aula} alt="" />
+            <img src={webdesign} alt="" />
+            <img src={consultoria} alt="" />
+            <img src={suporte} alt="" />
+            <img src= {servicos}alt="" />
+            <img src= {aula} alt="" />
           </Logo>
 
         </ContainerServicos>
