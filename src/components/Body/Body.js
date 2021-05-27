@@ -6,6 +6,7 @@ import {DivVitrine} from "../LandingPage/Vitrine/DivVitrine"
 
 
 
+
 const Main = styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
   font-family: 'Playfair Display', serif;
