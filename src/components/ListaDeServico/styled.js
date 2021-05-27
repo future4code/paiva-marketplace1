@@ -39,6 +39,7 @@ export const ContainerProduto = styled.div`
     display: flex;
     flex-wrap: wrap;
     padding-bottom: 20px;
+    margin: 0 auto;
 `
 
 export const HeaderProduto = styled.div`
@@ -53,10 +54,10 @@ export const ContainerCardProduto = styled.div`
 color: #000072;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  //justify-content: space-around;
+  justify-content: center;
   width: 100%;
-  ma
-  @media(max-width: 600px){
+
+  @media (max-width:600px){
     grid-template-columns: 1fr;
   }
 `
@@ -100,8 +101,6 @@ export const InfoContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    }
     img {
         width: 14px;
         color: white;
