@@ -17,7 +17,7 @@ max-height: 500px;
 overflow-y: auto;
 h2{
   color: #000072;
-}
+}`
 
 `
 

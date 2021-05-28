@@ -9,30 +9,25 @@ import Carrinho from "./Carrinho/Carrinho"
 import MeusJobs from './Login/Meus Jobs/MeusJobs';
 import PropostaDeServico from "./PropostaDeServico/PropostaDeServico"
 import { ListaDeServico } from './ListaDeServico/ListaDeServico';
-
-
-
 import axios from "axios"
 
 
 export class AppContainer extends Component {
 
-  state = {
-    pagina: 'landingPage',
-    logado: false,
-    produtos: [],
-    categoria: "",
-    carrinho: [],
-    valorTotal: []
-
-
+ state = {
+    pagina: 'pos-login',
+     logado: false,
+     produtos:[],
+     categoria:"",
+     authorization:""
   }
 
   //lógica dos botões para mudar de página\\
+  
+  confLogin = (key) => {
+    this.setState({logado: true, pagina: 'proposta', authorization:key})
+    this.setState({})
 
-  confLogin = () => {
-    this.setState({ logado: true })
-    this.setState({ pagina: 'proposta' })
   }
 
   vaiParaOCarrinho = () => {
@@ -88,6 +83,7 @@ export class AppContainer extends Component {
   }
 
   // switch case para paginas
+
   mudaPagina = (() => {
     switch (this.state.pagina) {
 
@@ -119,9 +115,8 @@ export class AppContainer extends Component {
     const valoresClonado = [...valoresClone, somaValores]
     const carrinhoClonado = [...carrinhoClone, itemCarrinho]
     this.setState({ carrinho: carrinhoClonado, valorTotal: valoresClonado })
+
   }
-
-
 
   render() {
     console.log(this.state.carrinho)

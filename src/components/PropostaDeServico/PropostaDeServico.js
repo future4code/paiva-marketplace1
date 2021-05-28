@@ -3,6 +3,7 @@ import { CardServico } from "./styled"
 import Button from '@material-ui/core/Button';
 import { theme } from '../../assets/Theme'
 import { ThemeProvider } from '@material-ui/styles';
+
 import axios from "axios";
 
 export default class PropostaDeServico extends Component {
@@ -62,7 +63,7 @@ export default class PropostaDeServico extends Component {
 const url = "https://labeninjas.herokuapp.com/jobs"
 const header = {
   headers : {
-    Authorization: "cf3c8e53-55ee-44ba-a739-4347643c2438"
+    Authorization: this.props.authorization
   }
 }
 let foto=""
@@ -91,6 +92,7 @@ switch (this.state.categoria){
   break;
   default: break;
 }
+
 const body = {
   title: this.state.servico+"&&&&"+this.state.categoria+"&&&&"+foto,
   description:this.state.descricao,
