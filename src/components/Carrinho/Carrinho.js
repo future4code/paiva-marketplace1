@@ -46,7 +46,23 @@ export default class Carrinho extends Component {
         </FlexRow>
       )
     })
-    // console.log(this.state.listaDeCompras)
+
+    const resultado = () => {
+      let valorTotal = 0
+      let numeros = this.props.valorTotal
+      console.log(numeros)
+      const resul = numeros.map((valor) => {
+        for(let i = 0; i < numeros.length; i++){
+          valorTotal += valorTotal[i]
+        }
+      })
+      // for (let i=0; i < numeros.length; i++) {
+      //   valorTotal += numeros[i]
+      // }
+      // return valorTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
+      return resul
+    }
+
     return (
       <CardCarrinho>
         <div clasName="carrinho-area">
