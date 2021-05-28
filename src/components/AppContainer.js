@@ -25,6 +25,7 @@ export class AppContainer extends Component {
     carrinho: [],
     valorTotal: []
 
+
   }
 
   //lógica dos botões para mudar de página\\
@@ -89,6 +90,7 @@ export class AppContainer extends Component {
   // switch case para paginas
   mudaPagina = (() => {
     switch (this.state.pagina) {
+
       case 'carrinho': return (<Carrinho carrinho={this.state.carrinho} valorTotal={this.state.valorTotal}/>)
       case 'landingPage': return (<Body />)
       case 'proposta': return (<PropostaDeServico />)
@@ -98,6 +100,7 @@ export class AppContainer extends Component {
       default: return (<Body />)
     }
   })
+
 
   addProdutoAoCarrinho = (produto) => {
     const carrinhoClone = [...this.state.carrinho]
@@ -119,6 +122,7 @@ export class AppContainer extends Component {
   }
 
 
+
   render() {
     console.log(this.state.carrinho)
     return (
@@ -134,6 +138,7 @@ export class AppContainer extends Component {
           handleBuscarProduto={this.handleBuscarProduto}
           vaiParaEncontrarLista={this.vaiParaEncontrarLista}
           mudaCategoriaServicos={this.mudaCategoriaServicos}
+
           categora={this.state.categoria}
         />
         <AppContainerDiv>

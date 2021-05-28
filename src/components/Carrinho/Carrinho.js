@@ -57,7 +57,7 @@ export default class Carrinho extends Component {
       console.log(numeros)
       const resul = numeros.map((valor) => {
         for(let i = 0; i < numeros.length; i++){
-          valorTotal += valor.price
+          valorTotal += valor[i].price
         }
       })
       // for (let i=0; i < numeros.length; i++) {

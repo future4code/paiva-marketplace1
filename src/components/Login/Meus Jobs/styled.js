@@ -22,15 +22,17 @@ h2{
 
 export const MostraCarrinho = styled.div`
 `
+export const MostraCarrinho = styled.div`
+  `
 
 export const Container = styled.div`
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom:1px solid #4D4D81;
-  padding: 5vh 0;
+width: 100%;
+height: auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-bottom: 1px solid #4D4D81;
+padding: 5vh 0;
 
 `
 
@@ -43,4 +45,4 @@ h1{
 `
 export const ImgCart = styled.img`
 
-`
+  `
