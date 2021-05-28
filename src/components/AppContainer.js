@@ -16,6 +16,7 @@ import axios from "axios"
 
 
 export class AppContainer extends Component {
+
   state = {
     pagina: 'landingPage',
     logado: false,
@@ -23,6 +24,7 @@ export class AppContainer extends Component {
     categoria: "",
     carrinho: [],
     valorTotal: []
+
   }
 
   //lógica dos botões para mudar de página\\
