@@ -8,8 +8,62 @@ export class ListaDeServico extends React.Component {
 
 state = {
   ordem: "crescente",
-  produtos: [...this.props.produtos]
+  produtos: [...this.props.produtos],
+  valorMaximo: '',
+  valorMinimo: '',
+  buscarProduto: '',
+  todosOsProdutos: [...this.props.produtos],
+  select: '',
 }
+
+
+//Aqui começa a lógica do filtro de produtos \\
+
+//onChange dos produtos para mudar o estado dos state \\
+
+handleValorMinimo = (event) => {
+  this.setState({
+    valorMinimo: event.target.value,
+  });
+};
+
+handleValorMaximo = (event) => {
+  this.setState({
+    valorMaximo: event.target.value,
+  });
+};
+
+handleBuscarProduto = (event) => {
+  this.setState({
+    buscarProduto: event.target.value,
+  });
+};
+
+handleSelect = (event) => {
+  this.setState({select: event.target.value})
+  console.log(event.target.value)
+}
+
+filtrar = () => {
+  const listaDeProdutos = [...this.state.todosOsProdutos]
+  if(this.state.valorMaximo === "") {
+    this.setState({produtos: listaDeProdutos
+      .filter(produto => produto.price >=this.state.valorMinimo)
+      .filter(produto => produto.title.toLowerCase().includes(this.state.buscarProduto.toLowerCase()))
+      .filter(produto => produto.catServ.toLowerCase().includes(this.state.select.toLowerCase()))
+
+    })
+  }else {
+    this.setState({produtos: listaDeProdutos
+      .filter(produto => produto.price >=this.state.valorMinimo)
+      .filter(produto => produto.price <= this.state.valorMaximo)
+      .filter(produto => produto.title.toLowerCase().includes(this.state.buscarProduto.toLowerCase()))
+      .filter(produto => produto.catServ.toLowerCase().includes(this.state.select.toLowerCase()))
+
+    })  
+  }
+}
+
   render() {
     const listaFiltrada = [...this.state.produtos]
     return (
@@ -19,27 +73,27 @@ state = {
           <h3>Filtrar Produtos:</h3>
           
           <h5>Valor Maximo</h5> {/* recebendo por props os valores enviados do appContainer */}
-          <input value={this.props.valorMaximo} onChange={this.props.HandleValorMaximo} placeholder='R$' type='number'></input>
+          <input value={this.state.valorMaximo} onChange={this.handleValorMaximo} placeholder='R$' type='number'></input>
           
           <h5>Valor Mínimo</h5>
-          <input value={this.props.valorMinimo} onChange={this.props.HandleValorMinimo} placeholder='R$' type='number'></input>
+          <input value={this.state.valorMinimo} onChange={this.handleValorMinimo} placeholder='R$' type='number'></input>
           
           <h5>Buscar produto por nome</h5>
-          <input value={this.props.buscarProduto} onChange={this.props.HandleBuscarProduto} placeholder='Nome do Produto'></input>
+          <input value={this.state.buscarProduto} onChange={this.handleBuscarProduto} placeholder='Nome do Produto'></input>
           
           <h5>Filtrar por categoria</h5>
-            <select className="options">
-              <option>Selecione</option>
-              <option>Todas</option>
-              <option>Aulas Particulares</option>
-              <option>Web Design</option>
-              <option>Consultoria</option>
-              <option>Consultoria</option>
-              <option>Assistência Técnica</option>
-              <option>Serviços Domésticos</option>
-              <option>Reformas</option>
-              <option>Diversos</option>
+            <select onChange={this.handleSelect} className="options">
+              <option value="">Selecione</option>
+              <option value="">Todas</option>
+              <option value="Aulas Particulares">Aulas Particulares</option>
+              <option value="Web Design">Web Design</option>
+              <option value="Consultoria">Consultoria</option>
+              <option value="Assistência Técnica">Assistência Técnica</option>
+              <option value="Serviços Domésticos">Serviços Domésticos</option>
+              <option value="Reformas">Reformas</option>
+              <option value="Diversos">Diversos</option>
             </select>
+            <button onClick={this.filtrar}>Filtrar</button>
           </div>
         </Filtro>
         <ContainerProduto>
