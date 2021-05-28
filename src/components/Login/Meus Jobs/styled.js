@@ -19,10 +19,6 @@ h2{
   color: #000072;
 }`
 
-`
-
-export const MostraCarrinho = styled.div`
-`
 export const MostraCarrinho = styled.div`
   `
 
@@ -42,8 +38,7 @@ h1{
   font-size: 14px;
   margin-bottom: 10px;
 }
-
 `
 export const ImgCart = styled.img`
 
-  `
+`
