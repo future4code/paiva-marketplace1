@@ -55,6 +55,7 @@ export class AppContainer extends Component {
     this.setState({ pagina: 'lista' })
   }
 
+
   mudaCategoriaServicos = (categoriaServicos) => {
     this.setState({ categoria: categoriaServicos })
   }

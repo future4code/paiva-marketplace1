@@ -20,6 +20,9 @@ h2{
 }
 
 `
+
+export const MostraCarrinho = styled.div`
+`
 export const MostraCarrinho = styled.div`
   `
 

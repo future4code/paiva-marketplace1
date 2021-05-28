@@ -100,6 +100,7 @@ padding: 2vh;
   margin-left: 1rem;
   img{
     height: 50px;
+    cursor: pointer;
   }
   @media(max-width: 800px) {
     display: none;
@@ -183,7 +184,7 @@ export default class Header extends React.Component {
 
           <Header2>
             <Logo>
-              <img src={logoNinja} alt="logo" />
+              <img onClick={this.props.vaiParaAHome} src={logoNinja} alt="logo" />
             </Logo>
 
             <Input>
