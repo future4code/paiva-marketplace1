@@ -4,6 +4,10 @@ import styled from 'styled-components'
 //Estilização Produto
 export const ContainerTotal = styled.div`
   display: flex;
+
+  button{
+    margin-top:5px;
+  }
 `
 
 export const Filtro = styled.div`

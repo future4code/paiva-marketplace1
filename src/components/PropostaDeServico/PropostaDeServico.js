@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import { CardServico } from "./styled"
+import Button from '@material-ui/core/Button';
+import { theme } from '../../assets/Theme'
+import { ThemeProvider } from '@material-ui/styles';
 
 export default class PropostaDeServico extends Component {
   render() {
     return (
       <CardServico>
+        <ThemeProvider theme={theme}>
         <div className="container">
           <h2>Publique seu Job Conosco</h2>
           <div className="card-title">
@@ -65,8 +69,14 @@ export default class PropostaDeServico extends Component {
             </div>
           </div>
           <br />
-          <button className="botao-enviar" onClick={null} >ENVIAR</button>
+
+          <Button variant="contained" color="secondary"
+          onClick={null} >ENVIAR
+          </Button>
+         
+
         </div>
+      </ThemeProvider>
       </CardServico >
 
     );

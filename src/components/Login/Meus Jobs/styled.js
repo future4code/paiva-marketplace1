@@ -12,6 +12,7 @@ padding: 50px;
 margin: 20px auto;
 max-height: 500px;
 overflow-y: auto;
+color: #000072;
 `
 export const PrecoTotal = styled.div`
 margin-top: 50px;
