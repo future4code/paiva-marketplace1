@@ -20,6 +20,7 @@ export class AppContainer extends Component {
     pagina: 'landingPage',
      logado: false,
      produtos:[],
+     categoria:""
   }
 
   //lógica dos botões para mudar de página\\
@@ -49,6 +50,10 @@ export class AppContainer extends Component {
     this.setState({pagina: 'lista'})
   }
   
+  mudaCategoriaServicos = (categoriaServicos) => {
+    this.setState({categoria: categoriaServicos})
+  }
+
   vaiParaMinhaPagina = () =>{
     this.setState({pagina: 'pos-login'})
   }
@@ -82,7 +87,7 @@ export class AppContainer extends Component {
     case 'carrinho': return(<Carrinho/>)
     case 'landingPage': return (<Body/>)
     case 'proposta': return (<PropostaDeServico/>)
-    case 'lista': return (<ListaDeServico produtos={this.state.produtos}/> )
+    case 'lista': return (<ListaDeServico produtos={this.state.produtos} categoria={this.state.categoria}/> )
     case 'login': return (<Login confLogin={this.confLogin} />)
     case 'pos-login': return (<MeusJobs/>)
     default: return (<Body/>)
@@ -92,6 +97,7 @@ export class AppContainer extends Component {
 
 
   render() {
+    console.log(this.state.categoria)
     return (
       <div>
 <Header logado={this.state.logado} vaiParaMinhaPagina={this.vaiParaMinhaPagina} vaiParaOCarrinho = {this.vaiParaOCarrinho} vaiParaAHome = {this.vaiParaAHome} vaiParaOLogin = {this.vaiParaOLogin} vaiParaProposta = {this.vaiParaProposta} vaiParaEncontrarLista = {this.vaiParaEncontrarLista}/>
@@ -103,6 +109,9 @@ export class AppContainer extends Component {
         handleValorMaximo={this.handleValorMaximo}
         handleValorMinimo={this.handleValorMinimo}
         handleBuscarProduto={this.handleBuscarProduto}
+        vaiParaEncontrarLista={this.vaiParaEncontrarLista}
+        mudaCategoriaServicos={this.mudaCategoriaServicos}
+        categora={this.state.categoria}
       />
       <AppContainerDiv>
         {this.mudaPagina()}

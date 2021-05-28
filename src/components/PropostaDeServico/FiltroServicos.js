@@ -44,7 +44,7 @@ const Logo = styled.div`
       align-items: center;
       justify-content: space-between;
       width: 55px;
-    //height: 70px;
+
     margin: 0px 30px;
 
     }
@@ -59,6 +59,21 @@ const Logo = styled.div`
 `
 
 export default class FiltroServicos extends React.Component {
+  aplicafiltro = (categoria) => {
+    if (this.state.pagina === "lista") {
+      const lista= this.state.pagina 
+      this.props.mudaCategoriaServicos(lista)
+      this.props.vaiParaEncontrarLista()
+    } else {
+      this.props.mudaCategoriaServicos(categoria)
+      this.props.vaiParaEncontrarLista()
+    }
+
+  }
+state={
+  categoria: this.props.categoria,
+}
+
   render() {
     return (
       <Main >
@@ -68,27 +83,27 @@ export default class FiltroServicos extends React.Component {
 
           <Logo>
             <div className="service-container" >
-              <div>
-                <img src={Aula} alt="Aulas" />
+              <div onClick={() => this.aplicafiltro("Aulas Particulares")}>
+                <img src={Aula} alt="Aulas Particulares" />
                 <p>Aulas Particulares</p>
               </div>
-              <div>
+              <div onClick={() => this.aplicafiltro("Web Design")}>
                 <img src={Webdesign} alt="" />
                 <p>Web Design</p>
               </div>
-              <div>
+              <div onClick={() => this.aplicafiltro("Consultoria")}>
                 <img src={Consultoria} alt="" />
                 <p>Consultoria</p>
               </div>
-              <div>
+              <div onClick={() => this.aplicafiltro("Assistência Técnica")}>
                 <img src={Suporte} alt="" />
-                <p>Suporte Técnico</p>
+                <p>Assistência Técnica</p>
               </div>
-              <div>
+              <div onClick={() => this.aplicafiltro("Serviços Domésticos")}>
                 <img src={Servicos} alt="" />
                 <p>Serviços Domésticos</p>
               </div>
-              <div>
+              <div onClick={() => this.aplicafiltro("Reformas")}>
                 <img src={Reforma} alt="" />
                 <p>Reformas</p>
               </div>

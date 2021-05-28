@@ -13,10 +13,11 @@ state = {
   valorMinimo: '',
   buscarProduto: '',
   todosOsProdutos: [...this.props.produtos],
-  select: '',
+  select: "",
+
 }
 
-
+//componentDidMount () {this.filtrar()}
 //Aqui começa a lógica do filtro de produtos \\
 
 //onChange dos produtos para mudar o estado dos state \\
@@ -65,6 +66,7 @@ filtrar = () => {
 }
 
   render() {
+    const categoria =() =>{ this.props.categoria}
     const listaFiltrada = [...this.state.produtos]
     return (
       <ContainerTotal>
