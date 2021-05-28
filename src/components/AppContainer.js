@@ -10,12 +10,19 @@ import MeusJobs from './Login/Meus Jobs/MeusJobs';
 import PropostaDeServico from "./PropostaDeServico/PropostaDeServico"
 import { ListaDeServico } from './ListaDeServico/ListaDeServico';
 
-// realizar commit
+
+
+import axios from "axios"
+
+
 export class AppContainer extends Component {
  state = {
-    pagina: 'lista',
-     logado: false
+    pagina: 'landingPage',
+     logado: false,
+     produtos:[],
   }
+
+  //lógica dos botões para mudar de página\\
   
   confLogin = () => {
     this.setState({logado: true})
@@ -46,8 +53,28 @@ export class AppContainer extends Component {
     this.setState({pagina: 'pos-login'})
   }
 
-
-  
+  getListaDeProdutos = () => {
+    const Header = {
+      headers : {
+        Authorization: "61bdcdc0-0989-4725-a3ed-866622e42097"
+      }
+    }
+  const url = "https://labeninjas.herokuapp.com/jobs"
+    axios.get(url, Header)
+    .then((res) =>{
+      const listaTratada = res.data.jobs.map((separa)=>{
+        const textoSplit = separa.title.split("&&&&")
+        return {title: textoSplit[0], catServ: textoSplit[1], url:textoSplit[2], id: separa.id, description: separa.description, price: separa.price, paymentMethods: separa.paymentMethods, dueDate: separa.dueDate, taken: separa.taken}
+      })
+      this.setState({produtos:listaTratada})
+    })
+    .catch((err)=>{
+      alert(err)
+    })
+  }
+  componentDidMount() {
+    this.getListaDeProdutos()
+  }
 
   // switch case para paginas
  mudaPagina = (() => {
@@ -55,22 +82,29 @@ export class AppContainer extends Component {
     case 'carrinho': return(<Carrinho/>)
     case 'landingPage': return (<Body/>)
     case 'proposta': return (<PropostaDeServico/>)
-    case 'lista': return (<ListaDeServico/> )
+    case 'lista': return (<ListaDeServico produtos={this.state.produtos}/> )
     case 'login': return (<Login confLogin={this.confLogin} />)
     case 'pos-login': return (<MeusJobs/>)
+    default: return (<Body/>)
   }
 })
 
+
+
   render() {
-    console.log(this.state.pagina, 'oie')
     return (
       <div>
 <Header logado={this.state.logado} vaiParaMinhaPagina={this.vaiParaMinhaPagina} vaiParaOCarrinho = {this.vaiParaOCarrinho} vaiParaAHome = {this.vaiParaAHome} vaiParaOLogin = {this.vaiParaOLogin} vaiParaProposta = {this.vaiParaProposta} vaiParaEncontrarLista = {this.vaiParaEncontrarLista}/>
       
-      <FiltroServicos />
+      <FiltroServicos 
+        valorMinimo={this.state.valorMinimo} //enviando as informaçoes de filtro para o FIltroServiços\\ 
+        valorMaximo={this.state.valorMaximo}
+        nomeProduto={this.state.buscarProduto}
+        handleValorMaximo={this.handleValorMaximo}
+        handleValorMinimo={this.handleValorMinimo}
+        handleBuscarProduto={this.handleBuscarProduto}
+      />
       <AppContainerDiv>
-        
-
         {this.mudaPagina()}
         <Footer/>
       </AppContainerDiv>
