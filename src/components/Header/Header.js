@@ -170,7 +170,8 @@ export default class Header extends React.Component {
 
   render() {
     return (
-      <Main>
+      <Main>  
+        <ThemeProvider theme={theme}>
         <ContainerHeader>
           <Header1>
             <h4 onClick={this.props.vaiParaAHome}>HOME</h4>
@@ -187,18 +188,19 @@ export default class Header extends React.Component {
 
             <Input>
               <input onChange={null} value={null} placeholder='Buscar...' />
-              <button onChange={null}><h4>Buscar</h4></button>
+              <Button variant="contained" color="secondary" onChange={null}><h4>Buscar</h4></Button>
             </Input>
             <div className="header2-container">
-              <ThemeProvider theme={theme}>
+            
                 <Botoes>
                   <Button variant="contained" color="secondary" onClick={this.props.vaiParaProposta}><h3>Anuncie</h3></Button>
                   <Button variant="contained" color="secondary" onClick={this.props.vaiParaEncontrarLista}><h3>Encontre</h3></Button>
                 </Botoes>
-              </ThemeProvider>
+              
             </div>
           </Header2>
         </ContainerHeader>
+        </ThemeProvider>
       </Main>
     )
   }
