@@ -6,39 +6,43 @@ import { theme } from '../../assets/Theme'
 import { ThemeProvider } from '@material-ui/styles';
 
 export default class Carrinho extends Component {
-  state = {
-    listaDeCompras: [
-      {
-        title: "Cortar a grama",
-        description: "Manutenção em áreas verdes de até 1000 metros quadrados.",
-        price: 40,
-        paymentMethods: ["PayPal", "boleto"],
-        dueDate: "2021-12-30",
-        taken: false
-      },
-      {
-        title: "Cortar a grama2",
-        description: "Manutenção em áreas verdes de até 1200 metros quadrados.",
-        price: 50,
-        paymentMethods: ["PayPal", "boleto"],
-        dueDate: "2021-12-10",
-        taken: false
-      }
-    ]
-  }
+  // state = {
+  //   listaDeCompras: [
+  //     {
+  //       title: "Cortar a grama",
+  //       description: "Manutenção em áreas verdes de até 1000 metros quadrados.",
+  //       price: 40,
+  //       paymentMethods: ["PayPal", "boleto"],
+  //       dueDate: "2021-12-30",
+  //       taken: false
+  //     },
+  //     {
+  //       title: "Cortar a grama2",
+  //       description: "Manutenção em áreas verdes de até 1200 metros quadrados.",
+  //       price: 50,
+  //       paymentMethods: ["PayPal", "boleto"],
+  //       dueDate: "2021-12-10",
+  //       taken: false
+  //     }
+  //   ]
+        /**
+         
+
+        */
+  // }
+
   render() {
-    const mostracarrinho = this.state.listaDeCompras.map((produto) => {
+    const mostracarrinho = this.props.carrinho.map((produto) => {
       const valorReal = produto.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
       return (
         <FlexRow>
-          <img src={NinjaLogo} alt="imagem" />
+          <img src={produto.url} alt="imagem" />
           <div className="area-produto">
             <h3>{produto.title}</h3>
             <p>{produto.description}</p>
             <p>Pagamento: {produto.paymentMethods}</p>
             <span onClick={null}>Excluir</span>
           </div>
-
           <div className="valor-produto">
             <span>{valorReal}</span>
           </div>
@@ -46,18 +50,34 @@ export default class Carrinho extends Component {
         </FlexRow>
       )
     })
-    // console.log(this.state.listaDeCompras)
+
+    const resultado = () => {
+      let valorTotal = 0
+      let numeros = this.props.valorTotal
+      console.log(numeros)
+      const resul = numeros.map((valor) => {
+        for(let i = 0; i < numeros.length; i++){
+          valorTotal += valor.price
+        }
+      })
+      // for (let i=0; i < numeros.length; i++) {
+      //   valorTotal += numeros[i]
+      // }
+      // return valorTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
+      return resul
+    }
+
     return (
       <CardCarrinho>
         <div clasName="carrinho-area">
-          <h4>Carrinho (2)</h4>
+          <h4>Carrinho ({this.props.carrinho.length})</h4>
           {mostracarrinho}
         </div>
 
         <PrecoTotal>
           <div className="valor-total">
             <p>Prazo 30 dias</p>
-            <p>Valor Total R$ 00,00</p>
+            <p>Valor Total {resultado()}</p>
           </div>
         </PrecoTotal>
         <div className="button">
