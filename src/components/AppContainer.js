@@ -15,7 +15,7 @@ export class AppContainer extends Component {
  state = {
     pagina: 'landingPage',
      logado: false,
-     produtos:[]
+     produtos:[],
   }
 
   //lógica dos botões para mudar de página\\
@@ -85,27 +85,6 @@ export class AppContainer extends Component {
   }
 })
 
-//Aqui começa a lógica do filtro de produtos \\
-
-//onChange dos produtos para mudar o estado dos state \\
-
-handleValorMinimo = (event) => {
-  this.setState({
-    valorMinimo: event.target.value,
-  });
-};
-
-handleValorMaximo = (event) => {
-  this.setState({
-    valorMinimo: event.target.value,
-  });
-};
-
-handleBuscarProduto = (event) => {
-  this.setState({
-    valorMinimo: event.target.value,
-  });
-};
 
 
   render() {
