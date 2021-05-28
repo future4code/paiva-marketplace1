@@ -11,11 +11,11 @@ export default class Login extends Component {
           <h2>Olá LabeNinja! Faça seu login</h2>
           <div className="card-title">
             <p>Omae, namae wa?</p>
-            <input type="text" placeholder="Seu nome ninja" />
+            <input type="text" placeholder="Digite seu nome ninja..." />
           </div>
           <div className="card-title">
-            <p>Password</p>
-            <input type="password" placeholder="'key'API"/>
+            <p>Senha</p>
+            <input type="password" placeholder="Digite a sua senha..."/>
           </div>
           <button onClick={this.props.confLogin} className="botao-enviar">Fazer Login</button>
         </div>
