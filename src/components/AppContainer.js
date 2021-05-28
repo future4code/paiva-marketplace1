@@ -9,9 +9,6 @@ import Carrinho from "./Carrinho/Carrinho"
 import MeusJobs from './Login/Meus Jobs/MeusJobs';
 import PropostaDeServico from "./PropostaDeServico/PropostaDeServico"
 import { ListaDeServico } from './ListaDeServico/ListaDeServico';
-
-
-
 import axios from "axios"
 
 
@@ -20,14 +17,15 @@ export class AppContainer extends Component {
     pagina: 'pos-login',
      logado: false,
      produtos:[],
-     categoria:""
+     categoria:"",
+     authorization:""
   }
 
   //lógica dos botões para mudar de página\\
   
-  confLogin = () => {
-    this.setState({logado: true})
-    this.setState({pagina: 'proposta'})
+  confLogin = (key) => {
+    this.setState({logado: true, pagina: 'proposta', authorization:key})
+    this.setState({})
   }
 
   vaiParaOCarrinho = () => {
@@ -86,7 +84,7 @@ export class AppContainer extends Component {
   switch (this.state.pagina){
     case 'carrinho': return(<Carrinho/>)
     case 'landingPage': return (<Body/>)
-    case 'proposta': return (<PropostaDeServico/>)
+    case 'proposta': return (<PropostaDeServico authorization={this.state.authorization}/>)
     case 'lista': return (<ListaDeServico produtos={this.state.produtos} categoria={this.state.categoria}/> )
     case 'login': return (<Login confLogin={this.confLogin} />)
     case 'pos-login': return (<MeusJobs/>)
