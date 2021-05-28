@@ -8,105 +8,8 @@ export class ListaDeServico extends React.Component {
 
 state = {
   ordem: "crescente",
-
-
-  produtos: [
-    {
-      title: "Cortar a grama",
-      description: "Manutenção em áreas verdes de até 1000 metros quadrados.",
-      value: 40,
-      quantidade:1,
-      imagem:
-      "https://centraldagrama.com/dist/img/bermuda/large/1-grama-bermuda.jpg",
-      paymentMethods: ["PayPal", "boleto"],
-      dueDate: "2021-12-30",
-      taken: false
-    },
-    {
-      title: "Cortar a grama2",
-      description: "Manutenção em áreas verdes de até 1200 metros quadrados.",
-      value: 50,
-      quantidade:1,
-      imagem:
-      "https://centraldagrama.com/dist/img/bermuda/large/1-grama-bermuda.jpg",
-      paymentMethods: ["PayPal", "boleto"],
-      dueDate: "2021-12-10",
-      taken: false
-    },
-    {
-      title: "Cortar a grama2",
-      description: "Manutenção em áreas verdes de até 1200 metros quadrados.",
-      value: 50,
-      quantidade:1,
-      imagem:
-      "https://centraldagrama.com/dist/img/bermuda/large/1-grama-bermuda.jpg",
-      paymentMethods: ["PayPal", "boleto"],
-      dueDate: "2021-12-10",
-      taken: false
-    },   {
-      title: "Cortar a grama2",
-      description: "Manutenção em áreas verdes de até 1200 metros quadrados.",
-      value: 50,
-      quantidade:1,
-      imagem:
-      "https://centraldagrama.com/dist/img/bermuda/large/1-grama-bermuda.jpg",
-      paymentMethods: ["PayPal", "boleto"],
-      dueDate: "2021-12-10",
-      taken: false
-    },   {
-      title: "Cortar a grama2",
-      description: "Manutenção em áreas verdes de até 1200 metros quadrados.",
-      value: 50,
-      quantidade:1,
-      imagem:
-      "https://centraldagrama.com/dist/img/bermuda/large/1-grama-bermuda.jpg",
-      paymentMethods: ["PayPal", "boleto"],
-      dueDate: "2021-12-10",
-      taken: false
-    },   {
-      title: "Cortar a grama2",
-      description: "Manutenção em áreas verdes de até 1200 metros quadrados.",
-      value: 50,
-      quantidade:1,
-      imagem:
-      "https://centraldagrama.com/dist/img/bermuda/large/1-grama-bermuda.jpg",
-      paymentMethods: ["PayPal", "boleto"],
-      dueDate: "2021-12-10",
-      taken: false
-    },   {
-      title: "Cortar a grama2",
-      description: "Manutenção em áreas verdes de até 1200 metros quadrados.",
-      value: 50,
-      quantidade:1,
-      imagem:
-      "https://centraldagrama.com/dist/img/bermuda/large/1-grama-bermuda.jpg",
-      paymentMethods: ["PayPal", "boleto"],
-      dueDate: "2021-12-10",
-      taken: false
-    },   {
-      title: "Cortar a grama2",
-      description: "Manutenção em áreas verdes de até 1200 metros quadrados.",
-      value: 50,
-      quantidade:1,
-      imagem:
-      "https://centraldagrama.com/dist/img/bermuda/large/1-grama-bermuda.jpg",
-      paymentMethods: ["PayPal", "boleto"],
-      dueDate: "2021-12-10",
-      taken: false
-    },   {
-      title: "Cortar a grama2",
-      description: "Manutenção em áreas verdes de até 1200 metros quadrados.",
-      value: 50,
-      quantidade:1,
-      imagem:
-      "https://centraldagrama.com/dist/img/bermuda/large/1-grama-bermuda.jpg",
-      paymentMethods: ["PayPal", "boleto"],
-      dueDate: "2021-12-10",
-      taken: false
-    },
-  ]
+  produtos: [...this.props.produtos]
 }
-
   render() {
     const listaFiltrada = [...this.state.produtos]
     return (
@@ -155,9 +58,9 @@ state = {
               {/* recebe a lista filtrada e mapea para a visualização */}
               {listaFiltrada.map((produtos)=> {
                   return <ProdutosCard 
-                  imagem={produtos.imagem}
+                  imagem={produtos.url}
                   nome={produtos.title}
-                  valor={produtos.value}
+                  price={produtos.price}
                   id = {produtos.id}
                   addProdutoAoCarrinho = {this.props.addProdutoAoCarrinho}
                   somaProduto = {this.props.somaProduto}

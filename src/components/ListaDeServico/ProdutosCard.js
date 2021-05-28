@@ -13,13 +13,12 @@ export default class ProductsCard extends React.Component {
           <FotoProduto src={this.props.imagem} alt={""} />
           <InfoContainer>
             <p>{this.props.nome}</p>
-            <p>R$ {this.props.valor}</p>
+            <p>R$ {this.props.price}</p>
             <Button
               variant="contained"
               color="secondary"
               onClick={() => this.props.addProdutoAoCarrinho(this.props.id)}
             >
-              <img alt={"icone"} />
               Adicionar ao Carrinho
             </Button>
           </InfoContainer>

@@ -39,6 +39,7 @@ export const ContainerProduto = styled.div`
     display: flex;
     flex-wrap: wrap;
     padding-bottom: 20px;
+    margin: 0 auto;
 `
 
 export const HeaderProduto = styled.div`
@@ -53,10 +54,9 @@ export const ContainerCardProduto = styled.div`
 color: #000072;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  //justify-content: space-around;
+  justify-content: center;
   width: 100%;
-  ma
-  @media(max-width: 600px){
+  @media (max-width:600px){
     grid-template-columns: 1fr;
   }
 `
@@ -67,13 +67,13 @@ export const CardContainer = styled.div`
   background-color: #F7F7F7;
   color: #000072;
   border-radius:5px;
-
+    
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
     box-shadow: 2px 2px 2px 2px #DCDCDC;
     width: 200px;
-    justify-content: center;
+    justify-content: space-between;
     padding: 10px;
     margin: 10px 20px;
     @media(max-width: 600px){
@@ -93,15 +93,13 @@ export const FotoProduto = styled.img`
     width: 100%;
     justify-self: center;
     background-color: white;
-    border: 1px solid #4D4D81,
+    border: 1px solid #4D4D81;
 `
 
 export const InfoContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    }
     img {
         width: 14px;
         color: white;
