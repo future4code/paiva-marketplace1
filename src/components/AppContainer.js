@@ -17,7 +17,7 @@ import axios from "axios"
 
 export class AppContainer extends Component {
  state = {
-    pagina: 'landingPage',
+    pagina: 'pos-login',
      logado: false,
      produtos:[],
      categoria:""
