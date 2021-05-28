@@ -6,9 +6,9 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
 const ContainerBanner = styled.div`
-  width: 90%;
+  width: 100%;
   margin: 10px auto;
-  height: 300px;
+  height: 280px;
 
   .BannerImg {
     height: 100%;

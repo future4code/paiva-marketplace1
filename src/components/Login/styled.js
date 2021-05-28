@@ -9,6 +9,7 @@ flex-direction: column;
 padding: 10px;
 margin: 50px auto;
 align-items: center;
+color:#000072;
 
 h2 {
     :first-child{
@@ -41,8 +42,6 @@ input {
     width: 100%;
     align-items: center;
     padding: 10px;
-    background-color: #000072;
-    color: white;
     font-weight: 700;
     button {
         margin: 0 auto;
