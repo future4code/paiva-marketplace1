@@ -1,5 +1,4 @@
 import React from "react";
-import "./Body.css";
 import styled from 'styled-components'
 import Banner from "../Banner/Banner"
 import { DivVitrine } from "../LandingPage/Vitrine/DivVitrine"

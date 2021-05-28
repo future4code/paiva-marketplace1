@@ -23,6 +23,7 @@ export default class Login extends Component {
           <h2>Olá LabeNinja! Faça seu login</h2>
           <div className="card-title">
             <p>Omae, namae wa?</p>
+
             <input type="text" 
             placeholder="Seu nome ninja" 
             value={this.state.nome}
@@ -35,6 +36,7 @@ export default class Login extends Component {
             placeholder="Coloque aqui sua key da API" 
             value={this.state.key}
             onChange={this.handleKey} />
+
           </div>
           <Button
             variant="contained"
