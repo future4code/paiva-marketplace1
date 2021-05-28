@@ -39,6 +39,7 @@ export const ContainerProduto = styled.div`
     display: flex;
     flex-wrap: wrap;
     padding-bottom: 20px;
+    margin: 0 auto;
 `
 
 export const HeaderProduto = styled.div`
@@ -53,9 +54,9 @@ export const ContainerCardProduto = styled.div`
 color: #000072;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  //justify-content: space-around;
+  justify-content: center;
   width: 100%;
-  @media(max-width: 600px){
+  @media (max-width:600px){
     grid-template-columns: 1fr;
   }
 `
