@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { CardServico } from "./styled"
-import axios from "axios"
+import Button from '@material-ui/core/Button';
+import { theme } from '../../assets/Theme'
+import { ThemeProvider } from '@material-ui/styles';
+
 export default class PropostaDeServico extends Component {
   handleServico = (e) =>{
     this.setState({servico: e.target.value})
@@ -119,6 +122,7 @@ axios.post(url,body, header)
   render() {
     return (
       <CardServico>
+        <ThemeProvider theme={theme}>
         <div className="container">
           <h2>Publique seu Job Conosco</h2>
           <div className="card-title">
@@ -179,8 +183,11 @@ axios.post(url,body, header)
             </div>
           </div>
           <br />
-          <button className="botao-enviar" onClick={this.botaoEnviar} >ENVIAR</button>
+          <Button variant="contained" color="secondary"
+          onClick={this.botaoEnviar} >ENVIAR
+          </Button>
         </div>
+      </ThemeProvider>
       </CardServico >
 
     );

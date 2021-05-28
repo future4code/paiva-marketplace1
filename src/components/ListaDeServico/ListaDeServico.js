@@ -1,6 +1,9 @@
 import React from "react";
 import {ContainerProduto, HeaderProduto, ContainerCardProduto, Filtro, ContainerTotal} from "./styled"
 import ProdutosCard from './ProdutosCard'
+import Button from '@material-ui/core/Button';
+import { theme } from '../../assets/Theme'
+import { ThemeProvider } from '@material-ui/styles';
 
 
 
@@ -69,6 +72,7 @@ filtrar = () => {
     const listaFiltrada = [...this.state.produtos]
     return (
       <ContainerTotal>
+        <ThemeProvider theme={theme}>
         <Filtro>
           <div>
           <h3>Filtrar Produtos:</h3>
@@ -94,7 +98,7 @@ filtrar = () => {
               <option value="Reformas">Reformas</option>
               <option value="Diversos">Diversos</option>
             </select>
-            <button onClick={this.filtrar}>Filtrar</button>
+            <Button variant="contained" color="primary" onClick={this.filtrar}>Filtrar</Button>
           </div>
         </Filtro>
         <ContainerProduto>
@@ -123,6 +127,7 @@ filtrar = () => {
               })}
           </ContainerCardProduto>
         </ContainerProduto>
+        </ThemeProvider>
       </ContainerTotal>
   )
 }
