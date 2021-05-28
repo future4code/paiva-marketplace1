@@ -16,11 +16,16 @@ import axios from "axios"
 
 
 export class AppContainer extends Component {
+
   state = {
     pagina: 'landingPage',
     logado: false,
     produtos: [],
-    categoria: ""
+    categoria: "",
+    carrinho: [],
+    valorTotal: []
+
+
   }
 
   //lógica dos botões para mudar de página\\
@@ -84,10 +89,11 @@ export class AppContainer extends Component {
   // switch case para paginas
   mudaPagina = (() => {
     switch (this.state.pagina) {
-      case 'carrinho': return (<Carrinho />)
+
+      case 'carrinho': return (<Carrinho carrinho={this.state.carrinho} valorTotal={this.state.valorTotal}/>)
       case 'landingPage': return (<Body />)
       case 'proposta': return (<PropostaDeServico />)
-      case 'lista': return (<ListaDeServico produtos={this.state.produtos} categoria={this.state.categoria} />)
+      case 'lista': return (<ListaDeServico produtos={this.state.produtos} categoria={this.state.categoria} addProdutoAoCarrinho={this.addProdutoAoCarrinho} />)
       case 'login': return (<Login confLogin={this.confLogin} />)
       case 'pos-login': return (<MeusJobs />)
       default: return (<Body />)
@@ -95,9 +101,29 @@ export class AppContainer extends Component {
   })
 
 
+  addProdutoAoCarrinho = (produto) => {
+    const carrinhoClone = [...this.state.carrinho]
+    const itemCarrinho = {
+      id: produto.id,
+      title: produto.title,
+      url: produto.url,
+      price: produto.price,
+      description: produto.description,
+      paymentMethods: produto.paymentMethods
+    }
+    const valoresClone = [...this.state.valorTotal]
+    const somaValores = {
+      price: produto.price
+    }
+    const valoresClonado = [...valoresClone, somaValores]
+    const carrinhoClonado = [...carrinhoClone, itemCarrinho]
+    this.setState({ carrinho: carrinhoClonado, valorTotal: valoresClonado })
+  }
+
+
 
   render() {
-    console.log(this.state.categoria)
+    console.log(this.state.carrinho)
     return (
       <div>
         <Header logado={this.state.logado} vaiParaMinhaPagina={this.vaiParaMinhaPagina} vaiParaOCarrinho={this.vaiParaOCarrinho} vaiParaAHome={this.vaiParaAHome} vaiParaOLogin={this.vaiParaOLogin} vaiParaProposta={this.vaiParaProposta} vaiParaEncontrarLista={this.vaiParaEncontrarLista} />
@@ -111,11 +137,12 @@ export class AppContainer extends Component {
           handleBuscarProduto={this.handleBuscarProduto}
           vaiParaEncontrarLista={this.vaiParaEncontrarLista}
           mudaCategoriaServicos={this.mudaCategoriaServicos}
-          categoria={this.state.categoria}
+
+          categora={this.state.categoria}
         />
         <AppContainerDiv>
           {this.mudaPagina()}
-          <Footer/>
+          <Footer />
         </AppContainerDiv>
       </div>
     )
