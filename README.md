@@ -1,7 +1,6 @@
-## Name_of_the_project
+## LabeNinjas
  
-... Description
- 
+Projeto de Market Place para a oferta e procura de serviços para profissionais autônomos.
  
 ## Technology 
  
