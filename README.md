@@ -6,20 +6,16 @@ Projeto de Market Place para a oferta e procura de serviços para profissionais 
  
 Here are the technologies used in this project.
  
-* Ruby version  x.x.x
-* Rails version x.x.x
-* ...
+* JavaScript 
+* React
+* CSS
+* Material Design 
  
- 
-## Services Used
- 
-* Github
-* ...
- 
- 
-## Ruby Gems
-...
- 
+## Servicos Usados:
+
+* Trello:https://trello.com/b/fLV8k6yo/marketplace-1
+
+* Github: 
 ## Getting started
  
 * To install gems:
@@ -50,9 +46,11 @@ Here will be the images and descriptions. Principal content.
 
 * **Adrian Americo**
   
-* **Bruna Sales**
+* **Bruna Nuciato**
  
 * **Camily Quadros**
+
+* **Daniel Ueno**
 
 * **Tiago Brito**
  
