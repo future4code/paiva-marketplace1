@@ -33,7 +33,7 @@ export default class MeusJobs extends Component {
     console.log(this.props)
   const mostraHistorico = this.props.compraFinalizada.map((produto)=>{
     return (
-      <FlexR>
+      <FlexR key={produto.id}>
         <Container>
           <ImgCart src = {produto.url} alt="imagem"/>
           <FlexColuna>
@@ -47,9 +47,8 @@ export default class MeusJobs extends Component {
     )
   })
   const meusProdutos = this.props.meusProdutos.map((produto)=>{
-  console.log(produto)
     return (
-      <FlexR>
+      <FlexR key={produto.id}>
         <Container>
           <ImgCart src = {produto.url} alt="imagem"/>
           <FlexColuna>
@@ -58,7 +57,7 @@ export default class MeusJobs extends Component {
           <h1>Preço: R$ {produto.price}</h1>
          
           </FlexR>
-          <button onclick={() => this.props.apagar(produto.id)}>deletar</button>  
+          <button onClick={() => this.props.apagar(produto.id)}>Remover</button>  
         </FlexColuna>
       </Container>
       </FlexR>
