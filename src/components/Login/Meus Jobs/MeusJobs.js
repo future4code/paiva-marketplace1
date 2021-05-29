@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { CardCarrinho, PrecoTot, FlexR, ImgCart, FlexColuna } from "./styled"
-import Button from '@material-ui/core/Button';
-import { theme } from '../../../assets/Theme'
-import { ThemeProvider } from '@material-ui/styles';
+
+import { CardCarrinho, FlexR, ImgCart, FlexColuna, MostraCarrinho, Container, } from "./styled"
+
 
 export default class MeusJobs extends Component {
   state = {
@@ -25,43 +24,66 @@ export default class MeusJobs extends Component {
       },
     ],
   };
+  componentDidMount() {
+    this.props.meuHistorico()
+   
+  }
+
   render() {
-    const mostracarrinho = this.state.listaDeCompras.map((produto) => {
-      return (
-        <FlexR>
-          <ImgCart src="" alt="imagem" />
-          <FlexColuna>
-            <p>Titulo do produto:{produto.title}</p>
-            <FlexR>
-              <p>Preço: R${produto.price}</p>
-              <p>Pagamentos aceitos:{produto.paymentMethods}</p>
-            </FlexR>
-          </FlexColuna>
-        </FlexR>
-      );
-    });
+  const mostraHistorico = this.props.compraFinalizada.map((produto)=>{
     return (
       <FlexR>
-        <ThemeProvider theme={theme}>
+        <Container>
+          <ImgCart src = {produto.url} alt="imagem"/>
+          <FlexColuna>
+          <h1>Serviço: {produto.title}</h1>
+          <FlexR>
+          <h1>Preço: R$ {produto.price}</h1>
+          </FlexR>
+        </FlexColuna>
+      </Container>
+
+      </FlexR>
+    )
+  })
+  const meusProdutos = this.props.meusProdutos.map((produto)=>{
+    return (
+      <FlexR>
+        <Container>
+          <ImgCart src = {produto.url} alt="imagem"/>
+          <FlexColuna>
+          <h1>Serviço: {produto.title}</h1>
+          <FlexR>
+          <h1>Preço: R$ {produto.price}</h1>
+          </FlexR>
+        </FlexColuna>
+      </Container>
+
+      </FlexR>
+    )
+  })
+    return (
+      <FlexR>
+        
         <CardCarrinho>
-          <h2>Aqui os serviços contratados</h2>
-          <br />
-          <div>{mostracarrinho}</div>
-          <PrecoTot>
-            <p>Prazo</p>
-            <p>Valor Total</p>
-            <Button variant="contained" color="secondary">
-              Finalizar compra
-            </Button>
-          </PrecoTot>
+        <h2>Histórico de serviços contratados:</h2>
+        <br/>
+          <MostraCarrinho>
+            {mostraHistorico}
+          </MostraCarrinho>
+         
         </CardCarrinho>
+
         <CardCarrinho>
-          <h2>
-            Aqui pode ser qqer coisa, da pra unificar com o carrinho de compras
-            ou publicar novos jobs
-          </h2>
+        <h2>Meus anuncios:</h2>
+        <br/>
+          <MostraCarrinho>
+            {meusProdutos}
+          </MostraCarrinho>
+  
         </CardCarrinho>
-        </ThemeProvider>
+
+
       </FlexR>
     );
   }
