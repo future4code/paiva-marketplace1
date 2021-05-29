@@ -15,18 +15,25 @@ import axios from "axios"
 export class AppContainer extends Component {
 
   state = {
-    pagina: "landingPage",
+
+    pagina: 'pos-login',
     logado: false,
     produtos: [],
     categoria: "",
-  };
+    authorization: "",
+    carrinho: [],
+    valorTotal: [],
+    compraFinalizada: [],
+    meusProdutos: []
+  }
 
   //lógica dos botões para mudar de página\\
 
-  confLogin = () => {
-    this.setState({ logado: true });
-    this.setState({ pagina: "proposta" });
-  };
+  confLogin = async (key) => {
+    await this.setState({ logado: true, pagina: 'pos-login', authorization: key })
+    this.meusJobsPublicados()
+  }
+
 
   vaiParaOCarrinho = () => {
     this.setState({ pagina: "carrinho" });
@@ -54,6 +61,27 @@ export class AppContainer extends Component {
 
   vaiParaMinhaPagina = () => {
     this.setState({ pagina: "pos-login" });
+  };
+
+
+  deletarmeusAnuncios = (id) => {
+    const Header = {
+      headers: {
+        Authorization:"61bdcdc0-0989-4725-a3ed-866622e42097"
+      }
+    }
+    const url = `https://labeninjas.herokuapp.com/jobs/${id}`
+    if (window.confirm("Tem certeza?")) {
+      axios
+        .delete(url, Header)
+        .then(() => {
+          alert("Sayonara");
+        })
+        .catch((err) => {
+          alert("Ocorreu um erro tente novamente mais tarde.");
+
+        });
+    }
   };
 
 
@@ -85,23 +113,23 @@ export class AppContainer extends Component {
         this.setState({ produtos: listaTratada });
       })
       .catch((err) => {
+
         alert(err);
       });
   };
   componentDidMount() {
     this.getListaDeProdutos();
-
   }
 
-  meuHistorico= () =>{
-   
-   const myStuff = this.state.produtos.filter((produto) =>{
-     return produto.taken === true    
-   })
-   this.setState({compraFinalizada:myStuff})
-    console.log(this.state.compraFinalizada,"comprafinalizada")
+  meuHistorico = () => {
+    const myStuff = this.state.produtos.filter((produto) => {
+      return produto.taken === true
+    })
+    this.setState({ compraFinalizada: myStuff })
+    console.log(this.state.compraFinalizada, "comprafinalizada")
   }
   // switch case para paginas
+
 
   meusJobsPublicados = async ()=>{
     const Header = {
@@ -110,7 +138,7 @@ export class AppContainer extends Component {
       }
     }
     const url = "https://labeninjas.herokuapp.com/jobs"
-   await axios.get(url, Header)
+    await axios.get(url, Header)
       .then((res) => {
         const listaTratada = res.data.jobs.map((separa) => {
           const textoSplit = separa.title.split("&&&&")
@@ -121,22 +149,21 @@ export class AppContainer extends Component {
       .catch((err) => {
         alert(err)
       })
-      const novaLista = [...this.state.produtos]
-      for(let i=0; i < this.state.meusProdutos.length; i++)
-      {
-        novaLista.push(this.state.meusProdutos[i])
-      }
-      this.setState({produtos:novaLista})
+    const novaLista = [...this.state.produtos]
+    for (let i = 0; i < this.state.meusProdutos.length; i++) {
+      novaLista.push(this.state.meusProdutos[i])
+    }
+    this.setState({ produtos: novaLista })
   }
   mudaPagina = (() => {
     switch (this.state.pagina) {
 
-      case 'carrinho': return (<Carrinho carrinho={this.state.carrinho} valorTotal={this.state.valorTotal} excluirDoCarrinho={this.excluirDoCarrinho}comprarTudo={this.comprarTudo}/>)
+      case 'carrinho': return (<Carrinho carrinho={this.state.carrinho} valorTotal={this.state.valorTotal} excluirDoCarrinho={this.excluirDoCarrinho} comprarTudo={this.comprarTudo} />)
       case 'landingPage': return (<Body />)
       case 'proposta': return (<PropostaDeServico />)
       case 'lista': return (<ListaDeServico produtos={this.state.produtos} categoria={this.state.categoria} addProdutoAoCarrinho={this.addProdutoAoCarrinho} />)
       case 'login': return (<Login confLogin={this.confLogin} />)
-      case 'pos-login': return (<MeusJobs compraFinalizada={this.state.compraFinalizada} meuHistorico= {this.meuHistorico} meusProdutos={this.state.meusProdutos}/>)
+      case 'pos-login': return (<MeusJobs compraFinalizada={this.state.compraFinalizada} meuHistorico={this.meuHistorico} meusProdutos={this.state.meusProdutos} apagar={this.deletarmeusAnuncios} />)
       default: return (<Body />)
     }
   })
@@ -156,43 +183,43 @@ export class AppContainer extends Component {
       price: produto.price
     }
     const valoresClonado = [...valoresClone, somaValores]
-  
+
     const carrinhoClonado = [...carrinhoClone, itemCarrinho]
     this.setState({ carrinho: carrinhoClonado, valorTotal: valoresClonado })
     alert("Produto Adicionado com sucesso")
   }
   excluirDoCarrinho = (idProduto) => {
     let carrinhoAtual = [...this.state.carrinho]
-    let carrinhoNovo=carrinhoAtual.filter((tira)=>{
-      return !(tira.id===idProduto)
+    let carrinhoNovo = carrinhoAtual.filter((tira) => {
+      return !(tira.id === idProduto)
     })
-     this.setState({carrinho:carrinhoNovo})
+    this.setState({ carrinho: carrinhoNovo })
   }
-  comprarTudo = () =>{
+  comprarTudo = () => {
     let carrinhoAtual = [...this.state.carrinho]
     const header = {
-     headers : {
-    Authorization: this.state.authorization
-  }
-}
-  const body = {
-    taken: true
-  }
-if(this.state.logado) {
-  carrinhoAtual.map((produto)=>{
-    const url = `https://labeninjas.herokuapp.com/jobs/${produto.id}`
-    axios.post(url,body,header)
-    .then(()=>{
-      this.excluirDoCarrinho(produto.id)
-    })
-    .catch((err)=>{
-      alert(err)
-    })
-  })
-  alert("Esperamos que sua experiência tenha sido ótima!")
- } else {
-  alert("Por favor, faça login para completar sua compra")
-}
+      headers: {
+        Authorization: this.state.authorization
+      }
+    }
+    const body = {
+      taken: true
+    }
+    if (this.state.logado) {
+      carrinhoAtual.map((produto) => {
+        const url = `https://labeninjas.herokuapp.com/jobs/${produto.id}`
+        axios.post(url, body, header)
+          .then(() => {
+            this.excluirDoCarrinho(produto.id)
+          })
+          .catch((err) => {
+            alert(err)
+          })
+      })
+      alert("Esperamos que sua experiência tenha sido ótima!")
+    } else {
+      alert("Por favor, faça login para completar sua compra")
+    }
   }
   render() {
     return (
