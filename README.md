@@ -39,24 +39,24 @@ Here will be the images and descriptions. Principal content.
   - Here will be the features.
  
  
-## Links
- 
-  - Link of deployed application: (if has been deployed)
-  - Repository: https://link_of_repository
-    - In case of sensitive bugs like security vulnerabilities, please contact
-      YOUR EMAIL directly instead of using issue tracker. We value your effort
-      to improve the security and privacy of this project!
- 
+
  
 ## Versioning
  
 1.0.0.0
  
  
-## Authors
+## Equipe:
+
+* **Adrian Americo**
+  
+* **Bruna Sales**
  
-* **YOUR NAME**: @YOUR_GITHUB_NICKNAME (https://github.com/YOUR_GITHUB_NICKNAME)
+* **Camily Quadros**
+
+* **Tiago Brito**
+ 
  
  
 Please follow github and join us!
-Thanks to visiting me and good coding!
+Thanks to visiting us and good coding!
