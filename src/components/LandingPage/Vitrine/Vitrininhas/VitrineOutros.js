@@ -9,7 +9,7 @@ import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
 const ContainerVitrine = styled.div`
  width: 19%;
-  height: 30vh;
+  height: 35vh;
   color: #4D4D81;
 
   .Expositor {
@@ -21,6 +21,8 @@ const ContainerVitrine = styled.div`
     display: flex;
     border: 3px solid #000072;
     border-radius:2px;
+    border-radius:5px;
+    box-shadow: 5px 5px 5px 5px #DCDCDC;
   }
   .DivBotao1 {
     flex: 4%;
@@ -93,7 +95,7 @@ function VitrineOutros() {
 
         <div className="Centro">
           <h6>{anunciosOutros[currImg].title}</h6>
-          <p>{anunciosOutros[currImg].price} |<br/> {anunciosOutros[currImg].contact}</p>
+          <p>{anunciosOutros[currImg].price} <br/> {anunciosOutros[currImg].contact}</p>
           </div>
 
         <div className="DivBotao2" 

@@ -71,8 +71,9 @@ export class ListaDeServico extends React.Component {
   }
 
   render() {
-    const produtosFiltrados =[this.props.produtos]
-    const listaFiltrada = [...this.state.produtos]
+
+       const listaFiltrada = [...this.state.produtos]
+
     return (
       <ContainerTotal>
         <ThemeProvider theme={theme}>
