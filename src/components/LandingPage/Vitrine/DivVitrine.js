@@ -6,6 +6,7 @@ import styled from "styled-components";
 import React from "react";
 
 
+
 const ContainerVitrine = styled.div`
 display: flex;
 justify-content: space-between;
@@ -15,14 +16,16 @@ gap:0;
 padding:4vh;
 `
 
+
+
 export class DivVitrine extends React.Component{
-render(){
+ render(){
 
 
     return(
         <ContainerVitrine>
-            <Vitrine/><VitrineAulas/><VitrineOutros/><VitrineServicos/>
-        </ContainerVitrine>
+            <Vitrine /><VitrineAulas/><VitrineOutros/><VitrineServicos/>
+          </ContainerVitrine>
         
     )}
 }

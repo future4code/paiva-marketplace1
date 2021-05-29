@@ -9,115 +9,141 @@ import Carrinho from "./Carrinho/Carrinho"
 import MeusJobs from './Login/Meus Jobs/MeusJobs';
 import PropostaDeServico from "./PropostaDeServico/PropostaDeServico"
 import { ListaDeServico } from './ListaDeServico/ListaDeServico';
-
-
-
 import axios from "axios"
 
 
 export class AppContainer extends Component {
- state = {
-    pagina: 'landingPage',
-     logado: false,
-     produtos:[],
-     categoria:""
-  }
+  state = {
+    pagina: "landingPage",
+    logado: false,
+    produtos: [],
+    categoria: "",
+  };
 
   //lógica dos botões para mudar de página\\
-  
+
   confLogin = () => {
-    this.setState({logado: true})
-    this.setState({pagina: 'proposta'})
-  }
+    this.setState({ logado: true });
+    this.setState({ pagina: "proposta" });
+  };
 
   vaiParaOCarrinho = () => {
-    this.setState({pagina: 'carrinho'})
-  }
+    this.setState({ pagina: "carrinho" });
+  };
 
   vaiParaAHome = () => {
-    this.setState({pagina: 'landingPage'})
-  }
+    this.setState({ pagina: "landingPage" });
+  };
 
   vaiParaOLogin = () => {
-    this.setState({pagina: 'login'})
-  }
+    this.setState({ pagina: "login" });
+  };
 
   vaiParaProposta = () => {
-    this.setState({pagina: 'proposta'})
-  }
+    this.setState({ pagina: "proposta" });
+  };
 
   vaiParaEncontrarLista = () => {
-    this.setState({pagina: 'lista'})
-  }
-  
-  mudaCategoriaServicos = (categoriaServicos) => {
-    this.setState({categoria: categoriaServicos})
-  }
+    this.setState({ pagina: "lista" });
+  };
 
-  vaiParaMinhaPagina = () =>{
-    this.setState({pagina: 'pos-login'})
-  }
+  mudaCategoriaServicos = (categoriaServicos) => {
+    this.setState({ categoria: categoriaServicos });
+  };
+
+  vaiParaMinhaPagina = () => {
+    this.setState({ pagina: "pos-login" });
+  };
 
   getListaDeProdutos = () => {
     const Header = {
-      headers : {
-        Authorization: "61bdcdc0-0989-4725-a3ed-866622e42097"
-      }
-    }
-  const url = "https://labeninjas.herokuapp.com/jobs"
-    axios.get(url, Header)
-    .then((res) =>{
-      const listaTratada = res.data.jobs.map((separa)=>{
-        const textoSplit = separa.title.split("&&&&")
-        return {title: textoSplit[0], catServ: textoSplit[1], url:textoSplit[2], id: separa.id, description: separa.description, price: separa.price, paymentMethods: separa.paymentMethods, dueDate: separa.dueDate, taken: separa.taken}
+      headers: {
+        Authorization: "61bdcdc0-0989-4725-a3ed-866622e42097",
+      },
+    };
+    const url = "https://labeninjas.herokuapp.com/jobs";
+    axios
+      .get(url, Header)
+      .then((res) => {
+        const listaTratada = res.data.jobs.map((separa) => {
+          const textoSplit = separa.title.split("&&&&");
+          return {
+            title: textoSplit[0],
+            catServ: textoSplit[1],
+            url: textoSplit[2],
+            id: separa.id,
+            description: separa.description,
+            price: separa.price,
+            paymentMethods: separa.paymentMethods,
+            dueDate: separa.dueDate,
+            taken: separa.taken,
+          };
+        });
+        this.setState({ produtos: listaTratada });
       })
-      this.setState({produtos:listaTratada})
-    })
-    .catch((err)=>{
-      alert(err)
-    })
-  }
+      .catch((err) => {
+        alert(err);
+      });
+  };
   componentDidMount() {
-    this.getListaDeProdutos()
+    this.getListaDeProdutos();
   }
 
   // switch case para paginas
- mudaPagina = (() => {
-  switch (this.state.pagina){
-    case 'carrinho': return(<Carrinho/>)
-    case 'landingPage': return (<Body/>)
-    case 'proposta': return (<PropostaDeServico/>)
-    case 'lista': return (<ListaDeServico produtos={this.state.produtos} categoria={this.state.categoria}/> )
-    case 'login': return (<Login confLogin={this.confLogin} />)
-    case 'pos-login': return (<MeusJobs/>)
-    default: return (<Body/>)
-  }
-})
-
-
+  mudaPagina = () => {
+    switch (this.state.pagina) {
+      case "carrinho":
+        return <Carrinho />;
+      case "landingPage":
+        return <Body />;
+      case "proposta":
+        return <PropostaDeServico />;
+      case "lista":
+        return (
+          <ListaDeServico
+            produtos={this.state.produtos}
+            categoria={this.state.categoria}
+          />
+        );
+      case "login":
+        return <Login confLogin={this.confLogin} />;
+      case "pos-login":
+        return <MeusJobs />;
+      default:
+        return <Body />;
+    }
+  };
 
   render() {
-    console.log(this.state.categoria)
+    console.log(this.state.categoria);
     return (
       <div>
-<Header logado={this.state.logado} vaiParaMinhaPagina={this.vaiParaMinhaPagina} vaiParaOCarrinho = {this.vaiParaOCarrinho} vaiParaAHome = {this.vaiParaAHome} vaiParaOLogin = {this.vaiParaOLogin} vaiParaProposta = {this.vaiParaProposta} vaiParaEncontrarLista = {this.vaiParaEncontrarLista}/>
-      
-      <FiltroServicos 
-        valorMinimo={this.state.valorMinimo} //enviando as informaçoes de filtro para o FIltroServiços\\ 
-        valorMaximo={this.state.valorMaximo}
-        nomeProduto={this.state.buscarProduto}
-        handleValorMaximo={this.handleValorMaximo}
-        handleValorMinimo={this.handleValorMinimo}
-        handleBuscarProduto={this.handleBuscarProduto}
-        vaiParaEncontrarLista={this.vaiParaEncontrarLista}
-        mudaCategoriaServicos={this.mudaCategoriaServicos}
-        categora={this.state.categoria}
-      />
-      <AppContainerDiv>
-        {this.mudaPagina()}
-        <Footer/>
-      </AppContainerDiv>
-</div>
-    )
+        <Header
+          logado={this.state.logado}
+          vaiParaMinhaPagina={this.vaiParaMinhaPagina}
+          vaiParaOCarrinho={this.vaiParaOCarrinho}
+          vaiParaAHome={this.vaiParaAHome}
+          vaiParaOLogin={this.vaiParaOLogin}
+          vaiParaProposta={this.vaiParaProposta}
+          vaiParaEncontrarLista={this.vaiParaEncontrarLista}
+        />
+
+        <FiltroServicos
+          valorMinimo={this.state.valorMinimo} //enviando as informaçoes de filtro para o FIltroServiços\\
+          valorMaximo={this.state.valorMaximo}
+          nomeProduto={this.state.buscarProduto}
+          handleValorMaximo={this.handleValorMaximo}
+          handleValorMinimo={this.handleValorMinimo}
+          handleBuscarProduto={this.handleBuscarProduto}
+          vaiParaEncontrarLista={this.vaiParaEncontrarLista}
+          mudaCategoriaServicos={this.mudaCategoriaServicos}
+          categora={this.state.categoria}
+        />
+        <AppContainerDiv>
+          {this.mudaPagina()}
+          <Footer />
+        </AppContainerDiv>
+      </div>
+    );
   }
 }

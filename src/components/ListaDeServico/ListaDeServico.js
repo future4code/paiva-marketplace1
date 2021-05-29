@@ -69,8 +69,7 @@ filtrar = () => {
 }
 
   render() {
-    const categoria =() =>{ this.props.categoria}
-    const listaFiltrada = [...this.state.produtos]
+       const listaFiltrada = [...this.state.produtos]
     return (
       <ContainerTotal>
         <ThemeProvider theme={theme}>
