@@ -30,12 +30,11 @@ export default class MeusJobs extends Component {
   }
 
   render() {
-  const mostracarrinho = this.props.compraFinalizada.map((produto)=>{
-    console.log("oie")
+  const mostraHistorico = this.props.compraFinalizada.map((produto)=>{
     return (
       <FlexR>
         <Container>
-          <ImgCart src = "" alt="imagem"/>
+          <ImgCart src = {produto.url} alt="imagem"/>
           <FlexColuna>
           <h1>Serviço: {produto.title}</h1>
           <FlexR>
@@ -47,7 +46,22 @@ export default class MeusJobs extends Component {
       </FlexR>
     )
   })
-  
+  const meusProdutos = this.props.meusProdutos.map((produto)=>{
+    return (
+      <FlexR>
+        <Container>
+          <ImgCart src = {produto.url} alt="imagem"/>
+          <FlexColuna>
+          <h1>Serviço: {produto.title}</h1>
+          <FlexR>
+          <h1>Preço: R$ {produto.price}</h1>
+          </FlexR>
+        </FlexColuna>
+      </Container>
+
+      </FlexR>
+    )
+  })
     return (
       <FlexR>
         
@@ -55,7 +69,7 @@ export default class MeusJobs extends Component {
         <h2>Histórico de serviços contratados:</h2>
         <br/>
           <MostraCarrinho>
-            {mostracarrinho}
+            {mostraHistorico}
           </MostraCarrinho>
          
         </CardCarrinho>
@@ -64,7 +78,7 @@ export default class MeusJobs extends Component {
         <h2>Meus anuncios:</h2>
         <br/>
           <MostraCarrinho>
-            {mostracarrinho}
+            {meusProdutos}
           </MostraCarrinho>
   
         </CardCarrinho>
