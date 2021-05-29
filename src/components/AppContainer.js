@@ -22,13 +22,15 @@ export class AppContainer extends Component {
      authorization:"",
      carrinho: [],
      valorTotal: [],
-     compraFinalizada:[]
+     compraFinalizada:[],
+     meusProdutos:[]
   }
 
   //lógica dos botões para mudar de página\\
   
-  confLogin = (key) => {
-    this.setState({logado: true, pagina: 'pos-login', authorization:key})
+  confLogin = async (key) => {
+   await this.setState({logado: true, pagina: 'pos-login', authorization:key})
+    this.meusJobsPublicados()
   }
 
   vaiParaOCarrinho = () => {
@@ -88,15 +90,38 @@ export class AppContainer extends Component {
 
   meuHistorico= () =>{
    
-   const myStuff = this.state.produtos.map((produto) =>{
-     return produto.taken === true
-     this.setState({compraFinalizada:myStuff})
-     
+   const myStuff = this.state.produtos.filter((produto) =>{
+     return produto.taken === true    
    })
-    console.log(this.state.compraFinalizada)
+   this.setState({compraFinalizada:myStuff})
+    console.log(this.state.compraFinalizada,"comprafinalizada")
   }
   // switch case para paginas
-
+  meusJobsPublicados = async ()=>{
+    const Header = {
+      headers: {
+        Authorization: this.state.authorization
+      }
+    }
+    const url = "https://labeninjas.herokuapp.com/jobs"
+   await axios.get(url, Header)
+      .then((res) => {
+        const listaTratada = res.data.jobs.map((separa) => {
+          const textoSplit = separa.title.split("&&&&")
+          return { title: textoSplit[0], catServ: textoSplit[1], url: textoSplit[2], id: separa.id, description: separa.description, price: separa.price, paymentMethods: separa.paymentMethods, dueDate: separa.dueDate, taken: separa.taken }
+        })
+        this.setState({ meusProdutos: listaTratada })
+      })
+      .catch((err) => {
+        alert(err)
+      })
+      const novaLista = [...this.state.produtos]
+      for(let i=0; i < this.state.meusProdutos.length; i++)
+      {
+        novaLista.push(this.state.meusProdutos[i])
+      }
+      this.setState({produtos:novaLista})
+  }
   mudaPagina = (() => {
     switch (this.state.pagina) {
 
@@ -105,7 +130,7 @@ export class AppContainer extends Component {
       case 'proposta': return (<PropostaDeServico />)
       case 'lista': return (<ListaDeServico produtos={this.state.produtos} categoria={this.state.categoria} addProdutoAoCarrinho={this.addProdutoAoCarrinho} />)
       case 'login': return (<Login confLogin={this.confLogin} />)
-      case 'pos-login': return (<MeusJobs compraFinalizada={this.state.compraFinalizada} meuHistorico= {this.meuHistorico}/>)
+      case 'pos-login': return (<MeusJobs compraFinalizada={this.state.compraFinalizada} meuHistorico= {this.meuHistorico} meusProdutos={this.state.meusProdutos}/>)
       default: return (<Body />)
     }
   })
