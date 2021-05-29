@@ -14,78 +14,83 @@ import axios from "axios"
 
 export class AppContainer extends Component {
 
- state = {
-    pagina: 'pos-login',
-     logado: false,
-     produtos:[],
-     categoria:"",
-     authorization:"",
-     carrinho: [],
-     valorTotal: [],
-     compraFinalizada:[],
-     meusProdutos:[]
-  }
+  state = {
+    pagina: "landingPage",
+    logado: false,
+    produtos: [],
+    categoria: "",
+  };
 
   //lógica dos botões para mudar de página\\
-  
-  confLogin = async (key) => {
-   await this.setState({logado: true, pagina: 'pos-login', authorization:key})
-    this.meusJobsPublicados()
-  }
+
+  confLogin = () => {
+    this.setState({ logado: true });
+    this.setState({ pagina: "proposta" });
+  };
 
   vaiParaOCarrinho = () => {
-    this.setState({ pagina: 'carrinho' })
-  }
+    this.setState({ pagina: "carrinho" });
+  };
 
   vaiParaAHome = () => {
-    this.setState({ pagina: 'landingPage' })
-  }
+    this.setState({ pagina: "landingPage" });
+  };
 
   vaiParaOLogin = () => {
-    this.setState({ pagina: 'login' })
-  }
+    this.setState({ pagina: "login" });
+  };
 
   vaiParaProposta = () => {
-    this.setState({ pagina: 'proposta' })
-  }
+    this.setState({ pagina: "proposta" });
+  };
 
   vaiParaEncontrarLista = () => {
-    this.setState({ pagina: 'lista' })
-  }
-
+    this.setState({ pagina: "lista" });
+  };
 
   mudaCategoriaServicos = (categoriaServicos) => {
-    this.setState({ categoria: categoriaServicos })
-  }
+    this.setState({ categoria: categoriaServicos });
+  };
 
   vaiParaMinhaPagina = () => {
-    this.setState({ pagina: 'pos-login' })
-  }
+    this.setState({ pagina: "pos-login" });
+  };
+
 
   getListaDeProdutos = () => {
     const Header = {
       headers: {
-        Authorization: "61bdcdc0-0989-4725-a3ed-866622e42097"
-      }
-    }
-    const url = "https://labeninjas.herokuapp.com/jobs"
-    axios.get(url, Header)
+
+        Authorization: "61bdcdc0-0989-4725-a3ed-866622e42097",
+      },
+    };
+    const url = "https://labeninjas.herokuapp.com/jobs";
+    axios
+      .get(url, Header)
       .then((res) => {
         const listaTratada = res.data.jobs.map((separa) => {
-          const textoSplit = separa.title.split("&&&&")
-          return { title: textoSplit[0], catServ: textoSplit[1], url: textoSplit[2], id: separa.id, description: separa.description, price: separa.price, paymentMethods: separa.paymentMethods, dueDate: separa.dueDate, taken: separa.taken }
-        })
-        this.setState({ produtos: listaTratada })
+          const textoSplit = separa.title.split("&&&&");
+          return {
+            title: textoSplit[0],
+            catServ: textoSplit[1],
+            url: textoSplit[2],
+            id: separa.id,
+            description: separa.description,
+            price: separa.price,
+            paymentMethods: separa.paymentMethods,
+            dueDate: separa.dueDate,
+            taken: separa.taken,
+          };
+        });
+        this.setState({ produtos: listaTratada });
       })
       .catch((err) => {
-        alert(err)
-      })
-      
-    }
-
+        alert(err);
+      });
+  };
   componentDidMount() {
-    this.getListaDeProdutos()
-   
+    this.getListaDeProdutos();
+
   }
 
   meuHistorico= () =>{
@@ -97,6 +102,7 @@ export class AppContainer extends Component {
     console.log(this.state.compraFinalizada,"comprafinalizada")
   }
   // switch case para paginas
+
   meusJobsPublicados = async ()=>{
     const Header = {
       headers: {
@@ -195,6 +201,7 @@ if(this.state.logado) {
 
         <FiltroServicos
           valorMinimo={this.state.valorMinimo} //enviando as informaçoes de filtro para o FIltroServiços\\ 
+
           valorMaximo={this.state.valorMaximo}
           nomeProduto={this.state.buscarProduto}
           handleValorMaximo={this.handleValorMaximo}
@@ -202,7 +209,6 @@ if(this.state.logado) {
           handleBuscarProduto={this.handleBuscarProduto}
           vaiParaEncontrarLista={this.vaiParaEncontrarLista}
           mudaCategoriaServicos={this.mudaCategoriaServicos}
-
           categora={this.state.categoria}
         />
         <AppContainerDiv>
@@ -210,6 +216,7 @@ if(this.state.logado) {
           <Footer />
         </AppContainerDiv>
       </div>
-    )
+    );
+
   }
 }
