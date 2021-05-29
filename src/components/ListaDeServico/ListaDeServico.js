@@ -121,13 +121,14 @@ export class ListaDeServico extends React.Component {
             <ContainerCardProduto>
               {/* recebe a lista filtrada e mapea para a visualização */}
               {listaFiltrada.map((produtos) => {
+                const valorReal = produtos.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
                   return (
                   <ThemeProvider theme={theme} key={produtos.id}>
                     <CardContainer>
-                      <FotoProduto src={produtos.url} alt={""} />
+                      <FotoProduto src={produtos.url} alt="" />
                       <InfoContainer>
                         <p>{produtos.title}</p>
-                        <p>{produtos.price}</p>
+                        <p>{valorReal}</p>
                         <Button
                           variant="contained"
                           color="secondary"
