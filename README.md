@@ -13,9 +13,12 @@ Here are the technologies used in this project.
  
 ## Servicos Usados:
 
+* Documentação da API: https://documenter.getpostman.com/view/9133542/TzXukJkY#9a841f0f-610b-4814-949e-a683f6d60d69
+* 
 * Trello: https://trello.com/b/fLV8k6yo/marketplace-1
 
 * Github: https://github.com/future4code/paiva-marketplace1/
+
 ## Getting started
  
 
