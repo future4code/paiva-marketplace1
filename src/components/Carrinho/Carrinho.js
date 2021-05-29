@@ -6,7 +6,6 @@ import { ThemeProvider } from '@material-ui/styles';
 
 export default class Carrinho extends Component {
 
-
   changeTotalValue = () => {
     let valorTotal = 0
     for (let prod of this.props.valorTotal) {
@@ -16,6 +15,7 @@ export default class Carrinho extends Component {
 }
 
   render() {
+    console.log(this.props.carrinho)
     const mostracarrinho = this.props.carrinho.map((produto) => {
       const valorReal = produto.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
       return (
@@ -25,9 +25,8 @@ export default class Carrinho extends Component {
             <h3>{produto.title}</h3>
             <p>{produto.description}</p>
             <p>Pagamento: {produto.paymentMethods}</p>
-            <span onClick={null}>Excluir</span>
+            <span onClick={()=>this.props.excluirDoCarrinho(produto.id)}>Excluir</span>
           </div>
-
           <div className="valor-produto">
             <span>{valorReal}</span>
           </div>
@@ -40,7 +39,7 @@ export default class Carrinho extends Component {
     return (
       <CardCarrinho>
         <div className="carrinho-area">
-          <h4>Carrinho ({this.props.carrinho.lenght})</h4>
+          <h4>Carrinho</h4>
           {mostracarrinho}
         </div>
 
@@ -52,7 +51,7 @@ export default class Carrinho extends Component {
         </PrecoTotal>
         <div className="button">
           <ThemeProvider theme={theme}>
-            <Button variant="contained" color="secondary" onClick={null}>
+            <Button variant="contained" color="secondary" onClick={this.props.comprarTudo}>
               Comprar tudo
             </Button>
           </ThemeProvider>
