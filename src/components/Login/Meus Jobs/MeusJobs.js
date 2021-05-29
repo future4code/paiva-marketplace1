@@ -24,8 +24,14 @@ export default class MeusJobs extends Component {
       },
     ],
   };
+  componentDidMount() {
+    this.props.meuHistorico()
+   
+  }
+
   render() {
-  const mostracarrinho = this.state.listaDeCompras.map((produto)=>{
+  const mostracarrinho = this.props.compraFinalizada.map((produto)=>{
+    console.log("oie")
     return (
       <FlexR>
         <Container>
@@ -41,6 +47,7 @@ export default class MeusJobs extends Component {
       </FlexR>
     )
   })
+  
     return (
       <FlexR>
         

@@ -21,7 +21,8 @@ export class AppContainer extends Component {
      categoria:"",
      authorization:"",
      carrinho: [],
-     valorTotal: []
+     valorTotal: [],
+     compraFinalizada:[]
   }
 
   //lógica dos botões para mudar de página\\
@@ -77,11 +78,23 @@ export class AppContainer extends Component {
       .catch((err) => {
         alert(err)
       })
-  }
+      
+    }
+
   componentDidMount() {
     this.getListaDeProdutos()
+   
   }
 
+  meuHistorico= () =>{
+   
+   const myStuff = this.state.produtos.map((produto) =>{
+     return produto.taken === true
+     this.setState({compraFinalizada:myStuff})
+     
+   })
+    console.log(this.state.compraFinalizada)
+  }
   // switch case para paginas
 
   mudaPagina = (() => {
@@ -92,7 +105,7 @@ export class AppContainer extends Component {
       case 'proposta': return (<PropostaDeServico />)
       case 'lista': return (<ListaDeServico produtos={this.state.produtos} categoria={this.state.categoria} addProdutoAoCarrinho={this.addProdutoAoCarrinho} />)
       case 'login': return (<Login confLogin={this.confLogin} />)
-      case 'pos-login': return (<MeusJobs />)
+      case 'pos-login': return (<MeusJobs compraFinalizada={this.state.compraFinalizada} meuHistorico= {this.meuHistorico}/>)
       default: return (<Body />)
     }
   })
