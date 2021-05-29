@@ -18,7 +18,6 @@ export class ListaDeServico extends React.Component {
     todosOsProdutos: [...this.props.produtos],
     select: "",
     carrinho: []
-
   }
 
   //componentDidMount () {this.filtrar()}
@@ -122,7 +121,7 @@ export class ListaDeServico extends React.Component {
               {listaFiltrada.map((produtos) => {
                 const price = produtos.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
                 return (
-                  <ThemeProvider theme={theme}>
+                  <ThemeProvider theme={theme} key={produtos.id}>
                     <CardContainer>
                       <FotoProduto src={produtos.url} alt={""} />
                       <InfoContainer>
