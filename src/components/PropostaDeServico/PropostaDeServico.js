@@ -100,7 +100,6 @@ const body = {
   paymentMethods: [this.state.boleto,this.state.debito,this.state.pix,this.state.aVista,this.state.credito],
   dueDate:this.state.dueToDate
 }
-console.log(body)
 axios.post(url,body, header)
 .then((res) =>{
  alert("OMEDETOOOU")

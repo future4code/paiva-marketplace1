@@ -19,7 +19,9 @@ export class AppContainer extends Component {
      logado: false,
      produtos:[],
      categoria:"",
-     authorization:""
+     authorization:"",
+     carrinho: [],
+     valorTotal: []
   }
 
   //lógica dos botões para mudar de página\\
@@ -97,7 +99,6 @@ export class AppContainer extends Component {
     }
   })
 
-
   addProdutoAoCarrinho = (produto) => {
     const carrinhoClone = [...this.state.carrinho]
     const itemCarrinho = {
@@ -113,13 +114,12 @@ export class AppContainer extends Component {
       price: produto.price
     }
     const valoresClonado = [...valoresClone, somaValores]
+  
     const carrinhoClonado = [...carrinhoClone, itemCarrinho]
     this.setState({ carrinho: carrinhoClonado, valorTotal: valoresClonado })
-
   }
 
   render() {
-    console.log(this.state.carrinho)
     return (
       <div>
         <Header logado={this.state.logado} vaiParaMinhaPagina={this.vaiParaMinhaPagina} vaiParaOCarrinho={this.vaiParaOCarrinho} vaiParaAHome={this.vaiParaAHome} vaiParaOLogin={this.vaiParaOLogin} vaiParaProposta={this.vaiParaProposta} vaiParaEncontrarLista={this.vaiParaEncontrarLista} />
