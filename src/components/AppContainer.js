@@ -27,9 +27,7 @@ export class AppContainer extends Component {
   //lógica dos botões para mudar de página\\
   
   confLogin = (key) => {
-    this.setState({logado: true, pagina: 'proposta', authorization:key})
-    this.setState({})
-
+    this.setState({logado: true, pagina: 'pos-login', authorization:key})
   }
 
   vaiParaOCarrinho = () => {
@@ -89,7 +87,7 @@ export class AppContainer extends Component {
   mudaPagina = (() => {
     switch (this.state.pagina) {
 
-      case 'carrinho': return (<Carrinho carrinho={this.state.carrinho} valorTotal={this.state.valorTotal}/>)
+      case 'carrinho': return (<Carrinho carrinho={this.state.carrinho} valorTotal={this.state.valorTotal} excluirDoCarrinho={this.excluirDoCarrinho}comprarTudo={this.comprarTudo}/>)
       case 'landingPage': return (<Body />)
       case 'proposta': return (<PropostaDeServico />)
       case 'lista': return (<ListaDeServico produtos={this.state.produtos} categoria={this.state.categoria} addProdutoAoCarrinho={this.addProdutoAoCarrinho} />)
@@ -117,8 +115,41 @@ export class AppContainer extends Component {
   
     const carrinhoClonado = [...carrinhoClone, itemCarrinho]
     this.setState({ carrinho: carrinhoClonado, valorTotal: valoresClonado })
+    alert("Produto Adicionado com sucesso")
   }
-
+  excluirDoCarrinho = (idProduto) => {
+    let carrinhoAtual = [...this.state.carrinho]
+    let carrinhoNovo=carrinhoAtual.filter((tira)=>{
+      return !(tira.id===idProduto)
+    })
+     this.setState({carrinho:carrinhoNovo})
+  }
+  comprarTudo = () =>{
+    let carrinhoAtual = [...this.state.carrinho]
+    const header = {
+     headers : {
+    Authorization: this.state.authorization
+  }
+}
+  const body = {
+    taken: true
+  }
+if(this.state.logado) {
+  carrinhoAtual.map((produto)=>{
+    const url = `https://labeninjas.herokuapp.com/jobs/${produto.id}`
+    axios.post(url,body,header)
+    .then(()=>{
+      this.excluirDoCarrinho(produto.id)
+    })
+    .catch((err)=>{
+      alert(err)
+    })
+  })
+  alert("Esperamos que sua experiência tenha sido ótima!")
+ } else {
+  alert("Por favor, faça login para completar sua compra")
+}
+  }
   render() {
     return (
       <div>

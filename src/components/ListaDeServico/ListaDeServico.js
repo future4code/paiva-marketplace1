@@ -71,6 +71,7 @@ export class ListaDeServico extends React.Component {
   }
 
   render() {
+    const produtosFiltrados =[this.props.produtos]
     const listaFiltrada = [...this.state.produtos]
     return (
       <ContainerTotal>
@@ -119,14 +120,13 @@ export class ListaDeServico extends React.Component {
             <ContainerCardProduto>
               {/* recebe a lista filtrada e mapea para a visualização */}
               {listaFiltrada.map((produtos) => {
-                const price = produtos.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-                return (
+                  return (
                   <ThemeProvider theme={theme} key={produtos.id}>
                     <CardContainer>
                       <FotoProduto src={produtos.url} alt={""} />
                       <InfoContainer>
                         <p>{produtos.title}</p>
-                        <p>{price}</p>
+                        <p>{produtos.price}</p>
                         <Button
                           variant="contained"
                           color="secondary"
