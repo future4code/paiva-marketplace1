@@ -26,6 +26,11 @@ export class ListaDeServico extends React.Component {
     return this.setState({ ordem: event.target.value });
   };
 
+  
+  onChangeOrdenacao = (event) => {
+    return this.setState({ ordem: event.target.value });
+  };
+
   handleValorMinimo = (event) => {
     this.setState({
       valorMinimo: event.target.value,
@@ -47,11 +52,14 @@ export class ListaDeServico extends React.Component {
   handleSelect = (event) => {
     this.setState({ select: event.target.value })
   }
+
   handleOrdenacao = (event) => {
     this.setState({ordenacao: event.targe.value})
+
   }
  
   render() {
+
 
        const listaFiltrada = [...this.props.produtos].sort((a,b) =>{
         if(this.state.ordem === "crescente"){
@@ -60,6 +68,7 @@ export class ListaDeServico extends React.Component {
           return b.price - a.price
         }
       })
+
 
     return (
       <ContainerTotal>
@@ -97,7 +106,9 @@ export class ListaDeServico extends React.Component {
             <HeaderProduto>
               <label>Ordenação:
                 <select
+
                 value={this.state.ordem}
+
                   onChange={this.onChangeOrdenacao}
                 >
                   <option value="crescente">Crescente</option>
@@ -108,13 +119,14 @@ export class ListaDeServico extends React.Component {
             <ContainerCardProduto>
               {/* recebe a lista filtrada e mapea para a visualização */}
               {listaFiltrada.map((produtos) => {
+                const valorReal = produtos.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
                   return (
                   <ThemeProvider theme={theme} key={produtos.id}>
                     <CardContainer>
-                      <FotoProduto src={produtos.url} alt={""} />
+                      <FotoProduto src={produtos.url} alt="" />
                       <InfoContainer>
                         <p>{produtos.title}</p>
-                        <p>{produtos.price}</p>
+                        <p>{valorReal}</p>
                         <Button
                           variant="contained"
                           color="secondary"

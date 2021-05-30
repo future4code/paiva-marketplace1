@@ -75,10 +75,10 @@ export class AppContainer extends Component {
 
 // Deleta os anuncios que ele fez. fica na pagina do 'minha pagina'
 
-  deletarmeusAnuncios = (id) => {
+  deletarMeusAnuncios = (id) => {
     const Header = {
       headers: {
-        Authorization:"61bdcdc0-0989-4725-a3ed-866622e42097"
+        Authorization: this.state.authorization
       }
     }
     const url = `https://labeninjas.herokuapp.com/jobs/${id}`
@@ -149,7 +149,7 @@ export class AppContainer extends Component {
 
   // Os serviços que serão publicados pelo usuário\\
 
-  meusJobsPublicados = async ()=>{
+  meusJobsPublicados = async () => {
     const Header = {
       headers: {
         Authorization: this.state.authorization
@@ -184,7 +184,7 @@ export class AppContainer extends Component {
       case 'proposta': return (<PropostaDeServico authorization={this.state.authorization} meusJobsPublicados = {this.meusJobsPublicados}/>)
       case 'lista': return (<ListaDeServico produtos={this.state.produtos} categoria={this.state.categoria} addProdutoAoCarrinho={this.addProdutoAoCarrinho}  filtrar = {this.filtrar} produtosFiltrados={this.state.produtosFiltrados}/>)
       case 'login': return (<Login confLogin={this.confLogin} />)
-      case 'pos-login': return (<MeusJobs compraFinalizada={this.state.compraFinalizada} meuHistorico={this.meuHistorico} meusProdutos={this.state.meusProdutos} apagar={this.deletarmeusAnuncios} />)
+      case 'pos-login': return (<MeusJobs compraFinalizada={this.state.compraFinalizada} meuHistorico={this.meuHistorico} meusProdutos={this.state.meusProdutos} apagar={this.deletarMeusAnuncios} />)
       default: return (<Body />)
     }
   })

@@ -32,6 +32,7 @@ const Logo = styled.div`
   align-items: center;
   padding: 10px 20px;
   margin: 0 auto;
+  border-bottom: 1px solid #ddd;
 
   .service-container{
     display: flex;
@@ -53,6 +54,10 @@ const Logo = styled.div`
     width: 50px;
     height: 50px;
     cursor: pointer;
+  }
+  p{
+    color:#000072;
+    font-weight:bold;
   }
   }
  

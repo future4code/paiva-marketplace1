@@ -80,11 +80,8 @@ export const CardContainer = styled.div`
     justify-content: space-between;
     padding: 10px;
     margin: 10px 20px;
-    @media(max-width: 600px){
-    justify-self: center;
-  }
     :hover {
-        background-color: 	rgb(242,	197,	167, 0.8);
+        background-color: rgb(242,	197,	167, 0.8);
        
     }
     
@@ -95,6 +92,7 @@ export const CardContainer = styled.div`
 
 export const FotoProduto = styled.img`
     width: 100%;
+    height: 100%;
     justify-self: center;
     background-color: white;
     border: 1px solid #4D4D81;
@@ -104,8 +102,11 @@ export const InfoContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
     img {
-        width: 14px;
+        width: 100%;
         color: white;
         margin-right: 5px;
     }

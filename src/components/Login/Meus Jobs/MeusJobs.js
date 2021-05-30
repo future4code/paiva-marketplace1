@@ -7,10 +7,11 @@ export default class MeusJobs extends Component {
  
   componentDidMount() {
     this.props.meuHistorico()
-   
+
   }
 
   render() {
+
   const mostraHistorico = this.props.compraFinalizada.map((produto)=>{
     return (
       <FlexR>
@@ -43,25 +44,25 @@ export default class MeusJobs extends Component {
       </FlexR>
     )
   })
+
     return (
       <FlexR>
-        
+
         <CardCarrinho>
-        <h2>Histórico de serviços contratados:</h2>
-        <br/>
+          <h2>Histórico de serviços contratados:</h2>
           <MostraCarrinho>
             {mostraHistorico}
           </MostraCarrinho>
-         
+
         </CardCarrinho>
 
         <CardCarrinho>
-        <h2>Meus anuncios:</h2>
-        <br/>
+          <h2>Meus anuncios:</h2>
+       
           <MostraCarrinho>
             {meusProdutos}
           </MostraCarrinho>
-  
+
         </CardCarrinho>
 
 
