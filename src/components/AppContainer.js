@@ -33,6 +33,7 @@ export class AppContainer extends Component {
   confLogin = async (key) => {
     await this.setState({ logado: true, pagina: 'pos-login', authorization: key })
     this.meusJobsPublicados()
+    this.meuHistorico()
     localStorage.setItem("authorization", JSON.stringify(this.state.authorization));
     localStorage.setItem("logado", JSON.stringify(this.state.logado));
     localStorage.setItem("meusProdutos", JSON.stringify(this.state.meusProdutos));
@@ -63,6 +64,7 @@ export class AppContainer extends Component {
 
   vaiParaEncontrarLista = () => {
     this.setState({ pagina: "lista" });
+    this.filtrar(0,"","","")
   };
 
   mudaCategoriaServicos = (categoriaServicos) => {
@@ -71,6 +73,8 @@ export class AppContainer extends Component {
 
   vaiParaMinhaPagina = () => {
     this.setState({ pagina: "pos-login" });
+    this.meuHistorico()
+    this.meusJobsPublicados()
   };
 
 // Deleta os anuncios que ele fez. fica na pagina do 'minha pagina'

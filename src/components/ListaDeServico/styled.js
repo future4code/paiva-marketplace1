@@ -12,7 +12,7 @@ export const ContainerTotal = styled.div`
 
 export const Filtro = styled.div`
   display: flex;
-  width: 260px;
+  min-width: 260px;
   border-right: 2px solid #4D4D81;
   color: #000072;
 
@@ -56,13 +56,11 @@ export const HeaderProduto = styled.div`
 
 export const ContainerCardProduto = styled.div`
 color: #000072;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  margin: 0 10vw;
+  flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  @media (max-width:600px){
-    grid-template-columns: 1fr;
-  }
 `
 
 // Component Produtos

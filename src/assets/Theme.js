@@ -14,7 +14,6 @@ export const theme = createMuiTheme({
       dark: '#AC1768',
       contrastText: '#FFFFFF',
     },
-   
     contrastThreshold: 3,
   
     tonalOffset: 0.2,
