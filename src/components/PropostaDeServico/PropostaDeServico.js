@@ -103,6 +103,19 @@ const body = {
 axios.post(url,body, header)
 .then((res) =>{
  alert("OMEDETOOOU")
+ this.setState({
+    servico:" ",
+    categoria:"",
+    descricao:"",
+    valor:"",
+    credito:"",
+    boleto:"",
+    debito:"",
+    pix:"",
+    aVista:"",
+    dueToDate:""
+ })
+ this.props.meusJobsPublicados()
 })
 .catch((err)=>{
   alert(err)
@@ -129,11 +142,11 @@ axios.post(url,body, header)
           <h2>Publique seu Job Conosco</h2>
           <div className="card-title">
             <p>Serviço</p>
-            <input type="text" placeholder="O que você faz ?" value={this.state.servico} onChange={this.handleServico} />
+            <input type="text" placeholder="O que você faz ?"  onChange={this.handleServico} />
           </div>
           <div className="categoria">
             <p>Categoria</p>
-            <select className="options" onChange={this.handleCategoria}>
+            <select className="options" value={this.state.categoria} onChange={this.handleCategoria}>
               <option>Selecione</option>
               <option>Aulas Particulares</option>
               <option>Web Design</option>
