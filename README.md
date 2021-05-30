@@ -6,9 +6,7 @@ Projeto de Marketplace para a oferta e procura de serviços para profissionais a
 
  http://paiva1-labeninja.surge.sh/
 
-## Technology 
- 
-Here are the technologies used in this project.
+## Tecnologias Utilizadas
  
 * JavaScript 
 * React
@@ -24,15 +22,11 @@ Here are the technologies used in this project.
 
 * Github: https://github.com/future4code/paiva-marketplace1/
 
-## Getting started
+## Como utilizar
  
  * Utilizar essa chave para realizar o login no site e realizar os testes, nao e necessario cadastrar nome de usuario.
  
 - Chave de Login: cf3c8e53-55ee-44ba-a739-4347643c2438
- 
-## How to use
- 
-Here will be the images and descriptions. Principal content.
  
   
 ## O que funciona
