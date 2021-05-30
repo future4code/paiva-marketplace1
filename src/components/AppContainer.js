@@ -64,7 +64,9 @@ export class AppContainer extends Component {
 
   vaiParaEncontrarLista = () => {
     this.setState({ pagina: "lista" });
+    this.meusJobsPublicados()    
     this.filtrar(0,"","","")
+
   };
 
   mudaCategoriaServicos = (categoriaServicos) => {
@@ -98,12 +100,12 @@ export class AppContainer extends Component {
 
         });
     }
-
+    this.getListaDeProdutos() 
   };
 
 // Lista de produtos que os usuários vão ver ao entrar na pagina, esse são os produtos de quem publica \\
 
-  getListaDeProdutos = () => {
+  getListaDeProdutos = async () => {
     const Header = {
       headers: {
 
@@ -111,7 +113,7 @@ export class AppContainer extends Component {
       },
     };
     const url = "https://labeninjas.herokuapp.com/jobs";
-    axios
+    await axios
       .get(url, Header)
       .then((res) => {
         const listaTratada = res.data.jobs.map((separa) => {
@@ -128,12 +130,12 @@ export class AppContainer extends Component {
             taken: separa.taken,
           };
         });
-        this.setState({ produtos: listaTratada, produtosFixo: listaTratada });
+          this.setState({ produtos: listaTratada.filter(produto => produto.taken !== "taken"), produtosFixo: listaTratada.filter(produto => produto.taken !== "taken") });
       })
       .catch((err) => {
-
         alert(err);
       });
+      if (this.state.logado){this.meusJobsPublicados()}
   };
   componentDidMount() {
     this.getListaDeProdutos();
@@ -145,7 +147,7 @@ export class AppContainer extends Component {
 // Meu histórico de produtos comprados \\
 
   meuHistorico = () => {
-    const myStuff = this.state.produtos.filter((produto) => {
+    const myStuff = this.state.produtosFixo.filter((produto) => {
       return produto.taken === true
     })
     this.setState({ compraFinalizada: myStuff })
@@ -172,10 +174,19 @@ export class AppContainer extends Component {
         alert(err)
       })
     const novaLista = [...this.state.produtosFixo]
-    for (let i = 0; i < this.state.meusProdutos.length; i++) {
-      novaLista.push(this.state.meusProdutos[i])
+    for (let i = 0; i < this.state.meusProdutos.length; i++) {  
+     novaLista.push(this.state.meusProdutos[i])
     }
     this.setState({ produtosFixo: novaLista })
+    const myArray = [...novaLista];
+    const uniqueArray = myArray.filter(function(item, index, self) {
+      const thing = JSON.stringify(item);
+      return index === myArray.findIndex(obj => {
+        return JSON.stringify(obj) === thing;
+      });
+    });
+  this.setState({ produtosFixo: uniqueArray })
+
   }
 
   // switch case para paginas mudar e dentro da pagina\\
@@ -186,7 +197,7 @@ export class AppContainer extends Component {
       case 'carrinho': return (<Carrinho carrinho={this.state.carrinho} valorTotal={this.state.valorTotal} excluirDoCarrinho={this.excluirDoCarrinho} comprarTudo={this.comprarTudo} />)
       case 'landingPage': return (<Body />)
       case 'proposta': return (<PropostaDeServico authorization={this.state.authorization} meusJobsPublicados = {this.meusJobsPublicados}/>)
-      case 'lista': return (<ListaDeServico produtos={this.state.produtos} categoria={this.state.categoria} addProdutoAoCarrinho={this.addProdutoAoCarrinho}  filtrar = {this.filtrar} produtosFiltrados={this.state.produtosFiltrados}/>)
+      case 'lista': return (<ListaDeServico produtos={this.state.produtos} categoria={this.state.categoria} addProdutoAoCarrinho={this.addProdutoAoCarrinho}  filtrar = {this.filtrar} produtosFiltrados={this.state.produtosFiltrados} meusJobsPublicados={this.meusJobsPublicados}/>)
       case 'login': return (<Login confLogin={this.confLogin} />)
       case 'pos-login': return (<MeusJobs compraFinalizada={this.state.compraFinalizada} meuHistorico={this.meuHistorico} meusProdutos={this.state.meusProdutos} apagar={this.deletarMeusAnuncios} />)
       default: return (<Body />)

@@ -60,6 +60,7 @@ export default class PropostaDeServico extends Component {
   }
 
   botaoEnviar = () =>{
+    
 const url = "https://labeninjas.herokuapp.com/jobs"
 const header = {
   headers : {
@@ -94,11 +95,11 @@ switch (this.state.categoria){
 }
 
 const body = {
-  title: this.state.servico+"&&&&"+this.state.categoria+"&&&&"+foto,
-  description:this.state.descricao,
-  price:Number(this.state.valor),
+  title: String(this.state.servico+"&&&&"+this.state.categoria+"&&&&"+foto),
+  description: String(this.state.descricao),
+  price: Number(this.state.valor),
   paymentMethods: [this.state.boleto,this.state.debito,this.state.pix,this.state.aVista,this.state.credito],
-  dueDate:this.state.dueToDate
+  dueDate: this.state.dueToDate
 }
 axios.post(url,body, header)
 .then((res) =>{
@@ -150,7 +151,6 @@ axios.post(url,body, header)
               <option>Selecione</option>
               <option>Aulas Particulares</option>
               <option>Web Design</option>
-              <option>Consultoria</option>
               <option>Consultoria</option>
               <option>Assistência Técnica</option>
               <option>Serviços Domésticos</option>

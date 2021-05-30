@@ -18,7 +18,7 @@ export class ListaDeServico extends React.Component {
     carrinho: []
   }
 
-  //componentDidMount () {this.filtrar()}
+  componentDidMount () {this.props.meusJobsPublicados()}
   //Aqui começa a lógica do filtro de produtos \\
 
   //onChange dos produtos para mudar o estado dos state \\
@@ -59,9 +59,7 @@ export class ListaDeServico extends React.Component {
   }
  
   render() {
-
-
-       const listaFiltrada = [...this.props.produtos].sort((a,b) =>{
+        const listaFiltrada = [...this.props.produtos].sort((a,b) =>{
         if(this.state.ordem === "crescente"){
           return a.price - b.price
         }else if (this.state.ordem === "decrescente"){
