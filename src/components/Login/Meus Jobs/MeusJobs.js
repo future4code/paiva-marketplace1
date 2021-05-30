@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Button from '@material-ui/core/Button';
 import { CardCarrinho, FlexR, ImgCart, FlexColuna, MostraCarrinho, Container, } from "./styled"
 
 
@@ -7,11 +7,10 @@ export default class MeusJobs extends Component {
  
   componentDidMount() {
     this.props.meuHistorico()
-
   }
-
+ 
   render() {
-
+    
   const mostraHistorico = this.props.compraFinalizada.map((produto)=>{
     return (
       <FlexR>
@@ -38,7 +37,7 @@ export default class MeusJobs extends Component {
           <h1>Preço: R$ {produto.price}</h1>
          
           </FlexR>
-          <button onClick={() => this.props.apagar(produto.id)}>deletar</button>  
+          <Button variant="contained" color="secondary" onClick={() => this.props.apagar(produto.id)}><h4>deletar</h4></Button>  
         </FlexColuna>
       </Container>
       </FlexR>

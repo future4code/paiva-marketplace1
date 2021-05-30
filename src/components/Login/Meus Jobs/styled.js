@@ -41,6 +41,7 @@ button {
   cursor: pointer;
   color: blueviolet;
   :hover {
+    color:white;
     text-decoration: underline;
   }
 }

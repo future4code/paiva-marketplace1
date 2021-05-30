@@ -22,6 +22,7 @@ img {
 .button {
     display: flex;
     justify-content: flex-end;
+    
 }
 `
 export const PrecoTotal = styled.div`
@@ -49,16 +50,21 @@ justify-content: space-around;
 border-bottom: 1px solid black;
 align-items: center;
 
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: blueviolet;
+  :hover {
+    h4{
+        color: white;
+        text-decoration: underline;
+    }
+  }
+}
 .area-produto {
     line-height: 1.5;
-    span {
-        color: #F72163;
-        font-size: 0.8rem;
-        cursor: pointer;
-        :hover {
-            text-decoration: underline;
-        }
-    }
+    width: 40vw;
 }
 
 .quantidade-produto {
@@ -82,6 +88,4 @@ div {
     font-size: 1.2rem;
     font-family: Arial, Helvetica, sans-serif;
 }
-
-
 `
