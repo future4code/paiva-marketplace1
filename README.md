@@ -25,7 +25,9 @@ Here are the technologies used in this project.
 
 ## Getting started
  
-
+ * Utilizar essa chave para realizar o login no site e realizar os testes, nao e necessario cadastrar nome de usuario.
+ 
+- Chave de Login: cf3c8e53-55ee-44ba-a739-4347643c2438
  
 ## How to use
  
