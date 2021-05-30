@@ -1,6 +1,5 @@
 import React from "react";
 import { ContainerProduto, HeaderProduto, ContainerCardProduto, Filtro, ContainerTotal } from "./styled"
-import ProdutosCard from './ProdutosCard'
 import Button from '@material-ui/core/Button';
 import { theme } from '../../assets/Theme'
 import { ThemeProvider } from '@material-ui/styles';
@@ -127,11 +126,10 @@ export class ListaDeServico extends React.Component {
                       <FotoProduto src={produtos.url} alt="" />
                       <InfoContainer>
                         <p>{produtos.title}</p>
-                        <p>{produtos.price}</p>
+                        <p>{valorReal}</p>
                         <PopOver
                         description={produtos.description}
                         />
-                        <p>{valorReal}</p>
                         <Button
                           variant="contained"
                           color="secondary"

@@ -74,7 +74,8 @@ export const CardContainer = styled.div`
     flex-direction: column;
     box-sizing: border-box;
     box-shadow: 2px 2px 2px 2px #DCDCDC;
-    width: 200px;
+    width: 220px;
+    min-height: 400px;
     justify-content: space-between;
     padding: 10px;
     margin: 10px 20px;
@@ -102,7 +103,9 @@ export const InfoContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     text-align: center;
-
+    button{
+      width:100%;
+    }
     img {
         width: 100%;
         color: white;
