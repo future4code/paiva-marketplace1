@@ -63,7 +63,7 @@ Projeto de Marketplace para a oferta e procura de serviços para profissionais a
 
 * **Adrian Americo**
   
-* **Bruna Nuciato**
+* **Bruna Nunciato**
  
 * **Camily Quadros**
 
