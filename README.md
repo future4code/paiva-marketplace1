@@ -14,6 +14,7 @@ Here are the technologies used in this project.
 * React
 * CSS
 * Material Design 
+* Integracao com rest API
  
 ## Servicos Usados:
 
