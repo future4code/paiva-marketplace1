@@ -1,7 +1,11 @@
 ## LabeNinjas
  
 Projeto de Market Place para a oferta e procura de serviços para profissionais autônomos.
- 
+
+## Surge:
+
+ http://paiva1-labeninja.surge.sh/
+
 ## Technology 
  
 Here are the technologies used in this project.
