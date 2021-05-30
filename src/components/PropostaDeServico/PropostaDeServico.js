@@ -60,6 +60,7 @@ export default class PropostaDeServico extends Component {
   }
 
   botaoEnviar = () =>{
+    
 const url = "https://labeninjas.herokuapp.com/jobs"
 const header = {
   headers : {
@@ -94,15 +95,28 @@ switch (this.state.categoria){
 }
 
 const body = {
-  title: this.state.servico+"&&&&"+this.state.categoria+"&&&&"+foto,
-  description:this.state.descricao,
-  price:Number(this.state.valor),
+  title: String(this.state.servico+"&&&&"+this.state.categoria+"&&&&"+foto),
+  description: String(this.state.descricao),
+  price: Number(this.state.valor),
   paymentMethods: [this.state.boleto,this.state.debito,this.state.pix,this.state.aVista,this.state.credito],
-  dueDate:this.state.dueToDate
+  dueDate: this.state.dueToDate
 }
 axios.post(url,body, header)
 .then((res) =>{
  alert("OMEDETOOOU")
+ this.setState({
+    servico:" ",
+    categoria:"",
+    descricao:"",
+    valor:"",
+    credito:"",
+    boleto:"",
+    debito:"",
+    pix:"",
+    aVista:"",
+    dueToDate:""
+ })
+ this.props.meusJobsPublicados()
 })
 .catch((err)=>{
   alert(err)
@@ -129,15 +143,14 @@ axios.post(url,body, header)
           <h2>Publique seu Job Conosco</h2>
           <div className="card-title">
             <p>Serviço</p>
-            <input type="text" placeholder="O que você faz ?" value={this.state.servico} onChange={this.handleServico} />
+            <input type="text" placeholder="O que você faz ?"  onChange={this.handleServico} />
           </div>
           <div className="categoria">
             <p>Categoria</p>
-            <select className="options" onChange={this.handleCategoria}>
+            <select className="options" value={this.state.categoria} onChange={this.handleCategoria}>
               <option>Selecione</option>
               <option>Aulas Particulares</option>
               <option>Web Design</option>
-              <option>Consultoria</option>
               <option>Consultoria</option>
               <option>Assistência Técnica</option>
               <option>Serviços Domésticos</option>

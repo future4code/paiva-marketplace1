@@ -167,6 +167,14 @@ margin-right: 4rem;
   }
 `
 export default class Header extends React.Component {
+  state = {
+    buscar : '',
+  }
+
+  handleBuscar = (e) => {
+    this.setState({buscar: e.target.value})
+  }
+
 
 
   render() {
@@ -179,6 +187,8 @@ export default class Header extends React.Component {
             <h4 onClick={this.props.vaiParaOCarrinho}>CARRINHO</h4>
             {this.props.logado && (<H1 onClick={this.props.vaiParaMinhaPagina}>MINHA PÁGINA</H1>)}
             {!this.props.logado && (<H1 onClick={this.props.vaiParaOLogin}>LOGIN</H1>)}
+            {this.props.logado && (<H1 onClick={this.props.logout}>LOGOUT</H1>)}
+
             
           </Header1>
 
@@ -188,8 +198,8 @@ export default class Header extends React.Component {
             </Logo>
 
             <Input>
-              <input onChange={null} value={null} placeholder='Buscar...' />
-              <Button variant="contained" color="secondary" onChange={null}><h4>Buscar</h4></Button>
+              <input onChange={this.handleBuscar} value={this.state.buscar} placeholder='Buscar...' />
+              <Button variant="contained" color="secondary" onClick={() => this.props.filtrar(0, '', this.state.buscar, '')}><h4>Buscar</h4></Button>
             </Input>
             <div className="header2-container">
             

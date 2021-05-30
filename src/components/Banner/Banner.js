@@ -59,22 +59,22 @@ function Banner() {
     <ContainerBanner>
       <div
         className="BannerImg"
-        style={{ backgroundImage:`url(${banners[currImg].img})` }}
+        style={{ backgroundImage: `url(${banners[currImg].img})` }}
       >
-        
+
         <div
           className="BotaoEsquerda"
           onClick={() => {
-           currImg > 0 && setCurrImg(currImg - 1);
+            currImg > 0 && setCurrImg(currImg - 1);
           }}
-        >          
+        >
           <ArrowBackIosIcon style={{ fontSize: 30 }} />
         </div>
-<div className="Centro"></div>
+        <div className="Centro"></div>
         <div
           className="BotaoDireita"
           onClick={() => {
-           currImg < banners.length -1 && setCurrImg(currImg + 1);
+            currImg < banners.length - 1 && setCurrImg(currImg + 1);
           }}
         >
           <ArrowForwardIosIcon style={{ fontSize: 30 }} />

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { CardCarrinho, PrecoTotal, FlexRow } from "./styled";
+import { CardCarrinho, PrecoTotal, FlexRow} from "./styled";
 import Button from '@material-ui/core/Button';
 import { theme } from '../../assets/Theme'
 import { ThemeProvider } from '@material-ui/styles';
@@ -7,15 +7,15 @@ import { ThemeProvider } from '@material-ui/styles';
 export default class Carrinho extends Component {
 
   changeTotalValue = () => {
-    let valorTotal = 0
-    for (let prod of this.props.valorTotal) {
-        valorTotal = valorTotal + prod.price
+    let soma = 0;
+    this.props.carrinho.map((produto) => {
+      soma += produto.price
+    })
+    return soma 
     }
-    return valorTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
-}
+
 
   render() {
-    console.log(this.props.carrinho)
     const mostracarrinho = this.props.carrinho.map((produto) => {
       const valorReal = produto.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
       return (
@@ -24,8 +24,11 @@ export default class Carrinho extends Component {
           <div className="area-produto">
             <h3>{produto.title}</h3>
             <p>{produto.description}</p>
-            <p>Pagamento: {produto.paymentMethods}</p>
-            <span onClick={()=>this.props.excluirDoCarrinho(produto.id)}>Excluir</span>
+            <p>Pagamento: {produto.paymentMethods.map((lista)=>{
+              return (<span>{lista}   </span>)
+            })}</p>
+            <br/>
+            <Button variant="contained" color="secondary"  onClick={()=>this.props.excluirDoCarrinho(produto.id)}><h4>Excluir</h4></Button>
           </div>
           <div className="valor-produto">
             <span>{valorReal}</span>

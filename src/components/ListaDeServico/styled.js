@@ -12,7 +12,7 @@ export const ContainerTotal = styled.div`
 
 export const Filtro = styled.div`
   display: flex;
-  width: 260px;
+  min-width: 260px;
   border-right: 2px solid #4D4D81;
   color: #000072;
 
@@ -56,13 +56,11 @@ export const HeaderProduto = styled.div`
 
 export const ContainerCardProduto = styled.div`
 color: #000072;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  margin: 0 10vw;
+  flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  @media (max-width:600px){
-    grid-template-columns: 1fr;
-  }
 `
 
 // Component Produtos
@@ -80,11 +78,8 @@ export const CardContainer = styled.div`
     justify-content: space-between;
     padding: 10px;
     margin: 10px 20px;
-    @media(max-width: 600px){
-    justify-self: center;
-  }
     :hover {
-        background-color: 	rgb(242,	197,	167, 0.8);
+        background-color: rgb(242,	197,	167, 0.8);
        
     }
     
@@ -95,6 +90,7 @@ export const CardContainer = styled.div`
 
 export const FotoProduto = styled.img`
     width: 100%;
+    height: 100%;
     justify-self: center;
     background-color: white;
     border: 1px solid #4D4D81;
@@ -104,8 +100,11 @@ export const InfoContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
     img {
-        width: 14px;
+        width: 100%;
         color: white;
         margin-right: 5px;
     }

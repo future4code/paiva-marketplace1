@@ -32,6 +32,7 @@ const Logo = styled.div`
   align-items: center;
   padding: 10px 20px;
   margin: 0 auto;
+  border-bottom: 1px solid #ddd;
 
   .service-container{
     display: flex;
@@ -53,6 +54,10 @@ const Logo = styled.div`
     width: 50px;
     height: 50px;
     cursor: pointer;
+  }
+  p{
+    color:#000072;
+    font-weight:bold;
   }
   }
  
@@ -83,27 +88,27 @@ state={
 
           <Logo>
             <div className="service-container" >
-              <div onClick={() => this.aplicafiltro("Aulas Particulares")}>
+              <div onClick={() => this.props.filtrar(0, '', '', "Aulas Particulares")}>
                 <img src={Aula} alt="Aulas Particulares" />
                 <p>Aulas Particulares</p>
               </div>
-              <div onClick={() => this.aplicafiltro("Web Design")}>
+              <div onClick={() => this.props.filtrar(0, '', '', "Web Design")}>
                 <img src={Webdesign} alt="" />
                 <p>Web Design</p>
               </div>
-              <div onClick={() => this.aplicafiltro("Consultoria")}>
+              <div onClick={() => this.props.filtrar(0, '', '', "Consultoria")}>
                 <img src={Consultoria} alt="" />
                 <p>Consultoria</p>
               </div>
-              <div onClick={() => this.aplicafiltro("Assistência Técnica")}>
+              <div onClick={() => this.props.filtrar(0, '', '', "Assistência Técnica")}>
                 <img src={Suporte} alt="" />
                 <p>Assistência Técnica</p>
               </div>
-              <div onClick={() => this.aplicafiltro("Serviços Domésticos")}>
+              <div onClick={() => this.props.filtrar(0, '', '', "Serviços Domésticos")}>
                 <img src={Servicos} alt="" />
                 <p>Serviços Domésticos</p>
               </div>
-              <div onClick={() => this.aplicafiltro("Reformas")}>
+              <div onClick={() => this.props.filtrar(0, '', '', "Reformas")}>
                 <img src={Reforma} alt="" />
                 <p>Reformas</p>
               </div>
