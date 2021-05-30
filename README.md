@@ -1,6 +1,6 @@
 ## LabeNinjas
  
-Projeto de Market Place para a oferta e procura de serviços para profissionais autônomos.
+Projeto de Marketplace para a oferta e procura de serviços para profissionais autônomos.
 
 ## Surge:
 
@@ -33,12 +33,30 @@ Here are the technologies used in this project.
  
 Here will be the images and descriptions. Principal content.
  
- 
-## Features
- 
-  - Here will be the features.
- 
- 
+  
+## O que funciona
+
+- Login
+- Logout
+- Carrossel
+- Adicionar o produto no carrinho
+- Filtrar por Valor mínimo e máximo
+- Filtrar por Categoria 
+- Filtrar por nome de produto
+- Icones de servicos  
+- Ordenar por Crescente
+- Ordenar por Decrescente
+- Campo de Busca
+- Carrinho
+- excluir item do carrinho
+- Confirmar compra do carrinho, adicionando ao historico de servicos contratados
+- Minha Pagina
+- Criar Anuncios
+- Historico de Servicos contratados
+- Historico de Servicos anunciados
+- Deletar servico anunciado
+- Icones de redes Sociais
+- Vitrine de depoimentos na pagina inicial
 
  
 ## Versioning
