@@ -25,6 +25,11 @@ export class ListaDeServico extends React.Component {
 
   //onChange dos produtos para mudar o estado dos state \\
 
+  
+  onChangeOrdenacao = (event) => {
+    return this.setState({ ordem: event.target.value });
+  };
+
   handleValorMinimo = (event) => {
     this.setState({
       valorMinimo: event.target.value,
@@ -64,15 +69,21 @@ export class ListaDeServico extends React.Component {
           .filter(produto => produto.price >= this.state.valorMinimo)
           .filter(produto => produto.price <= this.state.valorMaximo)
           .filter(produto => produto.title.toLowerCase().includes(this.state.buscarProduto.toLowerCase()))
-          .filter(produto => produto.catServ.toLowerCase().includes(this.state.select.toLowerCase()))
+          .filter(produto => produto.catServ.toLowerCase().includes(this.state.select.toLowerCase())
+          )
 
       })
     }
   }
 
   render() {
-
-       const listaFiltrada = [...this.state.produtos]
+        const listaFiltrada = [...this.state.produtos].sort((a,b) =>{
+          if(this.state.ordem === "crescente"){
+            return a.price - b.price
+          }else if (this.state.ordem === "decrescente"){
+            return b.price - a.price
+          }
+        })
 
     return (
       <ContainerTotal>
@@ -110,7 +121,7 @@ export class ListaDeServico extends React.Component {
             <HeaderProduto>
               <label>Ordenação:
                 <select
-                  value={this.props.ordenacao}
+                  value={this.state.ordem}
                   onChange={this.onChangeOrdenacao}
                 >
                   <option value="crescente">Crescente</option>
