@@ -26,62 +26,61 @@ export default class MeusJobs extends Component {
   };
   componentDidMount() {
     this.props.meuHistorico()
-   
+
   }
 
   render() {
     console.log(this.props)
-  const mostraHistorico = this.props.compraFinalizada.map((produto)=>{
-    return (
-      <FlexR key={produto.id}>
-        <Container>
-          <ImgCart src = {produto.url} alt="imagem"/>
-          <FlexColuna>
-          <h1>Serviço: {produto.title}</h1>
-          <FlexR>
-          <h1>Preço: R$ {produto.price}</h1>
-          </FlexR>
-        </FlexColuna>
-      </Container>
-      </FlexR>
-    )
-  })
-  const meusProdutos = this.props.meusProdutos.map((produto)=>{
-    return (
-      <FlexR key={produto.id}>
-        <Container>
-          <ImgCart src = {produto.url} alt="imagem"/>
-          <FlexColuna>
-          <h1>Serviço: {produto.title}</h1>
-          <FlexR>
-          <h1>Preço: R$ {produto.price}</h1>
-         
-          </FlexR>
-          <button onClick={() => this.props.apagar(produto.id)}>Remover</button>  
-        </FlexColuna>
-      </Container>
-      </FlexR>
-    )
-  })
+    const mostraHistorico = this.props.compraFinalizada.map((produto) => {
+      return (
+        <FlexR key={produto.id}>
+          <Container>
+            <ImgCart src={produto.url} alt="imagem" />
+            <FlexColuna>
+              <h1>Serviço: {produto.title}</h1>
+              <FlexR>
+                <h1>Preço: {produto.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</h1>
+              </FlexR>
+            </FlexColuna>
+          </Container>
+        </FlexR>
+      )
+    })
+    const meusProdutos = this.props.meusProdutos.map((produto) => {
+      return (
+        <FlexR key={produto.id}>
+          <Container>
+            <ImgCart src={produto.url} alt="imagem" />
+            <FlexColuna>
+              <h1>Serviço: {produto.title}</h1>
+              <FlexR>
+                <h1>Preço: {produto.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</h1>
+
+              </FlexR>
+              <button onClick={() => this.props.apagar(produto.id)}>Remover</button>
+            </FlexColuna>
+          </Container>
+        </FlexR>
+      )
+    })
     return (
       <FlexR>
-        
+
         <CardCarrinho>
-        <h2>Histórico de serviços contratados:</h2>
-        <br/>
+          <h2>Histórico de serviços contratados:</h2>
           <MostraCarrinho>
             {mostraHistorico}
           </MostraCarrinho>
-         
+
         </CardCarrinho>
 
         <CardCarrinho>
-        <h2>Meus anuncios:</h2>
-        <br/>
+          <h2>Meus anuncios:</h2>
+       
           <MostraCarrinho>
             {meusProdutos}
           </MostraCarrinho>
-  
+
         </CardCarrinho>
 
 

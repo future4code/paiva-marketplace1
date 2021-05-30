@@ -10,7 +10,6 @@ box-sizing: border-box;
 border-left: thin solid #4D4D81;
 display: flex;
 flex-direction: column;
-justify-content: space-between;
 padding: 50px;
 margin: 20px auto;
 max-height: 500px;
@@ -26,17 +25,24 @@ export const Container = styled.div`
 width: 100%;
 height: auto;
 display: flex;
-//justify-content: space-between;
 align-items: center;
 border-bottom: 1px solid #4D4D81;
 padding: 5vh 0;
-
 `
 
 export const FlexColuna = styled.div`
 h1{
   font-size: 14px;
   margin-bottom: 10px;
+}
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: blueviolet;
+  :hover {
+    text-decoration: underline;
+  }
 }
 `
 export const ImgCart = styled.img`
