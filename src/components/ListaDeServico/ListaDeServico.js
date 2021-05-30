@@ -11,11 +11,9 @@ export class ListaDeServico extends React.Component {
 
   state = {
     ordem: "crescente",
-    produtos: [...this.props.produtos],
     valorMaximo: '',
     valorMinimo: '',
     buscarProduto: '',
-    todosOsProdutos: [...this.props.produtos],
     select: "",
     carrinho: []
   }
@@ -24,6 +22,9 @@ export class ListaDeServico extends React.Component {
   //Aqui começa a lógica do filtro de produtos \\
 
   //onChange dos produtos para mudar o estado dos state \\
+  onChangeOrdenacao = (event) => {
+    return this.setState({ ordem: event.target.value });
+  };
 
   
   onChangeOrdenacao = (event) => {
@@ -50,40 +51,24 @@ export class ListaDeServico extends React.Component {
 
   handleSelect = (event) => {
     this.setState({ select: event.target.value })
-    console.log(event.target.value)
   }
 
-  filtrar = () => {
-    const listaDeProdutos = [...this.state.todosOsProdutos]
-    if (this.state.valorMaximo === "") {
-      this.setState({
-        produtos: listaDeProdutos
-          .filter(produto => produto.price >= this.state.valorMinimo)
-          .filter(produto => produto.title.toLowerCase().includes(this.state.buscarProduto.toLowerCase()))
-          .filter(produto => produto.catServ.toLowerCase().includes(this.state.select.toLowerCase()))
+  handleOrdenacao = (event) => {
+    this.setState({ordenacao: event.targe.value})
 
-      })
-    } else {
-      this.setState({
-        produtos: listaDeProdutos
-          .filter(produto => produto.price >= this.state.valorMinimo)
-          .filter(produto => produto.price <= this.state.valorMaximo)
-          .filter(produto => produto.title.toLowerCase().includes(this.state.buscarProduto.toLowerCase()))
-          .filter(produto => produto.catServ.toLowerCase().includes(this.state.select.toLowerCase())
-          )
-
-      })
-    }
   }
-
+ 
   render() {
-        const listaFiltrada = [...this.state.produtos].sort((a,b) =>{
-          if(this.state.ordem === "crescente"){
-            return a.price - b.price
-          }else if (this.state.ordem === "decrescente"){
-            return b.price - a.price
-          }
-        })
+
+
+       const listaFiltrada = [...this.props.produtos].sort((a,b) =>{
+        if(this.state.ordem === "crescente"){
+          return a.price - b.price
+        }else if (this.state.ordem === "decrescente"){
+          return b.price - a.price
+        }
+      })
+
 
     return (
       <ContainerTotal>
@@ -114,14 +99,16 @@ export class ListaDeServico extends React.Component {
                 <option value="Reformas">Reformas</option>
                 <option value="Diversos">Diversos</option>
               </select>
-              <Button variant="contained" color="primary" onClick={this.filtrar}>Filtrar</Button>
+              <Button variant="contained" color="primary" onClick={() => this.props.filtrar(this.state.valorMinimo, this.state.valorMaximo, this.state.buscarProduto, this.state.select)}>Filtrar</Button>
             </div>
           </Filtro>
           <ContainerProduto>
             <HeaderProduto>
               <label>Ordenação:
                 <select
-                  value={this.state.ordem}
+
+                value={this.state.ordem}
+
                   onChange={this.onChangeOrdenacao}
                 >
                   <option value="crescente">Crescente</option>

@@ -15,8 +15,7 @@ import axios from "axios"
 export class AppContainer extends Component {
 
   state = {
-
-    pagina: 'pos-login',
+    pagina: 'landingPage',
     logado: false,
     produtos: [],
     categoria: "",
@@ -24,7 +23,9 @@ export class AppContainer extends Component {
     carrinho: [],
     valorTotal: [],
     compraFinalizada: [],
-    meusProdutos: []
+    meusProdutos: [],
+    produtosFiltrados: [],
+    produtosFixo: [],
   }
 
   //lógica dos botões para mudar de página\\
@@ -32,8 +33,17 @@ export class AppContainer extends Component {
   confLogin = async (key) => {
     await this.setState({ logado: true, pagina: 'pos-login', authorization: key })
     this.meusJobsPublicados()
+    localStorage.setItem("authorization", JSON.stringify(this.state.authorization));
+    localStorage.setItem("logado", JSON.stringify(this.state.logado));
+    localStorage.setItem("meusProdutos", JSON.stringify(this.state.meusProdutos));
   }
 
+  logout = async () => {
+    await this.setState({ logado: false, pagina: 'landingPage', authorization: '' })
+    localStorage.setItem("authorization", JSON.stringify(this.state.authorization));
+    localStorage.setItem("logado", JSON.stringify(this.state.logado));
+    localStorage.setItem("meusProdutos", JSON.stringify(this.state.meusProdutos));
+  }
 
   vaiParaOCarrinho = () => {
     this.setState({ pagina: "carrinho" });
@@ -63,6 +73,7 @@ export class AppContainer extends Component {
     this.setState({ pagina: "pos-login" });
   };
 
+// Deleta os anuncios que ele fez. fica na pagina do 'minha pagina'
 
   deletarMeusAnuncios = (id) => {
     const Header = {
@@ -76,14 +87,17 @@ export class AppContainer extends Component {
         .delete(url, Header)
         .then(() => {
           alert("Sayonara");
+          this.meusJobsPublicados()
         })
         .catch((err) => {
           alert("Ocorreu um erro tente novamente mais tarde.");
 
         });
     }
+
   };
 
+// Lista de produtos que os usuários vão ver ao entrar na pagina, esse são os produtos de quem publica \\
 
   getListaDeProdutos = () => {
     const Header = {
@@ -110,7 +124,7 @@ export class AppContainer extends Component {
             taken: separa.taken,
           };
         });
-        this.setState({ produtos: listaTratada });
+        this.setState({ produtos: listaTratada, produtosFixo: listaTratada });
       })
       .catch((err) => {
 
@@ -119,17 +133,21 @@ export class AppContainer extends Component {
   };
   componentDidMount() {
     this.getListaDeProdutos();
+    {localStorage.getItem("logado") && this.setState({ logado: JSON.parse(localStorage.getItem("logado")) })}
+    {localStorage.getItem("authorization") && this.setState({ authorization: JSON.parse(localStorage.getItem("authorization")) })}
+    {localStorage.getItem("meusProdutos") && this.setState({ meusProdutos: JSON.parse(localStorage.getItem("meusProdutos")) })}
   }
+
+// Meu histórico de produtos comprados \\
 
   meuHistorico = () => {
     const myStuff = this.state.produtos.filter((produto) => {
       return produto.taken === true
     })
     this.setState({ compraFinalizada: myStuff })
-    console.log(this.state.compraFinalizada, "comprafinalizada")
   }
-  // switch case para paginas
 
+  // Os serviços que serão publicados pelo usuário\\
 
   meusJobsPublicados = async () => {
     const Header = {
@@ -149,24 +167,29 @@ export class AppContainer extends Component {
       .catch((err) => {
         alert(err)
       })
-    const novaLista = [...this.state.produtos]
+    const novaLista = [...this.state.produtosFixo]
     for (let i = 0; i < this.state.meusProdutos.length; i++) {
       novaLista.push(this.state.meusProdutos[i])
     }
-    this.setState({ produtos: novaLista })
+    this.setState({ produtosFixo: novaLista })
   }
+
+  // switch case para paginas mudar e dentro da pagina\\
+
   mudaPagina = (() => {
     switch (this.state.pagina) {
 
       case 'carrinho': return (<Carrinho carrinho={this.state.carrinho} valorTotal={this.state.valorTotal} excluirDoCarrinho={this.excluirDoCarrinho} comprarTudo={this.comprarTudo} />)
       case 'landingPage': return (<Body />)
-      case 'proposta': return (<PropostaDeServico />)
-      case 'lista': return (<ListaDeServico produtos={this.state.produtos} categoria={this.state.categoria} addProdutoAoCarrinho={this.addProdutoAoCarrinho} />)
+      case 'proposta': return (<PropostaDeServico authorization={this.state.authorization} meusJobsPublicados = {this.meusJobsPublicados}/>)
+      case 'lista': return (<ListaDeServico produtos={this.state.produtos} categoria={this.state.categoria} addProdutoAoCarrinho={this.addProdutoAoCarrinho}  filtrar = {this.filtrar} produtosFiltrados={this.state.produtosFiltrados}/>)
       case 'login': return (<Login confLogin={this.confLogin} />)
       case 'pos-login': return (<MeusJobs compraFinalizada={this.state.compraFinalizada} meuHistorico={this.meuHistorico} meusProdutos={this.state.meusProdutos} apagar={this.deletarMeusAnuncios} />)
       default: return (<Body />)
     }
   })
+
+  // Tudo do carrinho \\
 
   addProdutoAoCarrinho = (produto) => {
     const carrinhoClone = [...this.state.carrinho]
@@ -178,15 +201,18 @@ export class AppContainer extends Component {
       description: produto.description,
       paymentMethods: produto.paymentMethods
     }
-    const valoresClone = [...this.state.valorTotal]
-    const somaValores = {
-      price: produto.price
+    const validacao = carrinhoClone.map((produto) => {
+      if (produto.id === itemCarrinho.id){
+        return produto.id
+      }
+    })
+    if (validacao[0] === produto.id){
+      alert('Este serviço já foi adicionado ao carrinho!')
+    }else {
+      const carrinhoClonado = [...carrinhoClone, itemCarrinho]
+      this.setState({ carrinho: carrinhoClonado})
+      alert("Produto Adicionado com sucesso")
     }
-    const valoresClonado = [...valoresClone, somaValores]
-
-    const carrinhoClonado = [...carrinhoClone, itemCarrinho]
-    this.setState({ carrinho: carrinhoClonado, valorTotal: valoresClonado })
-    alert("Produto Adicionado com sucesso")
   }
   excluirDoCarrinho = (idProduto) => {
     let carrinhoAtual = [...this.state.carrinho]
@@ -221,28 +247,57 @@ export class AppContainer extends Component {
       alert("Por favor, faça login para completar sua compra")
     }
   }
+
+// Todos os Filtros \\
+
+filtrar = (valorMinimo, valorMaximo, buscarProduto, select) => {
+  const listaDeProdutos = [...this.state.produtosFixo]
+  if (this.state.pagina !== 'lista'){
+    this.setState({pagina: 'lista'})
+  }
+  if (valorMaximo === "") {
+    this.setState({
+      produtos: listaDeProdutos
+        .filter(produto => produto.price >= valorMinimo)
+        .filter(produto => produto.title.toLowerCase().includes(buscarProduto.toLowerCase()))
+        .filter(produto => produto.catServ.toLowerCase().includes(select.toLowerCase()))
+
+    })
+  } else {
+    this.setState({
+      produtos: listaDeProdutos
+        .filter(produto => produto.price >= valorMinimo)
+        .filter(produto => produto.price <= valorMaximo)
+        .filter(produto => produto.title.toLowerCase().includes(buscarProduto.toLowerCase()))
+        .filter(produto => produto.catServ.toLowerCase().includes(select.toLowerCase()))
+
+    })
+  }
+}
+
+
+
   render() {
     return (
-      <div>
-        <Header logado={this.state.logado} vaiParaMinhaPagina={this.vaiParaMinhaPagina} vaiParaOCarrinho={this.vaiParaOCarrinho} vaiParaAHome={this.vaiParaAHome} vaiParaOLogin={this.vaiParaOLogin} vaiParaProposta={this.vaiParaProposta} vaiParaEncontrarLista={this.vaiParaEncontrarLista} />
-
-        <FiltroServicos
-          valorMinimo={this.state.valorMinimo} //enviando as informaçoes de filtro para o FIltroServiços\\ 
-
-          valorMaximo={this.state.valorMaximo}
-          nomeProduto={this.state.buscarProduto}
-          handleValorMaximo={this.handleValorMaximo}
-          handleValorMinimo={this.handleValorMinimo}
-          handleBuscarProduto={this.handleBuscarProduto}
-          vaiParaEncontrarLista={this.vaiParaEncontrarLista}
-          mudaCategoriaServicos={this.mudaCategoriaServicos}
-          categora={this.state.categoria}
-        />
-        <AppContainerDiv>
+      <AppContainerDiv>
+        <div>
+          <Header logado={this.state.logado} vaiParaMinhaPagina={this.vaiParaMinhaPagina} vaiParaOCarrinho={this.vaiParaOCarrinho} vaiParaAHome={this.vaiParaAHome} vaiParaOLogin={this.vaiParaOLogin} vaiParaProposta={this.vaiParaProposta} vaiParaEncontrarLista={this.vaiParaEncontrarLista} filtrar={this.filtrar} logout={this.logout}/>
+          <FiltroServicos
+            valorMinimo={this.state.valorMinimo} //enviando as informaçoes de filtro para o FIltroServiços\\ 
+            filtrar={this.filtrar}
+            valorMaximo={this.state.valorMaximo}
+            nomeProduto={this.state.buscarProduto}
+            handleValorMaximo={this.handleValorMaximo}
+            handleValorMinimo={this.handleValorMinimo}
+            handleBuscarProduto={this.handleBuscarProduto}
+            vaiParaEncontrarLista={this.vaiParaEncontrarLista}
+            mudaCategoriaServicos={this.mudaCategoriaServicos}
+            categora={this.state.categoria}
+          />
+        </div>
           {this.mudaPagina()}
           <Footer />
-        </AppContainerDiv>
-      </div>
+      </AppContainerDiv>
     );
 
   }

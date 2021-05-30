@@ -64,7 +64,6 @@ export default class Body extends React.Component {
       <Main>
         <Banner />
         <Produtos>
-          <h1>Produtos</h1>
           <DivVitrine />
         </Produtos>
         <SobreNos>

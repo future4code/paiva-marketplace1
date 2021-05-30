@@ -7,15 +7,15 @@ import { ThemeProvider } from '@material-ui/styles';
 export default class Carrinho extends Component {
 
   changeTotalValue = () => {
-    let valorTotal = 0
-    for (let prod of this.props.valorTotal) {
-        valorTotal = valorTotal + prod.price
+    let soma = 0;
+    this.props.carrinho.map((produto) => {
+      soma += produto.price
+    })
+    return soma 
     }
-    return valorTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
-}
+
 
   render() {
-    console.log(this.props.carrinho)
     const mostracarrinho = this.props.carrinho.map((produto) => {
       const valorReal = produto.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
       return (
