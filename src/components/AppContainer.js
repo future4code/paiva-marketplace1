@@ -64,7 +64,9 @@ export class AppContainer extends Component {
 
   vaiParaEncontrarLista = () => {
     this.setState({ pagina: "lista" });
-    this.meusJobsPublicados()    
+    if (this.state.logado){
+      this.meusJobsPublicados()
+    }
     this.filtrar(0,"","","")
 
   };
@@ -75,8 +77,8 @@ export class AppContainer extends Component {
 
   vaiParaMinhaPagina = () => {
     this.setState({ pagina: "pos-login" });
-    this.meuHistorico()
-    this.meusJobsPublicados()
+    if (this.state.logado){this.meuHistorico()}
+    if (this.state.logado){this.meusJobsPublicados()}
   };
 
 // Deleta os anuncios que ele fez. fica na pagina do 'minha pagina'
@@ -135,7 +137,9 @@ export class AppContainer extends Component {
       .catch((err) => {
         alert(err);
       });
-      if (this.state.logado){this.meusJobsPublicados()}
+      if (this.state.logado){
+        this.meusJobsPublicados()
+      }
   };
   componentDidMount() {
     this.getListaDeProdutos();
