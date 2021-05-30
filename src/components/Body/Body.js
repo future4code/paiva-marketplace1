@@ -69,7 +69,7 @@ export default class Body extends React.Component {
         <SobreNos>
           <Texto>
             <h1>Sobre Nós</h1>
-            <h3 >A LabeNinja é uma empresa que vende trabalhos, é a maior vendedora no marcado atualmente e estamos no mercado desde 2005, nosso diferencial é a agilidade em passar as informações do cliente para o funcionário e assim uma rapidez para maior satisfação do cliente. </h3>
+            <h3 >A LabeNinja é uma empresa que vende trabalhos, é a maior vendedora no mercado atualmente e estamos no mercado desde 2005, nosso diferencial é a agilidade em passar as informações do cliente para o funcionário e assim uma rapidez para maior satisfação do cliente. </h3>
           </Texto>
           <img className="SobreImage" src='./icone-ninja3.png' alt="" />
         </SobreNos>
