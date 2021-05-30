@@ -20,7 +20,7 @@ export class ListaDeServico extends React.Component {
     carrinho: []
   }
 
-  componentDidMount () {this.props.meusJobsPublicados()}
+  // componentDidMount () {this.props.meusJobsPublicados()}
   //Aqui começa a lógica do filtro de produtos \\
 
   //onChange dos produtos para mudar o estado dos state \\
