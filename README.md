@@ -43,7 +43,7 @@ Projeto de Marketplace para a oferta e procura de serviços para profissionais a
 - Ordenar por Decrescente
 - Campo de Busca
 - Carrinho
-- excluir item do carrinho
+- Excluir item do carrinho
 - Confirmar compra do carrinho, adicionando ao historico de servicos contratados
 - Minha Pagina
 - Criar Anuncios
@@ -56,7 +56,7 @@ Projeto de Marketplace para a oferta e procura de serviços para profissionais a
  
 ## Versioning
  
-1.0.0.0
+1.53
  
  
 ## Equipe:
