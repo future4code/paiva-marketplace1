@@ -49,16 +49,7 @@ function PopOver(props) {
         open={open}
         anchorEl={anchorEl}
         onClose={handleClose}
-        anchorReference="anchorPosition"
-        anchorPosition={{ top: 200, left: 580 }}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "center",
-        }}
+        anchorOrigin={{     vertical: 'top',     horizontal: 'right',   }}   transformOrigin={{     vertical: 'top',     horizontal: 'left',   }}
       >
         <Descricao>
           <Typography className={classes.typography}>
