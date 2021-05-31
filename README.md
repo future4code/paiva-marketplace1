@@ -13,6 +13,7 @@ Projeto de Marketplace para a oferta e procura de serviços para profissionais a
 * CSS
 * Material Design 
 * Integracao com rest API
+* UseState Hook
  
 ## Servicos Usados:
 
