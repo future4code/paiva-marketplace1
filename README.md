@@ -56,8 +56,7 @@ Projeto de Marketplace para a oferta e procura de serviços para profissionais a
  
 ## Versioning
  
-1.53
- 
+1.60
  
 ## Equipe:
 
