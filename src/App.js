@@ -1,10 +1,17 @@
-import React from 'react'
-import { AppContainer } from './components/AppContainer'
+import React from "react";
+import { AppContainer } from "./components/AppContainer";
+import GlobalStyle from './Styles/Global';
+
 
 function App() {
 	return (
-        <AppContainer />
-	)
+		<div>
+			<AppContainer />
+			<GlobalStyle />
+			
+
+		</div>
+	);
 }
 
 export default App
